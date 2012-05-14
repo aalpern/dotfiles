@@ -1,0 +1,6 @@
+# -*- mode:shell-script -*-
+
+export PATH=~/.local/bin:$PATH
+export PATH=/usr/lib/postgresql/9.1/bin:$PATH
+export PATH=/usr/local/apache-maven/bin:$PATH
+export PATH=/usr/local/intellij/bin:$PATH

@@ -1,0 +1,7 @@
+# -*- mode:shell-script -*-
+
+export PATH=$HOME/local/maven/bin:$PATH
+export PATH=$HOME/local/ant/bin:$PATH
+export PATH=$HOME/local/hbase/bin:$PATH
+export PATH=/usr/local/idea/bin:$PATH
+export HBASE_HOME=$HOME/local/hbase

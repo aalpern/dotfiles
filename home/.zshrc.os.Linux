@@ -1,0 +1,21 @@
+# -*- mode:shell-script -*-
+
+if [[ ! -z `which grc` ]]; then
+   alias colorize='grc -es --colour=auto'
+   alias ping='colorize ping'
+   alias configure='colorize configure'
+   alias gcc='colorize gcc'
+   alias diff='colorize diff'
+   alias netstat='colorize netstat'
+   alias traceroute='colorize traceroute'
+   alias hbase='colorize hbase'
+fi
+
+alias ls='ls -F --color'
+alias grep='grep --color=auto'
+alias psgrep='ps -ef | grep'
+alias psme='ps -fu$USER'
+
+# alias psme='ps -aux |& fgrep $USER | fgrep -v "ps -aux" | fgrep -v "fgrep"'
+# alias psme='ps -ef | grep alpern'
+
