@@ -1,20 +1,4 @@
-;; -*- Mode: Emacs-Lisp -*-
-;;
-;;; .emacs -- GNU Emacs configuration file
-;;
-;;; Revision Control
-;;
-;; $Author: $
-;; $Date: $
-;; $Revision: $
-;; $Header: $
-;;
-;;; Commentary
-;;
-;; Foo!
-;;
-;; ----------------------------------------------------------------------
-;;; Code:
+;; -*- mode: emacs-lisp -*-
 
 ;; In case Emacs was dumped with BOCM
 ;(fmakunbound 'c-mode)
@@ -46,7 +30,7 @@
 
 (setq c-recognize-knr-p nil   ; faster w/o knr support
       c-basic-offset 4        ; the basic multiple for indentation
-	  c-old-style-variable-behavior t
+      c-old-style-variable-behavior t
       c-echo-semantic-information-p t
       c-macro-preprocessor "gcpp")
 
@@ -55,37 +39,37 @@
 
 (setq c-style-alist
       (cons '("user"
-			  (c-basic-offset . 4)
-			  (c-comment-only-line-offset . 0)
-			  (c-offsets-alist . 
-							   ((statement-block-intro .  +)
-								(knr-argdecl-intro     .  +)
-								(substatement-open     .  0)
-								(label                 .  -)
-								(statement-cont        .  +)
-								(case-label            .  2)
-								(access-label          . -2)
-								(brace-list-open       .  0)
-								(brace-list-close      .  0)
-								(brace-list-intro      .  4)
-								(brace-list-entry      .  0)
-								(inline-open           .  0)
-								)))
-			c-style-alist))
+              (c-basic-offset . 4)
+              (c-comment-only-line-offset . 0)
+              (c-offsets-alist . 
+                               ((statement-block-intro .  +)
+                                (knr-argdecl-intro     .  +)
+                                (substatement-open     .  0)
+                                (label                 .  -)
+                                (statement-cont        .  +)
+                                (case-label            .  2)
+                                (access-label          . -2)
+                                (brace-list-open       .  0)
+                                (brace-list-close      .  0)
+                                (brace-list-intro      .  4)
+                                (brace-list-entry      .  0)
+                                (inline-open           .  0)
+                                )))
+            c-style-alist))
 
 (add-hook 'c++-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode t)
-	    (setq c-basic-offset 4)
-	    (setq tab-width 4)
-	    (if (fboundp 'c-set-style)
-		(c-set-style "user"))))
+      (lambda ()
+        (setq indent-tabs-mode t)
+        (setq c-basic-offset 4)
+        (setq tab-width 4)
+        (if (fboundp 'c-set-style)
+        (c-set-style "user"))))
 
 
 (add-hook 'java-mode-hook
-	  (lambda ()
-	    (if (fboundp 'c-set-style)
-		(c-set-style "user"))))
+      (lambda ()
+        (if (fboundp 'c-set-style)
+        (c-set-style "user"))))
 
 
 ;; ;; (autoload 'csharp-mode "cc-mode")
@@ -96,46 +80,46 @@
 ;;   (c-comment-only-line-offset . (0 . 0))
 ;;   (c-offsets-alist . (
 ;;     (c                     . c-lineup-C-comments)
-;;     (inclass		   . 0)
-;;     (namespace-open	   . +)
-;;     (namespace-close	   . +)
-;;     (innamespace	   . 0)
-;;     (class-open		   . +)
-;;     (class-close	   . +)
-;;     (inclass		   . 0)
-;;     (defun-open		   . +)
+;;     (inclass        . 0)
+;;     (namespace-open     . +)
+;;     (namespace-close    . +)
+;;     (innamespace    . 0)
+;;     (class-open         . +)
+;;     (class-close    . +)
+;;     (inclass        . 0)
+;;     (defun-open         . +)
 ;;     (defun-block-intro     . 0)
-;;     (inline-open	   . +)
-;;     (inline-close	   . 0)
+;;     (inline-open    . +)
+;;     (inline-close       . 0)
 ;;     (statement-block-intro . 0)
-;;     (statement-cont	   . +)
+;;     (statement-cont     . +)
 ;;     (brace-list-intro      . +)
 ;;     (topmost-intro-cont    . 0)
-;;     (block-open		   . +)
-;;     (block-close	   . 0)
-;;     (arglist-intro	   . +)
-;; ;    (arglist-cont	   . 0)
-;;     (arglist-close	   . 0)
+;;     (block-open         . +)
+;;     (block-close    . 0)
+;;     (arglist-intro      . +)
+;; ;    (arglist-cont      . 0)
+;;     (arglist-close      . 0)
 ;;     ))
 ;;   ))
 
 ;; (defun my-csharp-mode-hook ()
 ;;   (cond (window-system
-;; 	 (turn-on-font-lock)
-;; 	 (c-set-style "myC#Style")
-;; 	 )))
+;;   (turn-on-font-lock)
+;;   (c-set-style "myC#Style")
+;;   )))
 ;; (add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
 ;; (setq auto-mode-alist
 ;;       (append '(
-;; 		("\\.cs$" . csharp-mode)
-;; 		) auto-mode-alist ))
+;;      ("\\.cs$" . csharp-mode)
+;;      ) auto-mode-alist ))
 
 ;; ;(setq compilation-error-regexp-alist
-;; ;	(append '(
+;; ;    (append '(
 ;; ;;C# Compiler
 ;; ;;t.cs(6,18): error SC1006: Name of constructor must match name of class
 ;; ;;
 ;; ;("\\(\\([a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)[,]\\([0-9]+\\)): \\(error\\|warning\\) CS[0-9]+:" 1 3 4)
 ;; ;        )
-;; ;	compilation-error-regexp-alist));
+;; ;    compilation-error-regexp-alist));
 

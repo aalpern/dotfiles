@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-7
+;; -*- mode: emacs-lisp -*-
 
 (require 'cl)
 
@@ -22,48 +22,22 @@
       (string-match "win95" (emacs-version))
       (string-match "win98" (emacs-version))))
 
-(defun BeOS-p ()
-  (string-match "BeOS" (emacs-version)))
-
-(defun x11-p ()
-  (and (boundp 'window-system)
-       (or (eq window-system 'x11)
-       (eq window-system 'x))))
-
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier  'super)
-(setq inhibit-splash-screen t)
-
-;; ----------------------------------------------------------------------
-;;; Computer Name
-;; ----------------------------------------------------------------------
-
-(defvar *ala-computer-name* "")
-
-(cond ((win32-p)
-       (setq *ala-computer-name* (getenv "COMPUTERNAME"))))
 
 ;; ----------------------------------------------------------------------
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
 (setq load-path (cons "~/site-lisp" load-path))
-;(setq load-path (cons "c:/dev/tools/site-lisp/psgml-1.2.5" load-path))
-;(setq load-path (cons "c:/dev/tools/site-lisp/antlr-mode/lisp" load-path))
-
-;; ----------------------------------------------------------------------
-;;; Window Placement
-;; ----------------------------------------------------------------------
-
-;; I keep my taskbar vertically on the left - this keeps emacs from
-;; coming up under the task bar
-(when (win32-p)
-  (setq initial-frame-alist '((top . 40) (left . 180))))
 
 ;; ----------------------------------------------------------------------
 ;;; Miscellany
 ;; ----------------------------------------------------------------------
 
+(setq x-super-keysym 'meta)
+;; (setq mac-command-key-is-meta true)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier  'super)
+(setq inhibit-splash-screen t)
 (setq truncate-partial-width-windows nil)
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -82,9 +56,7 @@
 (load "~/.emacs-c")
 (load "~/.emacs-java")
 (load "~/.emacs-color")
-; (load "~/.emacs-visual-basic")
 
-(setq load-path (cons "c:/dev/tools/site-lisp/sql-modes" load-path))
 
 (require 'show-wspace)
 (toggle-show-tabs-show-ws)
@@ -475,48 +447,48 @@
 ;; set the default SGML declaration. docbook.dcl should work for most DTDs
 ;;(setq sgml-declaration "c:/cygwin/usr/local/lib/sgml/dtd/docbook41/docbook.dcl")
 
-;; here we set the syntax color information for psgml
-(setq-default sgml-set-face t)
-;;
-;; Faces.
-;;
-(make-face 'sgml-comment-face)
-(make-face 'sgml-doctype-face)
-(make-face 'sgml-end-tag-face)
-(make-face 'sgml-entity-face)
-(make-face 'sgml-ignored-face)
-(make-face 'sgml-ms-end-face)
-(make-face 'sgml-ms-start-face)
-(make-face 'sgml-pi-face)
-(make-face 'sgml-sgml-face)
-(make-face 'sgml-short-ref-face)
-(make-face 'sgml-start-tag-face)
+;; ;; here we set the syntax color information for psgml
+;; (setq-default sgml-set-face t)
+;; ;;
+;; ;; Faces.
+;; ;;
+;; (make-face 'sgml-comment-face)
+;; (make-face 'sgml-doctype-face)
+;; (make-face 'sgml-end-tag-face)
+;; (make-face 'sgml-entity-face)
+;; (make-face 'sgml-ignored-face)
+;; (make-face 'sgml-ms-end-face)
+;; (make-face 'sgml-ms-start-face)
+;; (make-face 'sgml-pi-face)
+;; (make-face 'sgml-sgml-face)
+;; (make-face 'sgml-short-ref-face)
+;; (make-face 'sgml-start-tag-face)
 
-(set-face-foreground 'sgml-comment-face "dark turquoise")
-(set-face-foreground 'sgml-doctype-face "red")
-(set-face-foreground 'sgml-end-tag-face "blue")
-(set-face-foreground 'sgml-entity-face "magenta")
-(set-face-foreground 'sgml-ignored-face "gray40")
-(set-face-background 'sgml-ignored-face "gray60")
-(set-face-foreground 'sgml-ms-end-face "green")
-(set-face-foreground 'sgml-ms-start-face "yellow")
-(set-face-foreground 'sgml-pi-face "lime green")
-(set-face-foreground 'sgml-sgml-face "brown")
-(set-face-foreground 'sgml-short-ref-face "deep sky blue")
-(set-face-foreground 'sgml-start-tag-face "dark green")
+;; (set-face-foreground 'sgml-comment-face "dark turquoise")
+;; (set-face-foreground 'sgml-doctype-face "red")
+;; (set-face-foreground 'sgml-end-tag-face "blue")
+;; (set-face-foreground 'sgml-entity-face "magenta")
+;; (set-face-foreground 'sgml-ignored-face "gray40")
+;; (set-face-background 'sgml-ignored-face "gray60")
+;; (set-face-foreground 'sgml-ms-end-face "green")
+;; (set-face-foreground 'sgml-ms-start-face "yellow")
+;; (set-face-foreground 'sgml-pi-face "lime green")
+;; (set-face-foreground 'sgml-sgml-face "brown")
+;; (set-face-foreground 'sgml-short-ref-face "deep sky blue")
+;; (set-face-foreground 'sgml-start-tag-face "dark green")
 
-(setq-default sgml-markup-faces
-              '((comment . sgml-comment-face)
-                (doctype . sgml-doctype-face)
-                (end-tag . sgml-end-tag-face)
-                (entity . sgml-entity-face)
-                (ignored . sgml-ignored-face)
-                (ms-end . sgml-ms-end-face)
-                (ms-start . sgml-ms-start-face)
-                (pi . sgml-pi-face)
-                (sgml . sgml-sgml-face)
-                (short-ref . sgml-short-ref-face)
-                (start-tag . sgml-start-tag-face)))
+;; (setq-default sgml-markup-faces
+;;               '((comment . sgml-comment-face)
+;;                 (doctype . sgml-doctype-face)
+;;                 (end-tag . sgml-end-tag-face)
+;;                 (entity . sgml-entity-face)
+;;                 (ignored . sgml-ignored-face)
+;;                 (ms-end . sgml-ms-end-face)
+;;                 (ms-start . sgml-ms-start-face)
+;;                 (pi . sgml-pi-face)
+;;                 (sgml . sgml-sgml-face)
+;;                 (short-ref . sgml-short-ref-face)
+;;                 (start-tag . sgml-start-tag-face)))
 
 ;; load xml-mode
 ;;(setq auto-mode-alist
@@ -608,5 +580,3 @@
   ;; If there is more than one, they won't work right.
  )
 
-(setq x-super-keysym 'meta)
-;; (setq mac-command-key-is-meta true)

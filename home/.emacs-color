@@ -22,42 +22,42 @@
 (setq font-lock-maximum-size nil)
 
 (setq-default font-lock-auto-fontify  t
-	      font-lock-use-fonts     nil
-	      font-lock-use-colors    t
-	      font-lock-use-maximal-decoration  t
-	      font-lock-mode-disable-list       nil)
-   
+          font-lock-use-fonts     nil
+          font-lock-use-colors    t
+          font-lock-use-maximal-decoration  t
+          font-lock-mode-disable-list       nil)
+
 (setq font-lock-maximum-decoration t)
 
 ;; (when (gnu-emacs-p)
 ;;   (eval-after-load "font-lock"
-;; 		   '(progn
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<FILE\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<art_object\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<art_stream\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
-		    
-;; 		      (add-to-list 'c++-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c++-font-lock-keywords-3 '("\\<ostream\\>" . font-lock-type-face))
-;; 		      (add-to-list 'c++-font-lock-keywords-3 '("\\<istream\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_interpreter\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttribute\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeMap\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeVector\\>" . font-lock-type-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributePtr\\>" . font-lock-type-face))
-;; 		    ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<string\\>" . font-lock-type-face))
-;; 		    ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<bw_string\\>" . font-lock-type-face))
-		    
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<explicit\\>" . font-lock-keyword-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<typename\\>" . font-lock-keyword-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<mutable\\>" . font-lock-keyword-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<false\\>" . font-lock-keyword-face))
-;; 		    (add-to-list 'c++-font-lock-keywords-3 '("\\<true\\>" . font-lock-keyword-face))
-;; 		    )))
+;;         '(progn
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<FILE\\>" . font-lock-type-face))
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<art_object\\>" . font-lock-type-face))
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<art_stream\\>" . font-lock-type-face))
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
+;;            (add-to-list 'c-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
+
+;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
+;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<ostream\\>" . font-lock-type-face))
+;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<istream\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_interpreter\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttribute\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeMap\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeVector\\>" . font-lock-type-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributePtr\\>" . font-lock-type-face))
+;;          ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<string\\>" . font-lock-type-face))
+;;          ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<bw_string\\>" . font-lock-type-face))
+
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<explicit\\>" . font-lock-keyword-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<typename\\>" . font-lock-keyword-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<mutable\\>" . font-lock-keyword-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<false\\>" . font-lock-keyword-face))
+;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<true\\>" . font-lock-keyword-face))
+;;          )))
 
 (require 'font-lock)
 ;;(require 'font-lock-extra)
@@ -73,16 +73,16 @@
 
 ;;(setq font-lock-string-face 'italic)
 ;;(setq java-font-lock-keywords java-font-lock-keywords-1)
-(when (gnu-emacs-p) 
+(when (gnu-emacs-p)
   (global-font-lock-mode t))
 
 ;; (setq font-lock-support-mode 'lazy-lock-mode)
-   
+
 ;;----------------------------------------------------------------------
 ;;; COMMON
 
 ;(set-face-foreground 'default "gray95")
-;(set-face-background 'default "black")   
+;(set-face-background 'default "black")
 (set-face-background 'highlight "darkslateblue")
 (set-face-foreground 'highlight "white")
 ;(when (gnu-emacs-p) (set-face-foreground 'region "black"))
@@ -147,7 +147,7 @@
   (ala-background-charcoal)
   (ala-background-color "Gray13")
   (set-face-foreground 'region "black")
-  (set-face-background 'region "gray50")   
+  (set-face-background 'region "gray50")
 
   (set-face-foreground 'default "Gray85")
 
@@ -164,15 +164,15 @@
 
 ;;  (set-default-font "-*-ProFontWindows-normal-r-*-*-11-82-96-96-c-*-iso8859-1")
 
-;;  (set-face-font 'font-lock-function-name-face 
-;;				 ;; "-*-clb6x12-normal-i-*-*-12-90-96-96-c-*-*-#33"
-;;				 ;;"-*-ProFontWindows-bold-r-*-*-11-90-96-96-c-*-iso8859-1"
-;;				 )
- ;; (set-face-font 'font-lock-variable-name-face 				 
-;;				 ;; "-*-clb6x12-normal-i-*-*-12-90-96-96-c-*-*-#33"
-;;				 "-*-ProFontWindows-bold-r-*-*-11-82-96-96-c-*-iso8859-1"
-;;				 )
-  ;;(set-face-font 'default 
+;;  (set-face-font 'font-lock-function-name-face
+;;               ;; "-*-clb6x12-normal-i-*-*-12-90-96-96-c-*-*-#33"
+;;               ;;"-*-ProFontWindows-bold-r-*-*-11-90-96-96-c-*-iso8859-1"
+;;               )
+ ;; (set-face-font 'font-lock-variable-name-face
+;;               ;; "-*-clb6x12-normal-i-*-*-12-90-96-96-c-*-*-#33"
+;;               "-*-ProFontWindows-bold-r-*-*-11-82-96-96-c-*-iso8859-1"
+;;               )
+  ;;(set-face-font 'default
   ;; "-*-clr6x10-normal-r-*-*-11-82-96-96-c-*-*-#33")
 
   ;; (w32-select-font)
@@ -271,13 +271,13 @@
 ;;   (set-face-foreground 'default "white")
 ;;   (set-background-color "darkslateblue")
 ;;   (set-foreground-color "white")
-  
+
 ;;   (when (gnu-emacs-p) (set-face-foreground 'region "black"))
 ;;   (when (gnu-emacs-p) (set-face-background 'region "wheat"))
 
 ;;   (set-face-foreground 'modeline "black")
 ;;   (set-face-background 'modeline "wheat")
-  
+
 ;;   (set-face-foreground 'font-lock-string-face "gold")
 ;;   (set-face-foreground 'font-lock-function-name-face "deepskyblue1")
 ;;   (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
@@ -304,7 +304,7 @@
   ;; (ala-colors-5)
 
   (set-face-foreground 'font-lock-comment-face "orange red")
-  
+
   (ala-background-color "gray15")
   ;; (set-face-foreground 'default "blanched almond")
   (set-face-foreground 'default "white")
@@ -356,7 +356,7 @@
   (set-face-foreground 'font-lock-keyword-face       "yellow")
   (set-face-foreground 'font-lock-function-name-face "springgreen")
   (set-face-foreground 'font-lock-variable-name-face "green")
-  (set-face-foreground 'font-lock-constant-face 	 "palegreen")
+  (set-face-foreground 'font-lock-constant-face      "palegreen")
   (set-face-bold-p 'font-lock-variable-name-face t)
   (set-cursor-color "red")
   )
@@ -377,7 +377,7 @@
   (set-face-foreground 'font-lock-function-name-face "orange")
   (set-face-foreground 'font-lock-variable-name-face "yellow")
   ;; (set-face-foreground 'font-lock-reference-face "yellow")
-  (set-face-foreground 'font-lock-constant-face 	 "yellow")
+  (set-face-foreground 'font-lock-constant-face      "yellow")
   (set-face-foreground 'font-lock-type-face "yellow")
   (set-face-bold-p 'font-lock-variable-name-face t)
   (set-cursor-color "white")
@@ -399,7 +399,7 @@
   (set-face-foreground 'font-lock-keyword-face       "dodger blue")
   (set-face-foreground 'font-lock-function-name-face "dark turquoise")
   (set-face-foreground 'font-lock-variable-name-face "deep sky blue")
-  (set-face-foreground 'font-lock-constant-face 	 "aquamarine")
+  (set-face-foreground 'font-lock-constant-face      "aquamarine")
   (set-face-foreground 'font-lock-type-face "cyan")
   (set-face-bold-p 'font-lock-variable-name-face t)
   (set-cursor-color "white")
@@ -418,7 +418,7 @@
   (set-face-foreground 'font-lock-keyword-face       "yellow")
   (set-face-foreground 'font-lock-function-name-face "springgreen")
   (set-face-foreground 'font-lock-variable-name-face "green")
-  (set-face-foreground 'font-lock-constant-face 	 "palegreen")
+  (set-face-foreground 'font-lock-constant-face      "palegreen")
   (set-face-bold-p 'font-lock-variable-name-face t)
   (set-cursor-color "red")
   )

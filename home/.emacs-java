@@ -1,24 +1,4 @@
-;; -*- Mode: Emacs-Lisp -*-
-;;
-;;; .emacs -- GNU Emacs configuration file
-;;
-;;; Revision Control
-;;
-;; $Author: $
-;; $Date: $
-;; $Revision: $
-;; $Header: $
-;;
-;;; Commentary
-;;
-;; Foo!
-;;
-;; ----------------------------------------------------------------------
-;;; Code:
-
-(setq load-path (cons "c:/dev/gnu/site-lisp/jde/" load-path))
-
-;;;(require 'jde)
+;; -*- mode: emacs-lisp -*-
 
 (defun my-java-mode-hook ()
   (setq c-basic-offset 4))
