@@ -191,6 +191,7 @@
   (when (gnu-emacs-p) (set-face-background 'region "wheat"))
 
   (set-face-foreground 'font-lock-comment-face "OrangeRed")
+  (set-face-foreground 'font-lock-doc-face "OrangeRed")
   (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
   (set-face-foreground 'font-lock-string-face "LightSalmon")
   (set-face-foreground 'font-lock-function-name-face "LightSkyBlue")
@@ -207,6 +208,7 @@
   (ala-background-white)
 
   (set-face-foreground 'font-lock-comment-face "Firebrick")
+  (set-face-foreground 'font-lock-doc-face "Firebrick")
   (set-face-foreground 'font-lock-keyword-face "Purple")
   (set-face-foreground 'font-lock-string-face "sienna")
   (set-face-foreground 'font-lock-function-name-face "Blue")
@@ -220,6 +222,7 @@
   (ala-background-black)
 
   (set-face-foreground 'font-lock-comment-face "darkslateblue")
+  (set-face-foreground 'font-lock-doc-face "darkslateblue")
   (set-face-foreground 'font-lock-keyword-face "Coral")
   (set-face-foreground 'font-lock-function-name-face "Green")
   (set-face-foreground 'font-lock-variable-name-face "Gold")
@@ -232,6 +235,7 @@
 ;;   (ala-background-white)
 
 ;;   (set-face-foreground 'font-lock-comment-face "DarkGreen")
+;;   (set-face-foreground 'font-lock-doc-face "DarkGreen")
 ;;   (set-face-foreground 'font-lock-string-face "DarkBlue")
 ;;   (set-face-foreground 'font-lock-keyword-face "RoyalBlue")
 ;;   (set-face-foreground 'font-lock-function-name-face "Blue")
@@ -253,6 +257,7 @@
   (set-face-foreground 'region "Gray90")
   (set-face-foreground 'font-lock-string-face "gray30")
   (set-face-foreground 'font-lock-comment-face "Firebrick4")
+  (set-face-foreground 'font-lock-doc-face "Firebrick4")
   (set-face-foreground 'font-lock-warning-face "red")
   (set-face-foreground 'font-lock-keyword-face "darkorchid4")
   (set-face-foreground 'font-lock-type-face "purple4")
@@ -282,6 +287,7 @@
 ;;   (set-face-foreground 'font-lock-function-name-face "deepskyblue1")
 ;;   (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
 ;;   (set-face-foreground 'font-lock-comment-face "tan1")
+;;   (set-face-foreground 'font-lock-doc-face "tan1")
 ;;   (set-face-foreground 'font-lock-variable-name-face "wheat")
 ;;   (set-face-foreground 'font-lock-constant-face "tomato1")
 ;;   (set-face-foreground 'font-lock-warning-face "red")
@@ -304,6 +310,7 @@
   ;; (ala-colors-5)
 
   (set-face-foreground 'font-lock-comment-face "orange red")
+  (set-face-foreground 'font-lock-doc-face "orange red")
 
   (ala-background-color "gray15")
   ;; (set-face-foreground 'default "blanched almond")
@@ -333,6 +340,7 @@
   (when (gnu-emacs-p) (set-face-background 'region "gray95"))
 
   (set-face-foreground 'font-lock-comment-face "tan")
+  (set-face-foreground 'font-lock-doc-face "tan")
   (set-face-foreground 'font-lock-keyword-face "DarkGoldenrod")
   (set-face-foreground 'font-lock-variable-name-face "Gold")
   ;(set-face-foreground 'font-lock-reference-face "yellow")
@@ -352,6 +360,7 @@
   (when (gnu-emacs-p) (set-face-foreground 'region "black"))
   (when (gnu-emacs-p) (set-face-background 'region "limegreen"))
   (set-face-foreground 'font-lock-comment-face       "darkolivegreen")
+  (set-face-foreground 'font-lock-doc-face       "darkolivegreen")
   (set-face-foreground 'font-lock-string-face        "PaleGreen")
   (set-face-foreground 'font-lock-keyword-face       "yellow")
   (set-face-foreground 'font-lock-function-name-face "springgreen")
@@ -372,6 +381,7 @@
   (when (gnu-emacs-p) (set-face-foreground 'region "white"))
   (when (gnu-emacs-p) (set-face-background 'region "darkred"))
   (set-face-foreground 'font-lock-comment-face       "red1")
+  (set-face-foreground 'font-lock-doc-face       "red1")
   (set-face-foreground 'font-lock-string-face        "tomato")
   (set-face-foreground 'font-lock-keyword-face       "orange red")
   (set-face-foreground 'font-lock-function-name-face "orange")
@@ -394,8 +404,10 @@
   (when (gnu-emacs-p) (set-face-foreground 'region "white"))
   (when (gnu-emacs-p) (set-face-background 'region "royalblue"))
   (set-face-foreground 'font-lock-comment-face       "#6666CC")
+  (set-face-foreground 'font-lock-doc-face       "#6666CC")
   (set-face-foreground 'font-lock-string-face        "cornflowerblue")
   ;; (set-face-foreground 'font-lock-comment-face       "darkslateblue")
+  ;; (set-face-foreground 'font-lock-doc-face       "darkslateblue")
   (set-face-foreground 'font-lock-keyword-face       "dodger blue")
   (set-face-foreground 'font-lock-function-name-face "dark turquoise")
   (set-face-foreground 'font-lock-variable-name-face "deep sky blue")
@@ -414,6 +426,7 @@
   (when (gnu-emacs-p) (set-face-foreground 'region "black"))
   (when (gnu-emacs-p) (set-face-background 'region "limegreen"))
   (set-face-foreground 'font-lock-comment-face       "darkolivegreen")
+  (set-face-foreground 'font-lock-doc-face       "darkolivegreen")
   (set-face-foreground 'font-lock-string-face        "PaleGreen")
   (set-face-foreground 'font-lock-keyword-face       "yellow")
   (set-face-foreground 'font-lock-function-name-face "springgreen")
