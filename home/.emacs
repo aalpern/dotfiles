@@ -61,6 +61,7 @@
 (require 'show-wspace)
 (toggle-show-tabs-show-ws)
 (show-ws-toggle-show-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; ----------------------------------------------------------------------
 ;;; Auto Mode List
@@ -549,6 +550,7 @@
 ;; (set-default-font "ProFont 9")
 
 (set-default-font "Anonymous Pro 8")
+(set-default-font "Anonymous Pro Bold 11")
 (set-cursor-color "red")
 
 (ala-dark-default)
