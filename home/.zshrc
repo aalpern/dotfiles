@@ -20,7 +20,7 @@ fi
 setopt notify noclobber menu_complete ignoreeof \
  histignoredups correctall all_export nolistbeep
 
-limit core 0              
+limit core 0
 umask 022
 
 #compctl -k hosts termftp ftp ncftp telnet rlogin  # expand these hosts.
@@ -45,7 +45,7 @@ watch=all
 # Colors.
 red='\e[0;31m'
 RED='\e[1;31m'
-green='\e[0;32m' 
+green='\e[0;32m'
 GREEN='\e[1;32m'
 yellow='\e[0;33m'
 YELLOW='\e[1;33m'
@@ -104,7 +104,7 @@ untar() { tar zxvfp $* }
 ltar()  { tar ztvf $* | more }
 uu()    { uuencode $1 $1 > $1.uu }
 
-unZ() 
+unZ()
 {
     for file in $*; do
         mv $file $file.Z
@@ -116,7 +116,7 @@ unZ()
 # git utils
 # ----------------------------------------------------------------------
 
-gpull() 
+gpull()
 {
     pushd
     for dir in $(find $1 -type d -mindepth 1 -maxdepth 1); do
@@ -149,3 +149,5 @@ then
     source ~/.zshrc.host.$HOST
 fi
 
+
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
