@@ -1,22 +1,4 @@
-;; -*- Mode: Emacs-Lisp -*-
-;;
-;;; .emacs -- GNU Emacs configuration file
-;;
-;;; Revision Control
-;;
-;; $Author: $
-;; $Date: $
-;; $Revision: $
-;; $Header: $
-;;
-;;; Commentary
-;;
-;; Foo!
-;;
-;; ----------------------------------------------------------------------
-;;; Code:
-
-;;(require 'font-lock-extra)
+;; -*- mode:emacs-lisp -*-
 
 (setq font-lock-background-mode 'dark)
 (setq font-lock-maximum-size nil)
@@ -182,6 +164,8 @@
 
 ;; (ala-charcoal)
 
+(set-face-bold-p 'font-lock-function-name-face t)
+
 (defun ala-dark-default()
   (interactive)
   (ala-background-black)
@@ -198,7 +182,7 @@
   (set-face-foreground 'font-lock-variable-name-face "LightGoldenrod")
   (set-face-foreground 'font-lock-type-face "PaleGreen")
   (set-face-foreground 'font-lock-constant-face "Aquamarine")
-  (set-cursor-color "white")
+  (set-cursor-color "green")
   )
 
 ;; (ala-dark-default)

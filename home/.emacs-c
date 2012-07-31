@@ -41,7 +41,7 @@
       (cons '("user"
               (c-basic-offset . 4)
               (c-comment-only-line-offset . 0)
-              (c-offsets-alist . 
+              (c-offsets-alist .
                                ((statement-block-intro .  +)
                                 (knr-argdecl-intro     .  +)
                                 (substatement-open     .  0)
