@@ -6,14 +6,14 @@ alias j=jobs
 alias l=ls
 alias ll='ls -l'
 alias la='ls -Fa'
-alias lsd='ls -ld *(-/DN)'  # List only directories and symbolic 
+alias lsd='ls -ld *(-/DN)'  # List only directories and symbolic
 alias lsa='ls -ld .*'       # List only file beginning with "."
 alias dir='ls -algF'
 alias x=exit
 alias m=more
 alias r=resize
 alias 'cd..'='cd ..'
-alias dc=cd    
+alias dc=cd
 alias sl=ls
 alias e=emacs
 alias mroe=more
@@ -28,3 +28,12 @@ alias -g M='|more'
 alias -g H='|head'
 alias -g T='|tail'
 
+alias v=vagrant
+
+function cycle() {
+    v destroy -f $1 && v up $1
+}
+
+function nuke() {
+    v destroy -f $1
+}
