@@ -27,7 +27,7 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
-(setq load-path (cons "~/site-lisp" load-path))
+(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 
 ;; ----------------------------------------------------------------------
 ;;; Miscellany
@@ -53,9 +53,9 @@
 ;;    Load separate files for C/C++, Java, and highlighting support
 ;; ----------------------------------------------------------------------
 
-(load "~/.emacs-c")
-(load "~/.emacs-java")
-(load "~/.emacs-color")
+(load "~/.emacs.d/init-c.el")
+(load "~/.emacs.d/init-java.el")
+(load "~/.emacs.d/init-color.el")
 
 
 (require 'show-wspace)
