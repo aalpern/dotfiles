@@ -27,7 +27,7 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
-(setq load-path (cons "~/site-lisp" load-path))
+(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 
 ;; ----------------------------------------------------------------------
 ;;; Miscellany
@@ -53,9 +53,9 @@
 ;;    Load separate files for C/C++, Java, and highlighting support
 ;; ----------------------------------------------------------------------
 
-(load "~/.emacs-c")
-(load "~/.emacs-java")
-(load "~/.emacs-color")
+(load "~/.emacs.d/init-c.el")
+(load "~/.emacs.d/init-java.el")
+(load "~/.emacs.d/init-color.el")
 
 
 (require 'show-wspace)
@@ -158,6 +158,7 @@
     ("\\.rc$"                 . rc-generic-mode)
     ("\\.rc2$"                 . rc-generic-mode)
     ("\\.rul$"                . rul-generic-mode)
+    ("\\.rb$"                . ruby-mode)
     ("\\.isl$"                . isl-mode)
     ("\\.css$"                . css-mode)
 
@@ -179,6 +180,7 @@
 ;;; Autoload
 ;; ----------------------------------------------------------------------
 
+(autoload 'jinja2-mode "jinja2-mode" "Jinja2 editing mode." t)
 (autoload 'markdown-mode "markdown-mode" "Markdown editing mode." t)
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
@@ -368,6 +370,7 @@
         (python-mode        . "# ")
         (sgml-mode        . "<!-- ")
         (html-mode        . "<!-- ")
+        (jinja2-mode        . "<!-- ")
         (sh-mode          . "# ")
         (sql-mode         . "-- ")
         (bat-generic-mode . "rem ")
@@ -389,6 +392,7 @@
         (python-mode        . "")
         (sgml-mode        . " -->")
         (html-mode        . " -->")
+        (jinja2-mode        . " -->")
         (sh-mode          . "")
         (sql-mode         . "")
         (bat-generic-mode . "")
@@ -549,9 +553,8 @@
 ;; (set-default-font "6x13")
 ;; (set-default-font "ProFont 9")
 
-(set-default-font "Anonymous Pro 8")
+;(set-default-font "Anonymous Pro 8")
 (set-default-font "Anonymous Pro Bold 11")
-(set-cursor-color "red")
 
 (ala-dark-default)
 ;; (ala-colors-3)

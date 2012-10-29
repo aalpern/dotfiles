@@ -1,22 +1,4 @@
-;; -*- Mode: Emacs-Lisp -*-
-;;
-;;; .emacs -- GNU Emacs configuration file
-;;
-;;; Revision Control
-;;
-;; $Author: $
-;; $Date: $
-;; $Revision: $
-;; $Header: $
-;;
-;;; Commentary
-;;
-;; Foo!
-;;
-;; ----------------------------------------------------------------------
-;;; Code:
-
-;;(require 'font-lock-extra)
+;; -*- mode:emacs-lisp -*-
 
 (setq font-lock-background-mode 'dark)
 (setq font-lock-maximum-size nil)
@@ -182,6 +164,8 @@
 
 ;; (ala-charcoal)
 
+(set-face-bold-p 'font-lock-function-name-face t)
+
 (defun ala-dark-default()
   (interactive)
   (ala-background-black)
@@ -198,7 +182,7 @@
   (set-face-foreground 'font-lock-variable-name-face "LightGoldenrod")
   (set-face-foreground 'font-lock-type-face "PaleGreen")
   (set-face-foreground 'font-lock-constant-face "Aquamarine")
-  (set-cursor-color "white")
+  (set-cursor-color "green")
   )
 
 ;; (ala-dark-default)
@@ -280,31 +264,31 @@
   (set-cursor-color "red")
 )
 
-;; (defun ala-colors-4 ()
-;;   (interactive)
-;;   (ala-light-default)
+ (defun ala-colors-4 ()
+   (interactive)
+   (ala-light-default)
 
-;;   (set-face-background 'default "darkslateblue")
-;;   (set-face-foreground 'default "white")
-;;   (set-background-color "darkslateblue")
-;;   (set-foreground-color "white")
+  (set-face-background 'default "darkslateblue")
+  (set-face-foreground 'default "white")
+  (set-background-color "darkslateblue")
+  (set-foreground-color "white")
 
-;;   (when (gnu-emacs-p) (set-face-foreground 'region "black"))
-;;   (when (gnu-emacs-p) (set-face-background 'region "wheat"))
+  (when (gnu-emacs-p) (set-face-foreground 'region "black"))
+  (when (gnu-emacs-p) (set-face-background 'region "wheat"))
 
-;;   (set-face-foreground 'modeline "black")
-;;   (set-face-background 'modeline "wheat")
+  (set-face-foreground 'modeline "black")
+  (set-face-background 'modeline "wheat")
 
-;;   (set-face-foreground 'font-lock-string-face "gold")
-;;   (set-face-foreground 'font-lock-function-name-face "deepskyblue1")
-;;   (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
-;;   (set-face-foreground 'font-lock-comment-face "tan1")
-;;   (set-face-foreground 'font-lock-doc-face "tan1")
-;;   (set-face-foreground 'font-lock-variable-name-face "wheat")
-;;   (set-face-foreground 'font-lock-constant-face "tomato1")
-;;   (set-face-foreground 'font-lock-warning-face "red")
-;;   (set-face-foreground 'font-lock-type-face "PaleGreen")
-;;   )
+  (set-face-foreground 'font-lock-string-face "gold")
+  (set-face-foreground 'font-lock-function-name-face "deepskyblue1")
+  (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
+  (set-face-foreground 'font-lock-comment-face "tan1")
+  (set-face-foreground 'font-lock-doc-face "tan1")
+  (set-face-foreground 'font-lock-variable-name-face "wheat")
+  (set-face-foreground 'font-lock-constant-face "tomato1")
+  (set-face-foreground 'font-lock-warning-face "red")
+  (set-face-foreground 'font-lock-type-face "PaleGreen")
+  )
 
 ;; (ala-colors-4)
 
