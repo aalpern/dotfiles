@@ -217,6 +217,16 @@
   ;(set-face-foreground 'font-lock-reference-face "red")
   )
 
+;; (ala-colors-sky)
+(defun ala-colors-sky ()
+  (interactive)
+  (ala-dark-default)
+  (set-background-color "skyblue4")
+  (set-foreground-color "black")
+  (set-face-foreground 'font-lock-comment-face "Gray60")
+  (set-face-foreground 'font-lock-string-face "midnight blue")
+  )
+
 (defun ala-colors-1 ()
   (interactive)
   (ala-background-black)
@@ -265,6 +275,8 @@
   (set-face-foreground 'font-lock-constant-face "Blue4")
   (set-face-foreground 'font-lock-variable-name-face "DarkGreen")
   (set-face-foreground 'font-lock-function-name-face "medium blue")
+  (set-face-bold-p 'font-lock-type-face t)
+  (set-face-bold-p 'font-lock-function-name-face t)
   (set-cursor-color "red")
 )
 
