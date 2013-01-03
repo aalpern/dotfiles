@@ -18,9 +18,9 @@ zstyle ':vcs_info:*' enable git
 precmd () {
 
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}%F{reset}]'
+        zstyle ':vcs_info:*' formats '[%F{green}%b%c%u%F{blue}%F{reset}]'
     } else {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}*%F{blue}%F{reset}]'
+        zstyle ':vcs_info:*' formats '[%F{green}%b%c%u%F{red}*%F{blue}%F{reset}]'
     }
 
     vcs_info
@@ -45,3 +45,11 @@ function select_rprompt {
 
 PROMPT='$(select_prompt)'
 RPROMPT='$(select_rprompt)'
+
+# This results in a prompt that looks like this:
+#
+# When not in a git repo:
+# alpern@yawningangel:11:35AM ?                              ~/src:(pts/1)
+#
+# When in a git repo:
+# alpern@yawningangel:11:35AM #           ~/src/3rd/nvd3:[master*]:(pts/1)
