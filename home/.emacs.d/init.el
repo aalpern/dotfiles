@@ -540,27 +540,23 @@
 (add-hook 'protobuf-mode-hook
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
 
-;; (set-default-font "-*-ProFontWindows-normal-r-*-*-12-90-96-96-c-*-iso8859-1")
-;; (set-default-font "-*-ProFontWindows-normal-r-*-*-11-82-96-96-c-*-iso8859-1")
-;; (set-default-font "-*-6x10-normal-r-*-*-11-82-*-*-c-*-*-#33-")
-;; (set-default-font "-raster-6x10-normal-r-normal-normal-11-82-96-96-c-*-*-#33")
-;; (set-default-font "-misc-fixed-medium-r-normal--10-100-75-*-c-60-*-*")
-;; (set-default-font "DejaVu Sans Mono 9")
-;; (set-default-font "-misc-fixed-medium-*-*-*-10-*-*-*-*-*-*-*")
-;; (set-default-font "terminus-09")
-;; (set-default-font "6x10")
-;; (set-default-font "6x12")
-;; (set-default-font "6x13")
-;; (set-default-font "ProFont 9")
-
-;(set-default-font "Anonymous Pro 8")
-(set-default-font "Anonymous Pro Bold 11")
+;;(set-default-font "-misc-fixed-medium-r-normal--10-100-75-*-c-60-*-*")
+;;(set-default-font "DejaVu Sans Mono 9")
+;;(set-default-font "-misc-fixed-medium-*-*-*-10-*-*-*-*-*-*-*")
+;;(set-default-font "6x10")
+;;(set-default-font "6x12")
+(set-default-font "6x13")
+;;(set-default-font "Anonymous Pro 8")
+;;(set-default-font "Anonymous Pro Bold 10")
+;;(set-default-font "Anonymous Pro 10")
 
 (ala-dark-default)
-;; (ala-colors-3)
-;; (ala-colors-6)
-;; (ala-colors-7)
-;; (ala-colors-green)
+;;(ala-colors-3)
+;;(ala-colors-6)
+;;(ala-colors-7)
+;;(ala-colors-green)
+;;(ala-colors-red)
+;;(ala-colors-blue)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -584,4 +580,3 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
