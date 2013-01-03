@@ -57,7 +57,6 @@
 (load "~/.emacs.d/init-java.el")
 (load "~/.emacs.d/init-color.el")
 
-
 (require 'show-wspace)
 (toggle-show-tabs-show-ws)
 (show-ws-toggle-show-trailing-whitespace)
@@ -77,26 +76,18 @@
     ("\\.h$"                  . c++-mode)
     ("\\.y$"                  . c-mode)
     ("\\.l$"                  . c-mode)
-    ("\\.prc$"                  . sql-mode)
-    ("\\.viw$"                  . sql-mode)
-    ("\\.php$"                  . c-mode)
-    ;; This conflicts with matlab files, and I haven't programmed
-    ;; for NEXTSTEP in years
-    ;; ("\\.m$"                  . objc-mode)
+    ("\\.php$"                . c-mode)
+    ("\\.m$"                  . objc-mode)
     ("\\.cp$"                 . c++-mode)
     ("\\.[CH]$"               . c++-mode)
     ("\\.proto"               . protobuf-mode)
-    ("\\.\\(cc\\|hh\\|cs\\|pde\\)$"      . c++-mode)
+    ("\\.\\(cc\\|hh\\|cs\\|pde\\)$" . c++-mode)
     ("\\.\\(tli\\|tlh\\)$"    . c++-mode)
     ("\\.\\(cxx\\|hxx\\)$"    . c++-mode)
     ("\\.\\(cpp\\|hpp\\|inl\\)$"    . c++-mode)
-    ("\\.\\(tpp\\|ipp\\)$"    . c++-mode) ; for DeltaLogic XTL source files
     ("\\.\\(java\\|mocha\\|policy\\|jsp\\|jad\\|j\\|bsh\\|djava\\)$" . java-mode)
-
-    ("\\.\\(mm\\|m\\)$"    . objc-mode)
-
-    ;; idl-mode is probably good enough to use now, look into it
-    ("\\.\\(idl\\|midl\\)$"   . c++-mode)
+    ("\\.\\(mm\\|m\\)$"       . objc-mode)
+    ("\\.\\(idl\\|midl\\)$"   . c++-mode) ;; idl-mode is probably good enough to use now, look into it
 
     ;; Assorted and sundry LISP varieties
     ("\\.scm$"                . scheme-mode)
@@ -106,22 +97,16 @@
     ("\\.lisp$"               . lisp-mode)
     ("\\.lsp$"                . lisp-mode)
     ("\\.system$"             . lisp-mode) ; defsystem files
-    ("\\.misa$"               . lisp-mode)
     ("\\.\\(dyl\\|dylan\\)"   . dylan-mode)
 
-    ("\\.s$"                  . asm-mode)
-    ("\\.\\(htm\\|html\\|htmx\\)$" . html-mode)
-    ("\\.tar$"                . tar-mode)
-    ;; ("\\.z[A-Za-z]*$"      . shell-script-mode)
-    ("\\.[A-Ya-y]*shrc$"      . shell-script-mode)
-    ("\\.dbx*"                . shell-script-mode)
-    ("\\.\\(texi\\|txi\\)$"   . texinfo-mode)
-    ("\\.\\(md\\|markdown\\)$"   . markdown-mode)
-    ("\\.\\(dtd\\|ixf\\|xml\\|xsl\\|iqxml\\|kml\\|msbuild\\)$"                . sgml-mode)
-    ("\\.\\(aspx\\|asp\\|resx\\|ascx\\)$"                . sgml-mode)
-    ("\\.tex$"                . latex-mode)
-    ("\\.bib$"                . bibtex-mode)
-    ("\\.php$"                . php-mode)
+    ("\\.s$"                   . asm-mode)
+    ("\\.tar$"                 . tar-mode)
+    ("\\.[A-Ya-y]*shrc$"       . shell-script-mode)
+    ("\\.dbx*"                 . shell-script-mode)
+    ("\\.\\(texi\\|txi\\)$"    . texinfo-mode)
+    ("\\.\\(md\\|markdown\\)$" . markdown-mode)
+    ("\\.tex$"                 . latex-mode)
+    ("\\.bib$"                 . bibtex-mode)
 
     ;; Makefiles
     ("[mM]akefile$"           . makefile-mode)
@@ -130,24 +115,19 @@
     ("\\.\\(mak\\|properties\\|mk\\)$"                . makefile-mode)
 
     ;; Miscellaneous & sundry scripting languages
-    ("\\.\\(py\\|python\\)$"  . python-mode) ; Python
-    ("\\.lua$"                . lua-mode)    ; Lua
-    ("\\.\\(pl\\|pm\\)$"                 . perl-mode)   ; Perl
-    ("\\.m$"                  . matlab-mode) ; MatLab
-    ("\\.uc$"                 . c++-mode)    ; UnrealScript
+    ("\\.\\(py\\|python\\)$"  . python-mode)
+    ("\\.lua$"                . lua-mode)
+    ("\\.\\(pl\\|pm\\)$"      . perl-mode)
+    ("\\.php$"                . php-mode)
+    ("\\.js$"                . javascript-mode)
+    ("\\.g"                  . antlr-mode)
 
-    ;; ART*Enterprise files
-    ("\\.adf$"                . c-mode)
-    ("\\.art$"                . art-mode)
-    ("\\.exf$"                . art-mode)
-    ("art.ini"                . art-mode)
-    ("nt-3.51-part-\\(1\\|2\\|3\\)" . makefile-mode)
-
-    ;; Visual Basic
-    ("\\.\\(bas\\|frm\\|cls\\|vbs\\)" . visual-basic-mode)
-
-    ;; SGML/XML
-    ("\\.\\(xml\\|sgml\\|cml\\|bcml\\|dtd\\|xsd\\|idx\\|iqx\\)" . sgml-mode)
+    ;; Markup
+    ("\\.\\(sgml\\|dtd\\)" . sgml-mode)
+    ("\\.\\(xml\\|cml\\|xsd\\|idx\\|iqx\\)" . xml-mode)
+    ("\\.\\(aspx\\|asp\\|resx\\|ascx\\|msbuild\\)$"                . xml-mode)
+    ("\\.\\(htm\\|html\\|htmx\\)$" . html-mode)
+    ("\\.css$"                . css-mode)
 
     ;; Windows stuff
     ("\\.bat$"                . bat-generic-mode)
@@ -156,11 +136,10 @@
     ("\\.inf$"                . inf-generic-mode)
     ("\\.reg$"                . reg-generic-mode)
     ("\\.rc$"                 . rc-generic-mode)
-    ("\\.rc2$"                 . rc-generic-mode)
+    ("\\.rc2$"                . rc-generic-mode)
     ("\\.rul$"                . rul-generic-mode)
-    ("\\.rb$"                . ruby-mode)
     ("\\.isl$"                . isl-mode)
-    ("\\.css$"                . css-mode)
+
 
     ;; Graphviz Dot
     ("\\.dot$"                . graphviz-dot-mode)
@@ -183,17 +162,9 @@
 (autoload 'jinja2-mode "jinja2-mode" "Jinja2 editing mode." t)
 (autoload 'markdown-mode "markdown-mode" "Markdown editing mode." t)
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
-
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
-
 (autoload 'css-mode "css-mode" nil t)
-
-;;     (autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t)
- ;;    (autoload 'xml-mode "psgml" "Major mode to edit XML files." t)
 (autoload 'bat-generic-mode "generic-extras" "Mode for editing DOS batch files" t)
 (autoload 'ini-generic-mode "generic-extras" "Mode for editing DOS config files" t)
 (autoload 'inf-generic-mode "generic-extras" "Mode for editing Windows INF files" t)
@@ -211,9 +182,7 @@
 (autoload 'php-mode "php-mode" nil t)
 (autoload 'clojure-mode "clojure-mode" nil t)
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
-
 (autoload 'antlr-mode "antlr-mode" nil t)
-(setq auto-mode-alist (cons '("\\.g\\'" . antlr-mode) auto-mode-alist))
 
 ;; -----------------------------------------------------------------------------
 ;; Wiki support
@@ -232,7 +201,7 @@
 
 ;; (setq interpreter-mode-alist
 ;;  (cons '("python" . python-mode) interpreter-mode-alist))
-(setq matlab-indent-function t)
+
 
 (add-hook 'sql-mode-hook
           (function (lambda () (font-lock-mode 1)
@@ -356,7 +325,6 @@
 (setq comment-mode-prefix-alist
       '((emacs-lisp-mode  . ";; ")
         (lisp-mode        . ";; ")
-        (art-mode         . ";; ")
         (c++-mode         . "//")
         (c-mode           . "/* ")
         (javascript-mode           . "/* ")
@@ -380,7 +348,6 @@
 (setq comment-mode-postfix-alist
       '((emacs-lisp-mode  . "")
         (lisp-mode        . "")
-        (art-mode         . "")
         (csharp-mode      . "")
         (c++-mode         . "")
         (c-mode           . " */")
@@ -441,67 +408,6 @@
        (global-font-lock-mode t)
        ;; maximum colors
        (setq font-lock-maximum-decoration t)))
-
-;; load sgml-mode
-;;(autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t )
-
-;; in sgml documents, parse dtd immediately to allow immediate
-;; syntax coloring
-;;(setq sgml-auto-activate-dtd t)
-
-;; set the default SGML declaration. docbook.dcl should work for most DTDs
-;;(setq sgml-declaration "c:/cygwin/usr/local/lib/sgml/dtd/docbook41/docbook.dcl")
-
-;; ;; here we set the syntax color information for psgml
-;; (setq-default sgml-set-face t)
-;; ;;
-;; ;; Faces.
-;; ;;
-;; (make-face 'sgml-comment-face)
-;; (make-face 'sgml-doctype-face)
-;; (make-face 'sgml-end-tag-face)
-;; (make-face 'sgml-entity-face)
-;; (make-face 'sgml-ignored-face)
-;; (make-face 'sgml-ms-end-face)
-;; (make-face 'sgml-ms-start-face)
-;; (make-face 'sgml-pi-face)
-;; (make-face 'sgml-sgml-face)
-;; (make-face 'sgml-short-ref-face)
-;; (make-face 'sgml-start-tag-face)
-
-;; (set-face-foreground 'sgml-comment-face "dark turquoise")
-;; (set-face-foreground 'sgml-doctype-face "red")
-;; (set-face-foreground 'sgml-end-tag-face "blue")
-;; (set-face-foreground 'sgml-entity-face "magenta")
-;; (set-face-foreground 'sgml-ignored-face "gray40")
-;; (set-face-background 'sgml-ignored-face "gray60")
-;; (set-face-foreground 'sgml-ms-end-face "green")
-;; (set-face-foreground 'sgml-ms-start-face "yellow")
-;; (set-face-foreground 'sgml-pi-face "lime green")
-;; (set-face-foreground 'sgml-sgml-face "brown")
-;; (set-face-foreground 'sgml-short-ref-face "deep sky blue")
-;; (set-face-foreground 'sgml-start-tag-face "dark green")
-
-;; (setq-default sgml-markup-faces
-;;               '((comment . sgml-comment-face)
-;;                 (doctype . sgml-doctype-face)
-;;                 (end-tag . sgml-end-tag-face)
-;;                 (entity . sgml-entity-face)
-;;                 (ignored . sgml-ignored-face)
-;;                 (ms-end . sgml-ms-end-face)
-;;                 (ms-start . sgml-ms-start-face)
-;;                 (pi . sgml-pi-face)
-;;                 (sgml . sgml-sgml-face)
-;;                 (short-ref . sgml-short-ref-face)
-;;                 (start-tag . sgml-start-tag-face)))
-
-;; load xml-mode
-;;(setq auto-mode-alist
-;;     (append (list (cons "\\.xml\\'" 'xml-mode))
-;;            auto-mode-alist))
-;;(autoload 'xml-mode "psgml" nil t)
-;;(setq sgml-xml-declaration "c:/cygwin/usr/local/lib/sgml/dtd/html/xml.dcl")
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
