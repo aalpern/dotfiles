@@ -18,25 +18,31 @@ zstyle ':vcs_info:*' enable git
 precmd () {
 
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
+        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}%F{reset}]'
+
     } else {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}]'
+        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}%F{reset}]'
     }
 
     vcs_info
 
     pr_char=$(prompt_char)
     prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t $pr_char "
-
     prompt_git="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ${vcs_info_msg_0_} $pr_char "
 
     rprompt_standard="%{$fg[cyan]%}%~%{$reset_color%}:(%l)"
+    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:${vcs_info_msg_0_}:(%l)"
 }
 
 function select_prompt {
-    git branch >/dev/null 2>/dev/null && echo $prompt_git && return
+#    git branch >/dev/null 2>/dev/null && echo $prompt_git && return
     echo $prompt_standard
 }
 
+function select_rprompt {
+    git branch >/dev/null 2>/dev/null && echo $rprompt_git && return
+    echo $rprompt_standard
+}
+
 PROMPT='$(select_prompt)'
-RPROMPT=$rprompt_standard
+RPROMPT='$(select_rprompt)'
