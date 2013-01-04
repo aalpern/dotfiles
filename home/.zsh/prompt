@@ -4,17 +4,26 @@ autoload -U colors && colors
 autoload -Uz vcs_info
 setopt prompt_subst
 
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '#' && return
-    echo '?'
-}
-
-
 zstyle ':vcs_info:*' stagedstr '%F{28}*'
 zstyle ':vcs_info:*' unstagedstr '%F{11}*'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
 zstyle ':vcs_info:*' enable git
+
+function git_ahead_behind {
+  REFERENCE=$(git symbolic-ref HEAD 2> /dev/null) || return
+  BRANCH=${REFERENCE#refs/heads/}
+
+  gstatus=''
+  ahead=$(git rev-list origin..HEAD 2> /dev/null | wc -l)
+  behind=$(git rev-list HEAD..origin 2> /dev/null | wc -l)
+
+  if [[ $ahead > 0 || $behind > 0 ]]; then
+      gstatus=' %F{green}+'$ahead'%F{reset}/%F{red}-'$behind'%F{reset}'
+  fi
+
+  echo $gstatus
+}
 
 precmd () {
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
@@ -25,14 +34,12 @@ precmd () {
 
     vcs_info
 
-    pr_char=$(prompt_char)
-    prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t $pr_char "
-#    prompt_git="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ${vcs_info_msg_0_} $pr_char "
+    prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ? "
 
     rprompt_standard="%{$fg[cyan]%}%~%{$reset_color%}:(%l)"
-    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:[${vcs_info_msg_0_}]:(%l)"
+    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:(${vcs_info_msg_0_}$(git_ahead_behind)):(%l)"
 
-    PROMPT='$(select_prompt)'
+    PROMPT=$prompt_standard
     RPROMPT='$(select_rprompt)'
 
 
@@ -41,17 +48,10 @@ precmd () {
     fi
 }
 
-function select_prompt {
-#    git branch >/dev/null 2>/dev/null && echo $prompt_git && return
-    echo $prompt_standard
-}
-
 function select_rprompt {
     git branch >/dev/null 2>/dev/null && echo $rprompt_git && return
     echo $rprompt_standard
 }
-
-
 
 # This results in a prompt that looks like this:
 #
