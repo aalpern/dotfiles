@@ -9,6 +9,7 @@ function prompt_char {
     echo '?'
 }
 
+
 zstyle ':vcs_info:*' stagedstr '%F{28}*'
 zstyle ':vcs_info:*' unstagedstr '%F{11}*'
 zstyle ':vcs_info:*' check-for-changes true
@@ -16,21 +17,28 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
 zstyle ':vcs_info:*' enable git
 
 precmd () {
-
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats '[%F{green}%b%c%u%F{blue}%F{reset}]'
+        zstyle ':vcs_info:*' formats '%F{green}%b%c%u%F{blue}%F{reset}'
     } else {
-        zstyle ':vcs_info:*' formats '[%F{green}%b%c%u%F{red}*%F{blue}%F{reset}]'
+        zstyle ':vcs_info:*' formats '%F{green}%b%c%u%F{red}*%F{blue}%F{reset}'
     }
 
     vcs_info
 
     pr_char=$(prompt_char)
     prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t $pr_char "
-    prompt_git="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ${vcs_info_msg_0_} $pr_char "
+#    prompt_git="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ${vcs_info_msg_0_} $pr_char "
 
     rprompt_standard="%{$fg[cyan]%}%~%{$reset_color%}:(%l)"
-    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:${vcs_info_msg_0_}:(%l)"
+    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:[${vcs_info_msg_0_}]:(%l)"
+
+    PROMPT='$(select_prompt)'
+    RPROMPT='$(select_rprompt)'
+
+
+    if [ $#jobstates -ne 0 ]; then
+        RPROMPT="${RPROMPT}:%F{red}[%j]%F{reset}"
+    fi
 }
 
 function select_prompt {
@@ -43,13 +51,12 @@ function select_rprompt {
     echo $rprompt_standard
 }
 
-PROMPT='$(select_prompt)'
-RPROMPT='$(select_rprompt)'
+
 
 # This results in a prompt that looks like this:
 #
 # When not in a git repo:
-# alpern@yawningangel:11:35AM ?                              ~/src:(pts/1)
+# alpern@yawningangel:11:35AM ?                              ~/src:(pts/1):[1]
 #
 # When in a git repo:
-# alpern@yawningangel:11:35AM #           ~/src/3rd/nvd3:[master*]:(pts/1)
+# alpern@yawningangel:11:35AM #           ~/src/3rd/nvd3:[master*]:(pts/1):[1]
