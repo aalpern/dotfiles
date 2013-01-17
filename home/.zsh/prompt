@@ -52,11 +52,3 @@ function select_rprompt {
     git branch >/dev/null 2>/dev/null && echo $rprompt_git && return
     echo $rprompt_standard
 }
-
-# This results in a prompt that looks like this:
-#
-# When not in a git repo:
-# alpern@yawningangel:11:35AM ?                              ~/src:(pts/1):[1]
-#
-# When in a git repo:
-# alpern@yawningangel:11:35AM #           ~/src/3rd/nvd3:[master*]:(pts/1):[1]
