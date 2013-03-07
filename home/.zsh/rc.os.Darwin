@@ -1,4 +1,5 @@
 # -*- mode:shell-script -*-
 
 alias ls='ls -CFG'
-
+alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
+alias emacs='open -a /Applications/Emacs.app $1'
