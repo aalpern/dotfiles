@@ -215,6 +215,39 @@
       (function (lambda ()
               (font-lock-mode 1))))
 
+(random t)
+
+(defun insert-random-uuid ()
+  "Insert a random universally unique identifier (UUID).
+
+UUID is a 32 digits hexadecimal formatted in certain way with dash.
+Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
+."
+  (interactive)
+  (insert
+   (format "%04x%04x-%04x-%04x-%04x-%06x%06x"
+           (random (expt 16 4))
+           (random (expt 16 4))
+           (random (expt 16 4))
+           (random (expt 16 4))
+           (random (expt 16 4))
+           (random (expt 16 6))
+           (random (expt 16 6)) ) ) )
+
+(define-generic-mode 'bnf-mode
+  () ;; comment char: inapplicable because # must be at start of line
+  nil ;; keywords
+  '(
+    ("^#.*" . 'font-lock-comment-face) ;; comments at start of line
+    ("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
+    ("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
+    ("::=" . 'font-lock-warning-face) ;; "goes-to" symbol
+    ("\|" . 'font-lock-warning-face) ;; "OR" symbol
+    ("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
+    )
+  '("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
+  nil ;; extra function hooks
+  "Major mode for BNF highlighting.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -336,6 +369,7 @@
         (makefile-mode    . "# ")
         (perl-mode        . "# ")
         (python-mode        . "# ")
+        (bnf-mode        . "# ")
         (sgml-mode        . "<!-- ")
         (html-mode        . "<!-- ")
         (jinja2-mode        . "<!-- ")
@@ -487,4 +521,3 @@
   ;; If there is more than one, they won't work right.
  )
 (server-start)
-
