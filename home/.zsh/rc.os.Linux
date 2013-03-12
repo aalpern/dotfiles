@@ -20,3 +20,5 @@ alias gitg='gitg -c'
 
 # alias psme='ps -aux |& fgrep $USER | fgrep -v "ps -aux" | fgrep -v "fgrep"'
 # alias psme='ps -ef | grep alpern'
+alias zkup='sudo /usr/share/zookeeper/bin/zkServer.sh start'
+alias zkdown='sudo /usr/share/zookeeper/bin/zkServer.sh stop'
