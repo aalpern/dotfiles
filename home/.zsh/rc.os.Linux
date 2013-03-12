@@ -16,7 +16,7 @@ alias grep='grep --color=auto'
 alias psgrep='ps -ef | grep'
 alias psme='ps -fu$USER'
 alias more=less
+alias gitg='gitg -c'
 
 # alias psme='ps -aux |& fgrep $USER | fgrep -v "ps -aux" | fgrep -v "fgrep"'
 # alias psme='ps -ef | grep alpern'
-
