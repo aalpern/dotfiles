@@ -447,14 +447,14 @@
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
 
 ;;(set-default-font "-misc-fixed-medium-r-normal--10-100-75-*-c-60-*-*")
-;;(set-default-font "DejaVu Sans Mono 9")
+;;(set-default-font "DejaVu Sans Mono 11")
 ;;(set-default-font "-misc-fixed-medium-*-*-*-10-*-*-*-*-*-*-*")
 ;;(set-default-font "6x10")
 ;;(set-default-font "6x12")
-(set-default-font "6x13")
+;;(set-default-font "6x13")
 ;;(set-default-font "Anonymous Pro 8")
 ;;(set-default-font "Anonymous Pro Bold 10")
-;;(set-default-font "Anonymous Pro 10")
+(set-default-font "Anonymous Pro Bold 12")
 
 (ala-dark-default)
 ;;(ala-colors-3)
