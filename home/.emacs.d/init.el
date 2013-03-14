@@ -81,6 +81,7 @@
     ("\\.cp$"                 . c++-mode)
     ("\\.[CH]$"               . c++-mode)
     ("\\.proto"               . protobuf-mode)
+    ("\\.rst"               . rst-mode)
     ("\\.\\(cc\\|hh\\|cs\\|pde\\)$" . c++-mode)
     ("\\.\\(tli\\|tlh\\)$"    . c++-mode)
     ("\\.\\(cxx\\|hxx\\)$"    . c++-mode)
