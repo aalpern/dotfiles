@@ -235,6 +235,21 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
            (random (expt 16 6))
            (random (expt 16 6)) ) ) )
 
+(defun insert-random-device-token ()
+  "Insert a random iOS device token (64 hex characters)."
+  (interactive)
+  (insert
+   (upcase
+    (format "%08x%08x%08x%08x%08x%08x%08x%08x"
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))
+            (random (expt 16 8))))))
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
