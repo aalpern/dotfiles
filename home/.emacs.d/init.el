@@ -251,6 +251,12 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
             (random (expt 16 8))
             (random (expt 16 8))))))
 
+(defun insert-random-device-pin ()
+  "Insert a random Blackberry device PIN (8 hex chars)"
+  (interactive)
+  (insert
+   (format "%08x" (random (expt 16 8)))))
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
