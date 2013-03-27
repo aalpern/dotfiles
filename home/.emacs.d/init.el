@@ -515,6 +515,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (ala-dark-default)
 ;;(ala-colors-3)
+(ala-colors-3)
 ;;(ala-colors-6)
 ;;(ala-colors-7)
 ;;(ala-colors-green)
