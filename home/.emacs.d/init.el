@@ -401,7 +401,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
         (csharp-mode      . "")
         (c++-mode         . "")
         (c-mode           . " */")
-        (javascript-mode           . " */")
+        (javascript-mode  . " */")
         (dylan-mode       . "")
         (java-mode        . "")
         (makefile-mode    . "")
@@ -422,11 +422,11 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (defun comment-mode-prefix ()
   (interactive)
-  (cdr (assoc major-mode comment-mode-prefix-alist)))
+  (or (cdr (assoc major-mode comment-mode-prefix-alist)) ""))
 
 (defun comment-mode-postfix ()
   (interactive)
-  (cdr (assoc major-mode comment-mode-postfix-alist)))
+  (or (cdr (assoc major-mode comment-mode-postfix-alist)) ""))
 
 (defun comment-insert-line-of-char (char)
   (dotimes (n *comment-mode-length*)
@@ -505,6 +505,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 ;;(set-default-font "Anonymous Pro 8")
 ;;(set-default-font "Anonymous Pro Bold 10")
 (set-default-font "Anonymous Pro Bold 12")
+(set-default-font "Anonymous Pro 12")
 
 (ala-dark-default)
 ;;(ala-colors-3)
