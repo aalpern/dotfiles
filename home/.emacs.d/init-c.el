@@ -123,3 +123,5 @@
 ;; ;        )
 ;; ;    compilation-error-regexp-alist));
 
+
+(electric-indent-mode +1)
