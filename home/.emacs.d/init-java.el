@@ -3,7 +3,7 @@
 (defun my-java-mode-hook ()
   (setq c-basic-offset 4))
 
-;(add-hook 'java-mode-hook 'my-java-mode-hook) 
+;(add-hook 'java-mode-hook 'my-java-mode-hook)
 
 ;;(defvar shell-execute-helper "shelex.exe")
 
@@ -72,3 +72,8 @@
 (add-hook 'java-mode-hook
           (function (lambda ()
                       (setq imenu-generic-expression java-imenu-regexp))))
+
+(add-to-list 'compilation-error-regexp-alist 'maven)
+(add-to-list 'compilation-error-regexp-alist-alist
+       '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
+           1 2 3))

@@ -81,6 +81,7 @@
     ("\\.cp$"                 . c++-mode)
     ("\\.[CH]$"               . c++-mode)
     ("\\.proto"               . protobuf-mode)
+    ("\\.json"               . javascript-mode)
     ("\\.rst"               . rst-mode)
     ("\\.\\(cc\\|hh\\|cs\\|pde\\)$" . c++-mode)
     ("\\.\\(tli\\|tlh\\)$"    . c++-mode)
@@ -249,6 +250,12 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
             (random (expt 16 8))
             (random (expt 16 8))
             (random (expt 16 8))))))
+
+(defun insert-random-device-pin ()
+  "Insert a random Blackberry device PIN (8 hex chars)"
+  (interactive)
+  (insert
+   (format "%08x" (random (expt 16 8)))))
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
@@ -509,6 +516,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (ala-dark-default)
 ;;(ala-colors-3)
+(ala-colors-3)
 ;;(ala-colors-6)
 ;;(ala-colors-7)
 ;;(ala-colors-green)
