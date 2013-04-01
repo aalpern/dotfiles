@@ -311,7 +311,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (require 'compile)
 
-(setq compile-command "ant ")
+(setq compile-command "mvn compile ")
 
 (setq compilation-error-regexp-alist
   (append (list
