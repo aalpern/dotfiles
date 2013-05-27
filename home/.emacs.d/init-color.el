@@ -44,12 +44,6 @@
 (require 'font-lock)
 ;;(require 'font-lock-extra)
 ;; do more highlighting
-(cond ((gnu-emacs-p)
-       (setq c-font-lock-keywords c-font-lock-keywords-3)
-       (setq c++-font-lock-keywords c++-font-lock-keywords-3))
-      ((x-emacs-p)
-       (setq c-font-lock-keywords c-font-lock-keywords-2)
-       (setq c++-font-lock-keywords c++-font-lock-keywords-2)))
 
 (setq lisp-font-lock-keywords lisp-font-lock-keywords-2)
 
