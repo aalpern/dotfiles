@@ -442,7 +442,6 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 ;;(set-default-font "Meslo LG M DZ 10")
 ;;(set-default-font "Meslo LG S DZ 10")
 ;;(set-default-font "ProFont 11")
-
 (set-default-font "Anonymous Pro Bold 12")
 ;;(set-default-font "Meslo LG S DZ Bold 12")
 ;;(set-default-font "ProFont 11")
