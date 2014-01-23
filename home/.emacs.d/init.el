@@ -76,7 +76,7 @@
     ("\\.h$"                  . c++-mode)
     ("\\.y$"                  . c-mode)
     ("\\.l$"                  . c-mode)
-    ("\\.php$"                . c-mode)
+    ("\\.php$"                . c++-mode)
     ("\\.m$"                  . objc-mode)
     ("\\.cp$"                 . c++-mode)
     ("\\.[CH]$"               . c++-mode)
@@ -91,6 +91,8 @@
     ("\\.\\(mm\\|m\\)$"       . objc-mode)
     ("\\.\\(idl\\|midl\\)$"   . c++-mode) ;; idl-mode is probably good enough to use now, look into it
 
+    ("\\.rb$"                . ruby-mode)
+    ("\\.proto$"                . java-mode)
     ;; Assorted and sundry LISP varieties
     ("\\.scm$"                . scheme-mode)
     ("\\.el$"                 . emacs-lisp-mode)
@@ -506,6 +508,10 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 ;;(set-default-font "-misc-fixed-medium-r-normal--10-100-75-*-c-60-*-*")
 ;;(set-default-font "DejaVu Sans Mono 11")
 ;;(set-default-font "-misc-fixed-medium-*-*-*-10-*-*-*-*-*-*-*")
+;;(set-default-font "DejaVu Sans Mono 9")
+;;(set-default-font "Inconsolata Medium 10")
+;; (set-default-font "Ubuntu Mono 9")
+;; (set-default-font "Ubuntu Mono 10")
 ;;(set-default-font "6x10")
 ;;(set-default-font "6x12")
 ;;(set-default-font "6x13")
