@@ -74,8 +74,8 @@
                       (setq imenu-generic-expression java-imenu-regexp))))
 
 (add-hook 'compile-mode-hook
-	  (function (lambda ()
-		      (add-to-list 'compilation-error-regexp-alist 'maven)
-		      (add-to-list 'compilation-error-regexp-alist-alist
-				   '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
-					   1 2 3)))))
+      (function (lambda ()
+              (add-to-list 'compilation-error-regexp-alist 'maven)
+              (add-to-list 'compilation-error-regexp-alist-alist
+                   '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
+                       1 2 3)))))
