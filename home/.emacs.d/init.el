@@ -25,6 +25,7 @@
 (column-number-mode t)
 (display-time-mode t)
 (line-number-mode t)
+(require 'powerline)
 
 ; Set OS X key bindings
 (setq x-super-keysym 'meta)

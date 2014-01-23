@@ -398,3 +398,7 @@
   )
 
 ;; (ala-colors-cyan)
+
+(set-face-attribute 'mode-line nil
+                    :background "Firebrick"
+                    :box nil)
