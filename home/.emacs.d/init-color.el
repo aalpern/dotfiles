@@ -11,36 +11,6 @@
 
 (setq font-lock-maximum-decoration t)
 
-;; (when (gnu-emacs-p)
-;;   (eval-after-load "font-lock"
-;;         '(progn
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<FILE\\>" . font-lock-type-face))
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<art_object\\>" . font-lock-type-face))
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<art_stream\\>" . font-lock-type-face))
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
-;;            (add-to-list 'c-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
-
-;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<size_t\\>" . font-lock-type-face))
-;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<ostream\\>" . font-lock-type-face))
-;;            (add-to-list 'c++-font-lock-keywords-3 '("\\<istream\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<clock_t\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_object\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<dylan_interpreter\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttribute\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeMap\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributeVector\\>" . font-lock-type-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<AewAttributePtr\\>" . font-lock-type-face))
-;;          ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<string\\>" . font-lock-type-face))
-;;          ;;(add-to-list 'c++-font-lock-keywords-3 '("\\<bw_string\\>" . font-lock-type-face))
-
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<explicit\\>" . font-lock-keyword-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<typename\\>" . font-lock-keyword-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<mutable\\>" . font-lock-keyword-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<false\\>" . font-lock-keyword-face))
-;;          (add-to-list 'c++-font-lock-keywords-3 '("\\<true\\>" . font-lock-keyword-face))
-;;          )))
-
 (require 'font-lock)
 ;;(require 'font-lock-extra)
 ;; do more highlighting
@@ -49,8 +19,7 @@
 
 ;;(setq font-lock-string-face 'italic)
 ;;(setq java-font-lock-keywords java-font-lock-keywords-1)
-(when (gnu-emacs-p)
-  (global-font-lock-mode t))
+(global-font-lock-mode t)
 
 ;; (setq font-lock-support-mode 'lazy-lock-mode)
 
@@ -61,8 +30,8 @@
 ;(set-face-background 'default "black")
 (set-face-background 'highlight "darkslateblue")
 (set-face-foreground 'highlight "white")
-;(when (gnu-emacs-p) (set-face-foreground 'region "black"))
-;(when (gnu-emacs-p) (set-face-background 'region "wheat"))
+;(set-face-foreground 'region "black")
+;(set-face-background 'region "wheat")
 (set-face-foreground 'secondary-selection "black")
 
 ;; (set-face-foreground 'buffer-group-header-face "white")
@@ -71,8 +40,8 @@
 ;(set-face-background 'modeline "wheat")
 ;(set-face-foreground 'modeline "black")
 
-;(when (gnu-emacs-p) (set-background-color "black"))
-;(when (gnu-emacs-p) (set-foreground-color "gray95"))
+;(set-background-color "black")
+;(set-foreground-color "gray95")
 
 ;;(define-key global-map "\C-l" 'recenter-and-color)
 
@@ -80,7 +49,7 @@
 ;;  (interactive)
 ;;  (recenter))
 
-(when (gnu-emacs-p) (set-cursor-color "red"))
+(set-cursor-color "red")
 
 (defun ala-background-color (color)
   (set-face-background 'default color)
@@ -165,8 +134,8 @@
   (ala-background-black)
   (set-face-background 'highlight "darkslateblue")
   (set-face-foreground 'highlight "white")
-  (when (gnu-emacs-p) (set-face-foreground 'region "black"))
-  (when (gnu-emacs-p) (set-face-background 'region "wheat"))
+  (set-face-foreground 'region "black")
+  (set-face-background 'region "wheat")
 
   (set-face-foreground 'font-lock-comment-face "OrangeRed")
   (set-face-foreground 'font-lock-doc-face "OrangeRed")
@@ -267,8 +236,8 @@
   (set-background-color "darkslateblue")
   (set-foreground-color "white")
 
-  (when (gnu-emacs-p) (set-face-foreground 'region "black"))
-  (when (gnu-emacs-p) (set-face-background 'region "wheat"))
+  (set-face-foreground 'region "black")
+  (set-face-background 'region "wheat")
 
 ;  (set-face-foreground 'modeline "black")
 ;  (set-face-background 'modeline "wheat")
@@ -326,8 +295,8 @@
 
   (set-face-background 'highlight "darkslateblue")
   (set-face-foreground 'highlight "gray95")
-  (when (gnu-emacs-p) (set-face-foreground 'region "darkslateblue"))
-  (when (gnu-emacs-p) (set-face-background 'region "gray95"))
+  (set-face-foreground 'region "darkslateblue")
+  (set-face-background 'region "gray95")
 
   (set-face-foreground 'font-lock-comment-face "tan")
   (set-face-foreground 'font-lock-doc-face "tan")
@@ -347,8 +316,8 @@
   (ala-set-primary-colors "limegreen" "black")
   (set-face-background 'highlight "green")
   (set-face-foreground 'highlight "black")
-  (when (gnu-emacs-p) (set-face-foreground 'region "black"))
-  (when (gnu-emacs-p) (set-face-background 'region "limegreen"))
+  (set-face-foreground 'region "black")
+  (set-face-background 'region "limegreen")
   (set-face-foreground 'font-lock-comment-face       "darkolivegreen")
   (set-face-foreground 'font-lock-doc-face       "darkolivegreen")
   (set-face-foreground 'font-lock-string-face        "PaleGreen")
@@ -368,8 +337,8 @@
   (ala-set-primary-colors "white" "#550000")
   (set-face-background 'highlight "darkred")
   (set-face-foreground 'highlight "black")
-  (when (gnu-emacs-p) (set-face-foreground 'region "white"))
-  (when (gnu-emacs-p) (set-face-background 'region "darkred"))
+  (set-face-foreground 'region "white")
+  (set-face-background 'region "darkred")
   (set-face-foreground 'font-lock-comment-face       "red1")
   (set-face-foreground 'font-lock-doc-face       "red1")
   (set-face-foreground 'font-lock-string-face        "tomato")
@@ -391,8 +360,8 @@
   (ala-set-primary-colors "lightsteelblue" "#000022")
   (set-face-background 'highlight "royalblue")
   (set-face-foreground 'highlight "white")
-  (when (gnu-emacs-p) (set-face-foreground 'region "white"))
-  (when (gnu-emacs-p) (set-face-background 'region "royalblue"))
+  (set-face-foreground 'region "white")
+  (set-face-background 'region "royalblue")
   (set-face-foreground 'font-lock-comment-face       "#6666CC")
   (set-face-foreground 'font-lock-doc-face       "#6666CC")
   (set-face-foreground 'font-lock-string-face        "cornflowerblue")
@@ -407,14 +376,16 @@
   (set-cursor-color "white")
   )
 
+;; (ala-colors-blue)
+
 (defun ala-colors-cyan ()
   (interactive)
   (ala-dark-default)
   (ala-set-primary-colors "skyblue1" "black")
   (set-face-background 'highlight "cyan")
   (set-face-foreground 'highlight "black")
-  (when (gnu-emacs-p) (set-face-foreground 'region "black"))
-  (when (gnu-emacs-p) (set-face-background 'region "limegreen"))
+  (set-face-foreground 'region "black")
+  (set-face-background 'region "limegreen")
   (set-face-foreground 'font-lock-comment-face       "darkolivegreen")
   (set-face-foreground 'font-lock-doc-face       "darkolivegreen")
   (set-face-foreground 'font-lock-string-face        "PaleGreen")
@@ -427,8 +398,3 @@
   )
 
 ;; (ala-colors-cyan)
-
-;; (ala-colors-blue)
-
-;; (require 'htmlize)
-;; (set-face-background 'buffer-group-header-face "black")

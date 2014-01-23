@@ -3,27 +3,6 @@
 (require 'cl)
 
 ;; ----------------------------------------------------------------------
-;;; Platform Tests
-;; ----------------------------------------------------------------------
-
-(defun x-emacs-p ()
-  (string-match "XEmacs\\|Lucid" (emacs-version)))
-
-(defun gnu-emacs-p ()
-  (string-match "GNU" (emacs-version)))
-
-(defun gnu-emacs-20-p ()
-  (string-match "GNU Emacs 20" (emacs-version)))
-
-(defun win32-p ()
-  (or (and (boundp 'window-system)
-       (eq window-system 'win32))
-      (string-match "nt4.0" (emacs-version))
-      (string-match "win95" (emacs-version))
-      (string-match "win98" (emacs-version))))
-
-
-;; ----------------------------------------------------------------------
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
@@ -33,20 +12,34 @@
 ;;; Miscellany
 ;; ----------------------------------------------------------------------
 
+; Get rid of UI bloat
+(blink-cursor-mode 0)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
+(set-fringe-mode 0)
+
+; Set up the mode line
+(column-number-mode t)
+(display-time-mode t)
+(line-number-mode t)
+
+; Set OS X key bindings
 (setq x-super-keysym 'meta)
-;; (setq mac-command-key-is-meta true)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier  'super)
-(setq inhibit-splash-screen t)
+
+; Basic editing settings
 (setq truncate-partial-width-windows nil)
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'eval-expression 'disabled nil)
-(setq require-final-newline t)             ; for safety, require files to end in a newline
-(setq-default suggest-key-bindings t)      ; have emacs inform us of key-bindings
-(setq line-number-mode      t)             ; always display what line we're on
-(setq column-number-mode    t)             ; and what column
-(display-time)                             ; and what time it is
+(setq require-final-newline t)
+(setq-default suggest-key-bindings t)
+(setq default-tab-width 4)
+(setq indent-tabs-mode nil)
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
@@ -79,6 +72,7 @@
     ("\\.php$"                . c-mode)
     ("\\.m$"                  . objc-mode)
     ("\\.cp$"                 . c++-mode)
+    ("\\.rb$"                 . ruby-mode)
     ("\\.[CH]$"               . c++-mode)
     ("\\.proto"               . protobuf-mode)
     ("\\.json"               . javascript-mode)
@@ -149,13 +143,6 @@
     ("\\.txt$"                . text-mode)
     ("$"                      . fundamental-mode)
     ))
-
-;; ANSI/ISO C++ headers + PJP extra headers. Damn things have no
-;; extensions!
-;; (when (win32-p)
-  (setq auto-mode-alist
-    (cons '("\\(algorithm\\|bitset\\|complex\\|deque\\|exception\\|fstream\\|functional\\|iomanip\\|ios\\|iosfwd\\|iostream\\|istream\\|iterator\\|limits\\|list\\|locale\\|map\\|memory\\|new\\|numeric\\|ostream\\|queue\\|set\\|sstream\\|stack\\|stdexcept\\|streambuf\\|string\\|strstream\\|typeinfo\\|utility\\|valarray\\|vector\\|xutility\\|xmemory\\|xstring\\|xlocale\\|xlocmon\\|xloctime\\|xlocinfo\\|xiosbase\\|xstddef\\|xiosbase\\|xtree\\|cfloat\\|cctype\\|cassert\\|cerrno\\|ciso646\\|xlocnum\\|cstddef\\)" . c++-mode)
-          auto-mode-alist))
 
 ;; ----------------------------------------------------------------------
 ;;; Autoload
@@ -323,37 +310,6 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;; window system stuff
-
-;(cond ((and (gnu-emacs-p) window-system)
-;       (require 'mldrag)         ; modeline dragging
-;       (global-set-key [mode-line down-mouse-1] 'mldrag-drag-mode-line)
-;       (global-set-key [vertical-line down-mouse-1]
-;              'mldrag-drag-vertical-line)
-;       (global-set-key [vertical-scroll-bar c-down-mouse-1]
-;                       'mldrag-drag-vertical-line)
-;;       (load "mouse-select-2") ; cooler selection behavior, but on
-;;                 ; win32 it slightly interferes with
-;;                 ; bob's hiromi.el. must debug that
-;;                 ; someday.
-;       ))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; bob's way cool buffer list
-
-;; (require 'hiromi)
-
-;;(set-face-foreground 'buffer-group-title1  "gray80")
-;;(set-face-background 'buffer-group-title1m "darkred")
-;;(set-face-foreground 'buffer-group-title2  "gray60")
-;;(set-face-background 'buffer-group-title2m "maroon3")
-;;(set-face-foreground 'buffer-group-header-face "darkred")
-;;(set-face-background 'buffer-group-header-face "gray30")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
 ;;; key bindings
 
 ;; setup ctrl-c
@@ -383,19 +339,19 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
         (lisp-mode        . ";; ")
         (c++-mode         . "//")
         (c-mode           . "/* ")
-        (javascript-mode           . "/* ")
+        (javascript-mode  . "/* ")
         (csharp-mode      . "// ")
         (dylan-mode       . "// ")
         (java-mode        . "// ")
         (antlr-mode       . "// ")
-        (protobuf-mode       . "// ")
+        (protobuf-mode    . "// ")
         (makefile-mode    . "# ")
         (perl-mode        . "# ")
-        (python-mode        . "# ")
-        (bnf-mode        . "# ")
+        (python-mode      . "# ")
+        (bnf-mode         . "# ")
         (sgml-mode        . "<!-- ")
         (html-mode        . "<!-- ")
-        (jinja2-mode        . "<!-- ")
+        (jinja2-mode      . "<!-- ")
         (sh-mode          . "# ")
         (sql-mode         . "-- ")
         (bat-generic-mode . "rem ")
@@ -413,10 +369,10 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
         (java-mode        . "")
         (makefile-mode    . "")
         (perl-mode        . "")
-        (python-mode        . "")
+        (python-mode      . "")
         (sgml-mode        . " -->")
         (html-mode        . " -->")
-        (jinja2-mode        . " -->")
+        (jinja2-mode      . " -->")
         (sh-mode          . "")
         (sql-mode         . "")
         (bat-generic-mode . "")
@@ -456,46 +412,6 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (define-key ctl-c-keymap "i" 'comment-insert-comment-line)
 
-;; ------------------------------------------------------------
-
-
-;; Turn on syntax coloring
-(cond ((fboundp 'global-font-lock-mode)
-       ;; Turn on font-lock in all modes that support it
-       (global-font-lock-mode t)
-       ;; maximum colors
-       (setq font-lock-maximum-decoration t)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; IMENU
-
-(setq imenu-sort-function   'imenu--sort-by-name)
-;;  imenu-max-items       30)
-
-(add-hook 'emacs-lisp-mode-hook
-          (function
-           (lambda ()
-             (setq imenu-create-index-function
-                   (function imenu-example--create-lisp-index))
-         (imenu-add-to-menubar "Functions"))))
-
-
-(add-hook 'lisp-mode-hook
-          (function
-           (lambda ()
-             (setq imenu-create-index-function
-                   (function imenu-example--create-lisp-index))
-         (imenu-add-to-menubar "Functions"))))
-
-(add-hook 'c-mode-common-hook
-      (function
-       (lambda ()
-         (setq imenu-create-index-function
-           (function imenu-default-create-index-function))
-         (imenu-add-to-menubar "Functions"))))
-
-
 (defconst my-protobuf-style
   '((c-basic-offset . 4)
     (indent-tabs-mode . nil)))
@@ -503,60 +419,25 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 (add-hook 'protobuf-mode-hook
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
 
-;;(set-default-font "-misc-fixed-medium-r-normal--10-100-75-*-c-60-*-*")
 ;;(set-default-font "DejaVu Sans Mono 11")
-;;(set-default-font "-misc-fixed-medium-*-*-*-10-*-*-*-*-*-*-*")
 ;;(set-default-font "6x10")
 ;;(set-default-font "6x12")
 ;;(set-default-font "6x13")
 ;;(set-default-font "Anonymous Pro 8")
 ;;(set-default-font "Anonymous Pro Bold 10")
-(set-default-font "Anonymous Pro Bold 12")
+;;(set-default-font "Anonymous Pro Bold 14")
 (set-default-font "Anonymous Pro 12")
+;;(set-default-font "Meslo LG L DZ 10")
+;;(set-default-font "Meslo LG M DZ 10")
+;;(set-default-font "Meslo LG M DZ 12")
+;;(set-default-font "Meslo LG M DZ Bold 11")
+;;(set-default-font "Meslo LG L DZ 11")
+;;(set-default-font "Meslo LG M DZ 11")
+;;(set-default-font "Meslo LG S DZ 11")
+;;(set-default-font "Meslo LG M DZ 10")
+;;(set-default-font "Meslo LG S DZ 10")
+;;(set-default-font "ProFont 11")
 
-;(set-default-font "Meslo LG L DZ 10")
-;(set-default-font "Meslo LG M DZ 10")
-;(set-default-font "Meslo LG M DZ 12")
-;(set-default-font "Meslo LG M DZ Bold 11")
-;(set-default-font "Meslo LG L DZ 11")
-;(set-default-font "Meslo LG M DZ 11")
-;(set-default-font "Meslo LG S DZ 11")
 
-;(set-default-font "Meslo LG M DZ 10")
-;(set-default-font "Meslo LG S DZ 10")
-;(set-default-font "Meslo LG M DZ 9")
-(set-default-font "Meslo LG S DZ 9")
-;(set-default-font "Meslo LG M DZ 8")
-;(set-default-font "Meslo LG S DZ 10")
-
-;; (ala-dark-default)
-(ala-colors-3)
-;;(ala-colors-6)
-;;(ala-colors-7)
-;;(ala-colors-green)
-;;(ala-colors-red)
-;;(ala-colors-blue)
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(display-time-mode t)
- '(fringe-mode 0 nil (fringe))
- '(indent-tabs-mode nil)
- '(scroll-bar-mode (quote right))
- '(tool-bar-mode nil))
-
-(setq default-tab-width 4)
-(setq indent-tabs-mode nil)
-
-(message "Emacs: Swap space -- The final frontier")
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+(ala-dark-default)
 (server-start)
