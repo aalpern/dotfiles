@@ -1,43 +1,32 @@
 ;; -*- mode:emacs-lisp -*-
 
-(setq font-lock-background-mode 'dark)
-(setq font-lock-maximum-size nil)
-
 (setq-default font-lock-auto-fontify  t
-              font-lock-use-fonts     nil
+              font-lock-use-fonts     t
               font-lock-use-colors    t
               font-lock-use-maximal-decoration  t
               font-lock-mode-disable-list       nil)
 
 (require 'font-lock)
-;; do more highlighting
-
-(setq font-lock-maximum-decoration t)
-(setq lisp-font-lock-keywords lisp-font-lock-keywords-2)
 (global-font-lock-mode t)
 
-;;----------------------------------------------------------------------
-;;; COMMON
+(setq font-lock-maximum-decoration t)
+(setq font-lock-background-mode 'dark)
+(setq font-lock-maximum-size nil)
+(setq lisp-font-lock-keywords lisp-font-lock-keywords-2)
 
-;(set-face-foreground 'default "gray95")
-;(set-face-background 'default "black")
+;; =============================================================================
+;;; Common
+
 (set-face-background 'highlight "darkslateblue")
 (set-face-foreground 'highlight "white")
-;(set-face-foreground 'region "black")
-;(set-face-background 'region "wheat")
-(set-face-foreground 'secondary-selection "black")
-
-;;(define-key global-map "\C-l" 'recenter-and-color)
-
-;;(defun recenter-and-color ()
-;;  (interactive)
-;;  (recenter))
+;(set-face-foreground 'region "white")
+;(set-face-background 'region "darkslateblue")
 
 (set-cursor-color "red")
 
 (defun ala-background-color (color)
   (set-face-background 'default color)
-  ;; (set-face-background 'fringe color)
+  (set-face-background 'fringe color)
   (set-background-color color)
   (set-cursor-color "red"))
 
@@ -45,31 +34,23 @@
   (interactive)
   (ala-background-color "white")
   (set-face-foreground 'default "Black")
-;  (set-face-foreground 'modeline "White")
-;  (set-face-background 'modeline "Black")
   (set-foreground-color "Black"))
 
 (defun ala-background-black ()
   (interactive)
   (ala-background-color "black")
   (set-face-foreground 'default "Gray95")
-;  (set-face-foreground 'modeline "Black")
-;  (set-face-background 'modeline "Wheat")
   (set-foreground-color "Gray95"))
 
 (defun ala-background-charcoal ()
   (interactive)
   (ala-background-color "Gray15")
   (set-face-foreground 'default "Gray95")
-;  (set-face-foreground 'modeline "Black")
-;  (set-face-background 'modeline "Gray95")
   (set-foreground-color "Gray95"))
 
-;; (ala-background-charcoal)
-;; (ala-background-white)
-;; (ala-background-black)
 
-;; (set-face-foreground 'font-lock-comment-face       "gray70")
+;; =============================================================================
+;;; Themes
 
 (defun ala-charcoal ()
   (interactive)
@@ -77,9 +58,7 @@
   (ala-background-color "Gray13")
   (set-face-foreground 'region "black")
   (set-face-background 'region "gray50")
-
   (set-face-foreground 'default "Gray85")
-
   (set-face-foreground 'font-lock-comment-face       "Gray33")
   (set-face-foreground 'font-lock-keyword-face       "white")
   (set-face-foreground 'font-lock-string-face        "gray66")
@@ -88,8 +67,8 @@
   (set-face-foreground 'font-lock-type-face          "white")
   (set-face-foreground 'font-lock-constant-face      "white")
   (set-face-foreground 'font-lock-builtin-face      "gray44")
-  (set-cursor-color "white")
-  )
+  (set-cursor-color "white"))
+
 ;; (ala-charcoal)
 
 (set-face-bold-p 'font-lock-function-name-face t)
@@ -101,7 +80,6 @@
   (set-face-foreground 'highlight "white")
   (set-face-foreground 'region "black")
   (set-face-background 'region "wheat")
-
   (set-face-foreground 'font-lock-comment-face "OrangeRed")
   (set-face-foreground 'font-lock-doc-face "OrangeRed")
   (set-face-foreground 'font-lock-keyword-face "LightSteelBlue")
@@ -110,15 +88,13 @@
   (set-face-foreground 'font-lock-variable-name-face "LightGoldenrod")
   (set-face-foreground 'font-lock-type-face "PaleGreen")
   (set-face-foreground 'font-lock-constant-face "Aquamarine")
-  (set-cursor-color "green")
-  )
+  (set-cursor-color "green"))
 
 ;; (ala-dark-default)
 
 (defun ala-light-default()
   (interactive)
   (ala-background-white)
-
   (set-face-foreground 'font-lock-comment-face "Firebrick")
   (set-face-foreground 'font-lock-doc-face "Firebrick")
   (set-face-foreground 'font-lock-keyword-face "Purple")
@@ -142,7 +118,6 @@
 (defun ala-colors-3 ()
   (interactive)
   (ala-light-default)
-
   (ala-background-color "wheat")
   (set-face-background 'region "Darkslateblue")
   (set-face-foreground 'region "Gray90")
@@ -158,8 +133,7 @@
   (set-face-foreground 'font-lock-function-name-face "medium blue")
   (set-face-bold-p 'font-lock-type-face t)
   (set-face-bold-p 'font-lock-function-name-face t)
-  (set-cursor-color "red")
-)
+  (set-cursor-color "green"))
 
 (defun ala-colors-6 ()
   (interactive)
@@ -193,8 +167,7 @@
   (set-face-foreground 'font-lock-variable-name-face "green")
   (set-face-foreground 'font-lock-constant-face      "palegreen")
   (set-face-bold-p 'font-lock-variable-name-face t)
-  (set-cursor-color "red")
-  )
+  (set-cursor-color "red"))
 
 ;; (ala-colors-green)
 
@@ -212,12 +185,10 @@
   (set-face-foreground 'font-lock-keyword-face       "orange red")
   (set-face-foreground 'font-lock-function-name-face "orange")
   (set-face-foreground 'font-lock-variable-name-face "yellow")
-  ;; (set-face-foreground 'font-lock-reference-face "yellow")
   (set-face-foreground 'font-lock-constant-face      "yellow")
   (set-face-foreground 'font-lock-type-face "yellow")
   (set-face-bold-p 'font-lock-variable-name-face t)
-  (set-cursor-color "white")
-  )
+  (set-cursor-color "white"))
 
 ;; (ala-colors-red)
 
@@ -232,16 +203,13 @@
   (set-face-foreground 'font-lock-comment-face       "#6666CC")
   (set-face-foreground 'font-lock-doc-face       "#6666CC")
   (set-face-foreground 'font-lock-string-face        "cornflowerblue")
-  ;; (set-face-foreground 'font-lock-comment-face       "darkslateblue")
-  ;; (set-face-foreground 'font-lock-doc-face       "darkslateblue")
   (set-face-foreground 'font-lock-keyword-face       "dodger blue")
   (set-face-foreground 'font-lock-function-name-face "dark turquoise")
   (set-face-foreground 'font-lock-variable-name-face "deep sky blue")
   (set-face-foreground 'font-lock-constant-face      "aquamarine")
   (set-face-foreground 'font-lock-type-face "cyan")
   (set-face-bold-p 'font-lock-variable-name-face t)
-  (set-cursor-color "white")
-  )
+  (set-cursor-color "white"))
 
 ;; (ala-colors-blue)
 
@@ -261,8 +229,7 @@
   (set-face-foreground 'font-lock-variable-name-face "green")
   (set-face-foreground 'font-lock-constant-face      "palegreen")
   (set-face-bold-p 'font-lock-variable-name-face t)
-  (set-cursor-color "red")
-  )
+  (set-cursor-color "red"))
 
 ;; (ala-colors-cyan)
 
