@@ -19,7 +19,6 @@
 (setq initial-scratch-message "")
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
-(set-fringe-mode 0)
 
 ; Set up the mode line
 (column-number-mode t)
@@ -39,8 +38,26 @@
 (put 'eval-expression 'disabled nil)
 (setq require-final-newline t)
 (setq-default suggest-key-bindings t)
+(setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
+
+;; ----------------------------------------------------------------------
+;;; Packages
+;; ----------------------------------------------------------------------
+
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+;; Git integration
+(require 'fringe-helper)
+(require 'git-gutter+)
+(require 'git-gutter-fringe+)
+(global-git-gutter+-mode t)
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
