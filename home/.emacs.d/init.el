@@ -53,11 +53,16 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+(let ((packages '(git-gutter+
+                  protobuf-mode
+                  rainbow-mode)))
+  (mapc (function (lambda (package)
+                    (if (not (package-installed-p package))
+                        (package-install package))))
+        packages))
+
 ;; Git integration
 (require 'fringe-helper)
-(if (not (package-installed-p 'git-gutter+))
-    (package-install 'git-gutter+))
-
 (require 'git-gutter+)
 (require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
@@ -195,6 +200,7 @@
 (autoload 'clojure-mode "clojure-mode" nil t)
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
 (autoload 'antlr-mode "antlr-mode" nil t)
+(autoload 'protobuf-mode "protobuf-mode" nil t)
 
 ;; -----------------------------------------------------------------------------
 ;; Wiki support
