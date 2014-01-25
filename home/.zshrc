@@ -3,7 +3,6 @@
 _load() {
     file=~/.zsh/$1
     if [[ -f $file ]]; then
-#        echo "_Loading $file..."
         source $file
     fi
 }
@@ -18,5 +17,6 @@ _load prompt
 _load rc.common
 _load rc.os.$OS
 _load rc.host.$HOST
+_load local
 
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
