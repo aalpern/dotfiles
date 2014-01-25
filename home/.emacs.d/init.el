@@ -64,9 +64,6 @@
 ;; Modern-looking modeline
 (require 'powerline)
 (powerline-default-theme)
-(set-face-attribute 'mode-line nil
-                    :background "firebrick"
-                    :box nil)
 
 ;; Git integration
 (require 'fringe-helper)
@@ -482,4 +479,5 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 ;;(ala-dark-default)
 (load-theme 'aalpern-dark t)
+;;(load-theme 'aalpern-autumn-light t)
 (server-start)
