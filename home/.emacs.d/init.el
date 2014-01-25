@@ -480,5 +480,6 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 ;;(set-default-font "ProFont 11")
 ;;(set-default-font "ProFont 12")
 
-(ala-dark-default)
+;;(ala-dark-default)
+(load-theme 'aalpern-dark t)
 (server-start)

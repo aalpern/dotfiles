@@ -231,7 +231,3 @@
   (set-cursor-color "red"))
 
 ;; (ala-colors-cyan)
-
-(set-face-attribute 'mode-line nil
-                    :background "firebrick"
-                    :box nil)
