@@ -57,14 +57,25 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(let ((packages '(git-gutter+
-                  protobuf-mode
-                  powerline
-                  rainbow-mode)))
-  (mapc (function (lambda (package)
-                    (if (not (package-installed-p package))
-                        (package-install package))))
-        packages))
+(labels ((installed-p (packages)
+                      (loop for p in packages
+                            when (not (package-installed-p p))
+                            do (return nil)
+                            finally (return t))))
+  (let ((packages '(
+                    powerline
+                    git-gutter+
+                    protobuf-mode
+                    rainbow-mode
+                    markdown-mode
+                    jinja2-mode
+                    lua-mode
+                    )))
+    (when (not (installed-p packages))
+      (package-refresh-contents)
+      (dolist (p packages)
+        (unless (package-installed-p p)
+          (package-install p))))))
 
 ;; Modern-looking modeline
 (require 'powerline)
@@ -96,90 +107,81 @@
 
 (setq auto-mode-alist
       '(
-    ;; SQL
-    ("\\.\\(sql\\|prc\\|TRG\\|TAB\\)$"                . sql-mode)
-    ("\\.\\(dir\\|dat\\)$"    . hexl-mode)
-    ;; Assorted and Sundry C varieties
-    ("\\.c$"                  . c++-mode)
-    ("\\.h$"                  . c++-mode)
-    ("\\.y$"                  . c-mode)
-    ("\\.l$"                  . c-mode)
-    ("\\.php$"                . c++-mode)
-    ("\\.m$"                  . objc-mode)
-    ("\\.cp$"                 . c++-mode)
-    ("\\.rb$"                 . ruby-mode)
-    ("\\.[CH]$"               . c++-mode)
-    ("\\.proto"               . protobuf-mode)
-    ("\\.json"               . javascript-mode)
-    ("\\.rst"               . rst-mode)
-    ("\\.\\(cc\\|hh\\|cs\\|pde\\)$" . c++-mode)
-    ("\\.\\(tli\\|tlh\\)$"    . c++-mode)
-    ("\\.\\(cxx\\|hxx\\)$"    . c++-mode)
-    ("\\.\\(cpp\\|hpp\\|inl\\)$"    . c++-mode)
-    ("\\.\\(java\\|mocha\\|policy\\|jsp\\|jad\\|j\\|bsh\\|djava\\)$" . java-mode)
-    ("\\.\\(mm\\|m\\)$"       . objc-mode)
-    ("\\.\\(idl\\|midl\\)$"   . c++-mode) ;; idl-mode is probably good enough to use now, look into it
-
-    ("\\.rb$"                . ruby-mode)
-    ("\\.proto$"                . java-mode)
-    ;; Assorted and sundry LISP varieties
-    ("\\.scm$"                . scheme-mode)
-    ("\\.el$"                 . emacs-lisp-mode)
-    ("\\.emacs*"              . emacs-lisp-mode)
-    ("\\.clj$"                . lisp-mode)
-    ("\\.lisp$"               . lisp-mode)
-    ("\\.lsp$"                . lisp-mode)
-    ("\\.system$"             . lisp-mode) ; defsystem files
-    ("\\.\\(dyl\\|dylan\\)"   . dylan-mode)
-
-    ("\\.s$"                   . asm-mode)
-    ("\\.tar$"                 . tar-mode)
-    ("\\.[A-Ya-y]*shrc$"       . shell-script-mode)
-    ("\\.dbx*"                 . shell-script-mode)
-    ("\\.\\(texi\\|txi\\)$"    . texinfo-mode)
-    ("\\.\\(md\\|markdown\\)$" . markdown-mode)
-    ("\\.tex$"                 . latex-mode)
-    ("\\.bib$"                 . bibtex-mode)
-
-    ;; Makefiles
-    ("[mM]akefile$"           . makefile-mode)
-    ("[mM]akefile.*$"         . makefile-mode)
-    ("Imakefile$"             . makefile-mode)
-    ("\\.\\(mak\\|properties\\|mk\\)$"                . makefile-mode)
-
-    ;; Miscellaneous & sundry scripting languages
-    ("\\.\\(py\\|python\\)$"  . python-mode)
-    ("\\.lua$"                . lua-mode)
-    ("\\.\\(pl\\|pm\\)$"      . perl-mode)
-    ("\\.php$"                . php-mode)
-    ("\\.js$"                . javascript-mode)
-    ("\\.g"                  . antlr-mode)
-
-    ;; Markup
-    ("\\.\\(sgml\\|dtd\\)" . sgml-mode)
-    ("\\.\\(xml\\|cml\\|xsd\\|idx\\|iqx\\)" . xml-mode)
-    ("\\.\\(aspx\\|asp\\|resx\\|ascx\\|msbuild\\)$"                . xml-mode)
-    ("\\.\\(htm\\|html\\|htmx\\)$" . html-mode)
-    ("\\.css$"                . css-mode)
-
-    ;; Windows stuff
-    ("\\.bat$"                . bat-generic-mode)
-    ("\\.cmd$"                . bat-generic-mode)
-    ("\\.\\(ini\\|cfg\\)$"    . ini-generic-mode)
-    ("\\.inf$"                . inf-generic-mode)
-    ("\\.reg$"                . reg-generic-mode)
-    ("\\.rc$"                 . rc-generic-mode)
-    ("\\.rc2$"                . rc-generic-mode)
-    ("\\.rul$"                . rul-generic-mode)
-    ("\\.isl$"                . isl-mode)
-
-
-    ;; Graphviz Dot
-    ("\\.dot$"                . graphviz-dot-mode)
-
-    ("\\.txt$"                . text-mode)
-    ("$"                      . fundamental-mode)
-    ))
+        ;; SQL
+        ("\\.\\(sql\\|prc\\|TRG\\|TAB\\)$"                               . sql-mode)
+        ("\\.\\(dir\\|dat\\)$"                                           . hexl-mode)
+        ;; Assorted and Sundry C varieties
+        ("\\.c$"                                                         . c++-mode)
+        ("\\.h$"                                                         . c++-mode)
+        ("\\.y$"                                                         . c-mode)
+        ("\\.l$"                                                         . c-mode)
+        ("\\.php$"                                                       . c++-mode)
+        ("\\.m$"                                                         . objc-mode)
+        ("\\.cp$"                                                        . c++-mode)
+        ("\\.rb$"                                                        . ruby-mode)
+        ("\\.[CH]$"                                                      . c++-mode)
+        ("\\.proto"                                                      . protobuf-mode)
+        ("\\.json"                                                       . javascript-mode)
+        ("\\.rst"                                                        . rst-mode)
+        ("\\.\\(cc\\|hh\\|cs\\|pde\\)$"                                  . c++-mode)
+        ("\\.\\(tli\\|tlh\\)$"                                           . c++-mode)
+        ("\\.\\(cxx\\|hxx\\)$"                                           . c++-mode)
+        ("\\.\\(cpp\\|hpp\\|inl\\)$"                                     . c++-mode)
+        ("\\.\\(java\\|mocha\\|policy\\|jsp\\|jad\\|j\\|bsh\\|djava\\)$" . java-mode)
+        ("\\.\\(mm\\|m\\)$"                                              . objc-mode)
+        ("\\.\\(idl\\|midl\\)$"                                          . c++-mode) ;; idl-mode is probably good enough to use now, look into it
+        ("\\.rb$"                                                        . ruby-mode)
+        ("\\.proto$"                                                     . java-mode)
+        ;; Assorted and sundry LISP varieties
+        ("\\.scm$"                                                       . scheme-mode)
+        ("\\.el$"                                                        . emacs-lisp-mode)
+        ("\\.emacs*"                                                     . emacs-lisp-mode)
+        ("\\.clj$"                                                       . lisp-mode)
+        ("\\.lisp$"                                                      . lisp-mode)
+        ("\\.lsp$"                                                       . lisp-mode)
+        ("\\.system$"                                                    . lisp-mode) ; defsystem files
+        ("\\.\\(dyl\\|dylan\\)"                                          . dylan-mode)
+        ("\\.s$"                                                         . asm-mode)
+        ("\\.tar$"                                                       . tar-mode)
+        ("\\.[A-Ya-y]*shrc$"                                             . shell-script-mode)
+        ("\\.dbx*"                                                       . shell-script-mode)
+        ("\\.\\(texi\\|txi\\)$"                                          . texinfo-mode)
+        ("\\.\\(md\\|markdown\\)$"                                       . markdown-mode)
+        ("\\.tex$"                                                       . latex-mode)
+        ("\\.bib$"                                                       . bibtex-mode)
+        ;; Makefiles
+        ("[mM]akefile$"                                                  . makefile-mode)
+        ("[mM]akefile.*$"                                                . makefile-mode)
+        ("Imakefile$"                                                    . makefile-mode)
+        ("\\.\\(mak\\|properties\\|mk\\)$"                               . makefile-mode)
+        ;; Miscellaneous & sundry scripting languages
+        ("\\.\\(py\\|python\\)$"                                         . python-mode)
+        ("\\.lua$"                                                       . lua-mode)
+        ("\\.\\(pl\\|pm\\)$"                                             . perl-mode)
+        ("\\.php$"                                                       . php-mode)
+        ("\\.js$"                                                        . javascript-mode)
+        ("\\.g"                                                          . antlr-mode)
+        ;; Markup
+        ("\\.\\(sgml\\|dtd\\)"                                           . sgml-mode)
+        ("\\.\\(xml\\|cml\\|xsd\\|idx\\|iqx\\)"                          . xml-mode)
+        ("\\.\\(aspx\\|asp\\|resx\\|ascx\\|msbuild\\)$"                  . xml-mode)
+        ("\\.\\(htm\\|html\\|htmx\\)$"                                   . html-mode)
+        ("\\.css$"                                                       . css-mode)
+        ;; Windows stuff
+        ("\\.bat$"                                                       . bat-generic-mode)
+        ("\\.cmd$"                                                       . bat-generic-mode)
+        ("\\.\\(ini\\|cfg\\)$"                                           . ini-generic-mode)
+        ("\\.inf$"                                                       . inf-generic-mode)
+        ("\\.reg$"                                                       . reg-generic-mode)
+        ("\\.rc$"                                                        . rc-generic-mode)
+        ("\\.rc2$"                                                       . rc-generic-mode)
+        ("\\.rul$"                                                       . rul-generic-mode)
+        ("\\.isl$"                                                       . isl-mode)
+        ;; Graphviz Dot
+        ("\\.dot$"                                                       . graphviz-dot-mode)
+        ("\\.txt$"                                                       . text-mode)
+        ("$"                                                             . fundamental-mode)
+        ))
 
 ;; ----------------------------------------------------------------------
 ;;; Autoload
