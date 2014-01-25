@@ -63,6 +63,7 @@
 
 ;; Modern-looking modeline
 (require 'powerline)
+(powerline-default-theme)
 (set-face-attribute 'mode-line nil
                     :background "firebrick"
                     :box nil)
