@@ -71,6 +71,7 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
+(show-paren-mode 1)
 
 ;; Modern-looking modeline
 (require 'powerline)
@@ -78,6 +79,8 @@
 
 ;; Git integration
 (require 'git-gutter+)
+;; Uncomment these lines for the fringe version, which can be used
+;; with linenum mode or put on the right side of the buffer.
 ;;(require 'fringe-helper)
 ;;(require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
@@ -204,18 +207,6 @@
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
 (autoload 'protobuf-mode "protobuf-mode" nil t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; follow-mode
-;;
-;; as you move through the lines of an output buffer (such as from
-;; `grep' or `occur'), another window highlights the corresponding
-;; line of the source buffer. very cool.
-
-;;(require 'fm)
-;;(add-hook 'occur-mode-hook 'fm-start)
-;;(add-hook 'compilation-mode-hook 'fm-start)
-
 ;; awesome extension to outline-minor-mode. code which follows the
 ;; commenting conventions in lisp-mnt.el in the emacs distribution
 ;; really wins big here.
@@ -287,7 +278,5 @@
 ;;(set-default-font "ProFont 11")
 ;;(set-default-font "ProFont 12")
 
-;;(ala-dark-default)
 (load-theme 'aalpern-dark t)
-;;(load-theme 'aalpern-autumn-light t)
 (server-start)

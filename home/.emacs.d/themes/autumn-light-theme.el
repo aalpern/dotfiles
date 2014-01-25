@@ -1,8 +1,7 @@
-(deftheme aalpern-autumn-light
-  "Created 2014-01-24.")
+(deftheme autumn-light)
 
 (custom-theme-set-faces
- 'aalpern-autumn-light
+ 'autumn-light
 
  '(default ((t (:foreground "black" :background "wheat" :inherit nil))))
  '(fringe ((t (:background "wheat"))))
@@ -45,4 +44,4 @@
  '(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
  )
 
-(provide-theme 'aalpern-autumn-light)
+(provide-theme 'autumn-light)
