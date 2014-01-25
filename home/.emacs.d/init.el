@@ -10,6 +10,36 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;; ----------------------------------------------------------------------
+;;; Packages
+;; ----------------------------------------------------------------------
+
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(labels ((installed-p (packages)
+                      (loop for p in packages
+                            when (not (package-installed-p p))
+                            do (return nil)
+                            finally (return t))))
+  (let ((packages '(
+                    powerline
+                    git-gutter+
+                    protobuf-mode
+                    rainbow-mode
+                    markdown-mode
+                    jinja2-mode
+                    lua-mode
+                    ido-vertical-mode
+                    )))
+    (when (not (installed-p packages))
+      (package-refresh-contents)
+      (dolist (p packages)
+        (unless (package-installed-p p)
+          (package-install p))))))
+
+;; ----------------------------------------------------------------------
 ;;; Miscellany
 ;; ----------------------------------------------------------------------
 
@@ -42,50 +72,20 @@
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
 
-;; Stuff to check out...
-;; ido-mode
-;; ido-vertical-mode
-
-;; ----------------------------------------------------------------------
-;;; Packages
-;; ----------------------------------------------------------------------
-
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-(labels ((installed-p (packages)
-                      (loop for p in packages
-                            when (not (package-installed-p p))
-                            do (return nil)
-                            finally (return t))))
-  (let ((packages '(
-                    powerline
-                    git-gutter+
-                    protobuf-mode
-                    rainbow-mode
-                    markdown-mode
-                    jinja2-mode
-                    lua-mode
-                    )))
-    (when (not (installed-p packages))
-      (package-refresh-contents)
-      (dolist (p packages)
-        (unless (package-installed-p p)
-          (package-install p))))))
-
 ;; Modern-looking modeline
 (require 'powerline)
 (powerline-default-theme)
 
 ;; Git integration
-(require 'fringe-helper)
 (require 'git-gutter+)
-(require 'git-gutter-fringe+)
+;;(require 'fringe-helper)
+;;(require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
+
+;; Better buffer switching
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
@@ -199,105 +199,10 @@
 (autoload 'reg-generic-mode "generic-extras" "Mode for editing Windows Registry files" t)
 (autoload 'rc-generic-mode  "generic-extras" "Mode for editing Windows Resource files" t)
 (autoload 'rul-generic-mode "generic-extras" "Mode for editing InstallShield RUL files" t)
-(autoload 'sqlplus  "sql-mode" "Run an interactive SQL*plus session in a separate buffer." t)
-(autoload 'sql-mode "sql-mode" "Major mode for editing SQL*plus batch files." t)
-(autoload 'html-helper-mode "html-helper-mode" "Major mode for editing HTML source.")
 (autoload 'dylan-mode "dylan-mode" "Major mode for editing Dylan(tm) source code.")
-(autoload 'matlab-mode  "matlab" "Major mode for editing MatLab source code." t)
-(autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
-(autoload 'htmlize-buffer "htmlize" nil t)
-(autoload 'isl-mode "isl-mode" nil t)
-(autoload 'php-mode "php-mode" nil t)
 (autoload 'clojure-mode "clojure-mode" nil t)
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
-(autoload 'antlr-mode "antlr-mode" nil t)
 (autoload 'protobuf-mode "protobuf-mode" nil t)
-
-;; -----------------------------------------------------------------------------
-;; Wiki support
-;; -----------------------------------------------------------------------------
-
-(autoload 'wikipedia-mode "wikipedia-mode.el"
-  "Major mode for editing documents in Wikipedia markup." t)
-(autoload 'longlines-mode "longlines.el"
-   "Minor mode for editing long lines." t)
-
-(add-to-list 'auto-mode-alist '("\\.wiki\\'" . wikipedia-mode))
-
-;; ----------------------------------------------------------------------
-;;; Mode-specific configuration
-;; ----------------------------------------------------------------------
-
-;; (setq interpreter-mode-alist
-;;  (cons '("python" . python-mode) interpreter-mode-alist))
-
-
-(add-hook 'sql-mode-hook
-          (function (lambda () (font-lock-mode 1)
-                      (abbrev-mode 0))))
-
-(add-hook 'dylan-mode-hook
-      (function (lambda ()
-              (font-lock-mode 1))))
-
-(add-hook 'sgml-mode-hook
-      (function (lambda ()
-              (font-lock-mode 1))))
-
-(random t)
-
-(defun insert-random-uuid ()
-  "Insert a random universally unique identifier (UUID).
-
-UUID is a 32 digits hexadecimal formatted in certain way with dash.
-Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
-."
-  (interactive)
-  (insert
-   (format "%04x%04x-%04x-%04x-%04x-%06x%06x"
-           (random (expt 16 4))
-           (random (expt 16 4))
-           (random (expt 16 4))
-           (random (expt 16 4))
-           (random (expt 16 4))
-           (random (expt 16 6))
-           (random (expt 16 6)) ) ) )
-
-(defun insert-random-device-token ()
-  "Insert a random iOS device token (64 hex characters)."
-  (interactive)
-  (insert
-   (upcase
-    (format "%08x%08x%08x%08x%08x%08x%08x%08x"
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))
-            (random (expt 16 8))))))
-
-(defun insert-random-device-pin ()
-  "Insert a random Blackberry device PIN (8 hex chars)"
-  (interactive)
-  (insert
-   (format "%08x" (random (expt 16 8)))))
-
-(define-generic-mode 'bnf-mode
-  () ;; comment char: inapplicable because # must be at start of line
-  nil ;; keywords
-  '(
-    ("^#.*" . 'font-lock-comment-face) ;; comments at start of line
-    ("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
-    ("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
-    ("::=" . 'font-lock-warning-face) ;; "goes-to" symbol
-    ("\|" . 'font-lock-warning-face) ;; "OR" symbol
-    ("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
-    )
-  '("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
-  nil ;; extra function hooks
-  "Major mode for BNF highlighting.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -348,116 +253,14 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
      '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
   compilation-error-regexp-alist))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; key bindings
-
-;; setup ctrl-c
-(defvar ctl-c-keymap nil)
-(setq ctl-c-keymap (make-keymap))
-(defun ctl-c-prefix () ctl-c-keymap)
-(global-set-key "\C-c" (ctl-c-prefix))
-; (global-set-key "\t" (tab-to-tab-stop))
-
-(define-key esc-map "h" 'eval-buffer)
-(define-key esc-map "g" 'goto-line)
-(define-key esc-map " " 'lisp-complete-symbol)
-(define-key esc-map "c" 'compile)
-(define-key esc-map "a" 'align-current)
-
-(defun pretty-align-all-the-things ()
-  (interactive)
-  (align-current))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; simple comment insertion
-
-(defvar comment-mode-prefix-alist nil)
-(setq comment-mode-prefix-alist
-      '((emacs-lisp-mode  . ";; ")
-        (lisp-mode        . ";; ")
-        (c++-mode         . "//")
-        (c-mode           . "/* ")
-        (javascript-mode  . "/* ")
-        (csharp-mode      . "// ")
-        (dylan-mode       . "// ")
-        (java-mode        . "// ")
-        (antlr-mode       . "// ")
-        (protobuf-mode    . "// ")
-        (makefile-mode    . "# ")
-        (perl-mode        . "# ")
-        (python-mode      . "# ")
-        (bnf-mode         . "# ")
-        (sgml-mode        . "<!-- ")
-        (html-mode        . "<!-- ")
-        (jinja2-mode      . "<!-- ")
-        (sh-mode          . "# ")
-        (sql-mode         . "-- ")
-        (bat-generic-mode . "rem ")
-        (text-mode        . "")))
-
-(defvar comment-mode-postfix-alist nil)
-(setq comment-mode-postfix-alist
-      '((emacs-lisp-mode  . "")
-        (lisp-mode        . "")
-        (csharp-mode      . "")
-        (c++-mode         . "")
-        (c-mode           . " */")
-        (javascript-mode  . " */")
-        (dylan-mode       . "")
-        (java-mode        . "")
-        (makefile-mode    . "")
-        (perl-mode        . "")
-        (python-mode      . "")
-        (sgml-mode        . " -->")
-        (html-mode        . " -->")
-        (jinja2-mode      . " -->")
-        (sh-mode          . "")
-        (sql-mode         . "")
-        (bat-generic-mode . "")
-        (text-mode        . "")))
-
-(defvar *comment-mode-last-char* "=")
-
-(defvar *comment-mode-length* 76)
-(setq *comment-mode-length* 77)
-
-(defun comment-mode-prefix ()
-  (interactive)
-  (or (cdr (assoc major-mode comment-mode-prefix-alist)) ""))
-
-(defun comment-mode-postfix ()
-  (interactive)
-  (or (cdr (assoc major-mode comment-mode-postfix-alist)) ""))
-
-(defun comment-insert-line-of-char (char)
-  (dotimes (n *comment-mode-length*)
-    (insert char)))
-
-(defun comment-insert-comment-line (char)
-  (interactive (comment-char-prompt "character" *comment-mode-last-char*))
-  (insert (comment-mode-prefix))
-  ;;(insert " ")
-  (comment-insert-line-of-char char)
-  (insert (comment-mode-postfix))
-  (setq *comment-mode-last-char* char))
-
-(defun comment-char-prompt (prompt default)
-  (list (let* ((prompt (if default
-               (format "%s (default %s): " prompt default)
-             (concat prompt ": ")))
-           (ans (read-string prompt)))
-      (if (zerop (length ans)) default ans))))
-
-(define-key ctl-c-keymap "i" 'comment-insert-comment-line)
-
 (defconst my-protobuf-style
   '((c-basic-offset . 4)
     (indent-tabs-mode . nil)))
 
 (add-hook 'protobuf-mode-hook
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
+
+(load "~/.emacs.d/aalpern-utils.el")
 
 ;;(set-default-font "DejaVu Sans Mono 11")
 ;;(set-default-font "DejaVu Sans Mono 9")
