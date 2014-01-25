@@ -6,7 +6,7 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
-(add-to-list 'load-path              "~/.emacs.d/site-lisp"a)
+(add-to-list 'load-path              "~/.emacs.d/site-lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;; ----------------------------------------------------------------------
