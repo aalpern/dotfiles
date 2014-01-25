@@ -7,12 +7,15 @@
  '(default ((t (:foreground "black" :background "wheat" :inherit nil))))
  '(fringe ((t (:background "wheat"))))
  '(cursor ((t (:background "red"))))
-
  '(highlight ((t (:foreground "white" :background "DarkSlateBlue"))))
  '(region ((t (:foreground "gray90" :background "DarkSlateBlue"))))
+ '(button ((t (:inherit (link)))))
+ '(link ((t (:underline (:color foreground-color :style line) :foreground "DarkSlateBlue"))))
+ '(link-visited ((t (:foreground "Purple" :underline (:color foreground-color :style line)))))
 
  '(trailing-whitespace ((((class color) (background light)) (:background "red1")) (((class color) (background dark)) (:background "red1")) (t (:inverse-video t))))
 
+ ;; font-lock
  '(font-lock-builtin-face ((t (:foreground "MediumPurple4"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "firebrick4"))))
  '(font-lock-comment-face ((t (:foreground "firebrick4"))))
@@ -29,17 +32,17 @@
  '(font-lock-variable-name-face ((t (:foreground "DarkGreen"))))
  '(font-lock-warning-face ((t (:foreground "red"))))
 
+ ;; powerline
  '(powerline-active1 ((t (:foreground "white" :background "gray20"))))
  '(powerline-active2 ((t (:foreground "gray90" :background "gray40"))))
  '(powerline-inactive1 ((t (:foreground "gray70" :background "gray20"))))
  '(powerline-inactive2 ((t (:foreground "gray60" :background "gray40"))))
  '(mode-line ((t (:foreground "white" :background "firebrick" :box nil))))
 
- '(button ((t (:inherit (link)))))
-
- '(link ((t (:underline (:color foreground-color :style line) :foreground "DarkSlateBlue"))))
- '(link-visited ((t (:foreground "Purple" :underline (:color foreground-color :style line)))))
-
+ ;; git-gutter
+ '(git-gutter+-added ((t (:foreground "green4" :background "green4"))))
+ '(git-gutter+-modified ((t (:foreground "purple" :background "purple"))))
+ '(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
  )
 
 (provide-theme 'aalpern-autumn-light)
