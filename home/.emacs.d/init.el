@@ -12,7 +12,7 @@
 ;;; Miscellany
 ;; ----------------------------------------------------------------------
 
-; Get rid of UI bloat
+;; Get rid of UI bloat
 (blink-cursor-mode 0)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -20,18 +20,17 @@
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
 
-; Set up the mode line
+;; Set up the mode line
 (column-number-mode t)
 (display-time-mode t)
 (line-number-mode t)
-(require 'powerline)
 
-; Set OS X key bindings
+;; Set OS X key bindings
 (setq x-super-keysym 'meta)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier  'super)
 
-; Basic editing settings
+;; Basic editing settings
 (setq truncate-partial-width-windows nil)
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -55,11 +54,18 @@
 
 (let ((packages '(git-gutter+
                   protobuf-mode
+                  powerline
                   rainbow-mode)))
   (mapc (function (lambda (package)
                     (if (not (package-installed-p package))
                         (package-install package))))
         packages))
+
+;; Modern-looking modeline
+(require 'powerline)
+(set-face-attribute 'mode-line nil
+                    :background "firebrick"
+                    :box nil)
 
 ;; Git integration
 (require 'fringe-helper)
