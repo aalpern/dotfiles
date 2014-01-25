@@ -55,6 +55,9 @@
 
 ;; Git integration
 (require 'fringe-helper)
+(if (not (package-installed-p 'git-gutter+))
+    (package-install 'git-gutter+))
+
 (require 'git-gutter+)
 (require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
