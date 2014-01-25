@@ -6,7 +6,8 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
-(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
+(add-to-list 'load-path              "~/.emacs.d/site-lisp"a)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;; ----------------------------------------------------------------------
 ;;; Miscellany
@@ -40,6 +41,10 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
+
+;; Stuff to check out...
+;; ido-mode
+;; ido-vertical-mode
 
 ;; ----------------------------------------------------------------------
 ;;; Packages
@@ -472,7 +477,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 ;;(set-default-font "Meslo LG M DZ 10")
 ;;(set-default-font "Meslo LG S DZ 10")
 ;;(set-default-font "ProFont 11")
-(set-default-font "Anonymous Pro Bold 12")
+(set-default-font "Anonymous Pro Bold 14")
 ;;(set-default-font "Meslo LG S DZ Bold 12")
 ;;(set-default-font "ProFont 11")
 ;;(set-default-font "ProFont 12")

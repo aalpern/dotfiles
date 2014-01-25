@@ -33,7 +33,7 @@
  '(powerline-active2 ((t (:foreground "gray90" :background "gray40"))))
  '(powerline-inactive1 ((t (:foreground "gray70" :background "gray20"))))
  '(powerline-inactive2 ((t (:foreground "gray60" :background "gray40"))))
- '(mode-line ((t (:foreground "white" :background "DarkOliveGreen" :box nil))))
+ '(mode-line ((t (:foreground "white" :background "firebrick" :box nil))))
 
  '(button ((t (:inherit (link)))))
 
