@@ -24,14 +24,17 @@
                             do (return nil)
                             finally (return t))))
   (let ((packages '(
-                    powerline
-                    git-gutter+
+                    powerline           ; just eye candy
+                    git-gutter+         ; show git status
                     protobuf-mode
-                    rainbow-mode
+                    rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
                     lua-mode
-                    ido-vertical-mode
+                    ido-vertical-mode   ; better ido completion
+                    json-mode           ; stricter JSON mode
+                    jtags               ; better etags for java
+                    jedi                ; autocomplete for python
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
@@ -39,9 +42,9 @@
         (unless (package-installed-p p)
           (package-install p))))))
 
-;; ----------------------------------------------------------------------
-;;; Miscellany
-;; ----------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
+;;; Basic UI and Editing
+;; -----------------------------------------------------------------------------
 
 ;; Get rid of UI bloat
 (blink-cursor-mode 0)
@@ -77,6 +80,15 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;; Better buffer switching
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+
+;; -----------------------------------------------------------------------------
+;; Coding
+;; -----------------------------------------------------------------------------
+
 ;; Git integration
 (require 'git-gutter+)
 ;; Uncomment these lines for the fringe version, which can be used
@@ -85,10 +97,17 @@
 ;;(require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
 
-;; Better buffer switching
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
+;; Helper for lazy fingers
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+;; Python-specific autocompletion
+;;   The python environment accessible to emacs must also have jedi &
+;;   epc modules installed.
+(require 'jedi)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
@@ -233,7 +252,6 @@
 ;;; compilation
 
 (require 'compile)
-
 (setq compile-command "mvn compile ")
 
 (setq compilation-error-regexp-alist
