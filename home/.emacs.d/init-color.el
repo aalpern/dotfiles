@@ -51,25 +51,6 @@
 ;; =============================================================================
 ;;; Themes
 
-(defun ala-charcoal ()
-  (interactive)
-  (ala-background-charcoal)
-  (ala-background-color "gray13")
-  (set-face-foreground 'region "black")
-  (set-face-background 'region "gray50")
-  (set-face-foreground 'default "gray85")
-  (set-face-foreground 'font-lock-comment-face       "gray33")
-  (set-face-foreground 'font-lock-keyword-face       "white")
-  (set-face-foreground 'font-lock-string-face        "gray66")
-  (set-face-foreground 'font-lock-function-name-face "white")
-  (set-face-foreground 'font-lock-variable-name-face "white")
-  (set-face-foreground 'font-lock-type-face          "white")
-  (set-face-foreground 'font-lock-constant-face      "white")
-  (set-face-foreground 'font-lock-builtin-face      "gray44")
-  (set-cursor-color "white"))
-
-;; (ala-charcoal)
-
 (set-face-bold-p 'font-lock-function-name-face t)
 
 (defun ala-dark-default()
