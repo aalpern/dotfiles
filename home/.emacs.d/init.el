@@ -223,12 +223,6 @@
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
 (autoload 'protobuf-mode "protobuf-mode" nil t)
 
-;; awesome extension to outline-minor-mode. code which follows the
-;; commenting conventions in lisp-mnt.el in the emacs distribution
-;; really wins big here.
-;(when (gnu-emacs-p)
-;  (require 'out-xtra))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; dynamic everything completion
