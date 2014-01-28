@@ -1,27 +1,23 @@
-;;; aalpern-dark -- A dark background color theme.
+;;; aalpern-blue -- A dark background color theme.
 ;;
 ;;; Commentary:
 ;;
 ;;; Code:
 
-(deftheme aalpern-dark)
+(deftheme aalpern-blue)
 
-(let ((background  "black")
-      (background2 "gray15")
-      (foreground  "gray95")
-      (comment     "OrangeRed")
-      (olivegreen  "DarkOliveGreen")
-      (darkgreen   "green4")
-      (lightgreen  "PaleGreen"))
+(let ((background  "#000022")
+      (foreground  "LightSteelBlue")
+      (comment     "#6666CC"))
 
   (custom-theme-set-faces
-   'aalpern-dark
+   'aalpern-blue
 
    `(default ((t (:foreground ,foreground :background ,background :inherit nil))))
    `(fringe ((t (:background ,background))))
    `(cursor ((t (:background "red"))))
-   `(highlight ((t (:foreground "white" :background "darkslateblue"))))
-   `(region ((t (:foreground "black" :background "wheat"))))
+   `(highlight ((t (:foreground "white" :background "RoyalBlue"))))
+   `(region ((t (:foreground "white" :background "RoyalBlue"))))
    `(button ((t (:inherit (link)))))
    `(link ((t (:underline (:color foreground-color :style line) :foreground "DeepPink"))))
    `(link-visited ((t (:foreground "Purple" :underline (:color foreground-color :style line)))))
@@ -31,20 +27,20 @@
                           (t (:inverse-video t))))
 
    ;; font-lock
-   `(font-lock-builtin-face ((t (:foreground ,lightgreen))))
+   `(font-lock-builtin-face ((t (:foreground "cyan"))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,comment))))
    `(font-lock-comment-face ((t (:foreground ,comment))))
    `(font-lock-doc-face ((t (:foreground ,comment))))
    `(font-lock-constant-face ((t (:foreground "aquamarine"))))
-   `(font-lock-function-name-face ((t (:foreground "LightSkyBlue"))))
-   `(font-lock-keyword-face ((t (:weight bold :foreground "LightSteelBlue"))))
+   `(font-lock-function-name-face ((t (:foreground "DarkTurquoise"))))
+   `(font-lock-keyword-face ((t (:weight bold :foreground "DodgerBlue"))))
    `(font-lock-negation-char-face ((t (nil nil))))
    `(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
-   `(font-lock-regexp-grouping-backslash ((t (:foreground ,olivegreen))))
-   `(font-lock-regexp-grouping-construct ((t (:foreground ,olivegreen))))
-   `(font-lock-string-face ((t (:foreground "LightSalmon"))))
-   `(font-lock-type-face ((t (:foreground ,lightgreen))))
-   `(font-lock-variable-name-face ((t (:foreground "LightGoldenrod"))))
+   `(font-lock-regexp-grouping-backslash ((t (:foreground "LightBlue"))))
+   `(font-lock-regexp-grouping-construct ((t (:foreground "LightBlue"))))
+   `(font-lock-string-face ((t (:foreground "CornflowerBlue"))))
+   `(font-lock-type-face ((t (:foreground "cyan"))))
+   `(font-lock-variable-name-face ((t (:foreground "DeepSkyBlue"))))
    `(font-lock-warning-face ((t (:inherit (error)))))
 
    ;; powerline
@@ -55,11 +51,11 @@
    `(mode-line ((t (:foreground "white" :background "firebrick" :box nil))))
 
    ;; git-gutter
-   `(git-gutter+-added ((t (:foreground ,darkgreen :background ,darkgreen))))
+   `(git-gutter+-added ((t (:foreground "DarkOliveGreen" :background "DarkOliveGreen"))))
    `(git-gutter+-modified ((t (:foreground "purple4" :background "purple4"))))
    `(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
    ))
 
-(provide-theme 'aalpern-dark)
+(provide-theme 'aalpern-blue)
 
-;;; aalpern-dark-theme.el ends here
+;;; aalpern-blue-theme.el ends here

@@ -1,21 +1,20 @@
-;;; aalpern-dark -- A dark background color theme.
+;;; aalpern-sky -- A dark background color theme.
 ;;
 ;;; Commentary:
 ;;
 ;;; Code:
 
-(deftheme aalpern-dark)
+(deftheme aalpern-sky)
 
-(let ((background  "black")
-      (background2 "gray15")
-      (foreground  "gray95")
-      (comment     "OrangeRed")
+(let ((background  "SkyBlue4")
+      (foreground  "black")
+      (comment     "gray60")
       (olivegreen  "DarkOliveGreen")
       (darkgreen   "green4")
       (lightgreen  "PaleGreen"))
 
   (custom-theme-set-faces
-   'aalpern-dark
+   'aalpern-sky
 
    `(default ((t (:foreground ,foreground :background ,background :inherit nil))))
    `(fringe ((t (:background ,background))))
@@ -42,7 +41,7 @@
    `(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,olivegreen))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,olivegreen))))
-   `(font-lock-string-face ((t (:foreground "LightSalmon"))))
+   `(font-lock-string-face ((t (:foreground "MidnightBlue"))))
    `(font-lock-type-face ((t (:foreground ,lightgreen))))
    `(font-lock-variable-name-face ((t (:foreground "LightGoldenrod"))))
    `(font-lock-warning-face ((t (:inherit (error)))))
@@ -60,6 +59,6 @@
    `(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
    ))
 
-(provide-theme 'aalpern-dark)
+(provide-theme 'aalpern-sky)
 
-;;; aalpern-dark-theme.el ends here
+;;; aalpern-sky-theme.el ends here

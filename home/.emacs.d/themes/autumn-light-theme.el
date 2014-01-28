@@ -1,3 +1,9 @@
+;;; autumn-light -- A light color theme with muted, autumnal colors.
+;;
+;;; Commentary:
+;;
+;;; Code:
+
 (deftheme autumn-light)
 
 (custom-theme-set-faces
@@ -45,3 +51,5 @@
  )
 
 (provide-theme 'autumn-light)
+
+;;; autumn-light-theme.el ends here

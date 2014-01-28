@@ -3,7 +3,7 @@
 (custom-theme-set-faces
  'achromatica
 
- '(default ((t (:foreground "gray85" :background "gray13" :inherit nil))))
+ '(default ((t (:foreground "white" :background "Gray15" :inherit nil))))
  '(fringe ((t (:background "gray5"))))
  '(cursor ((t (:background "red"))))
  '(highlight ((t (:foreground "gray65" :background "gray25"))))
@@ -20,14 +20,14 @@
  '(font-lock-comment-face ((t (:foreground "gray33"))))
  '(font-lock-doc-face ((t (:foreground "gray33"))))
  '(font-lock-constant-face ((t (:foreground "white"))))
- '(font-lock-function-name-face ((t (:foreground "white"))))
- '(font-lock-keyword-face ((t (:foreground "white"))))
+ '(font-lock-function-name-face ((t (:foreground "DeepPink"))))
+ '(font-lock-keyword-face ((t (:foreground "violetred2"))))
  '(font-lock-negation-char-face ((t (nil nil))))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:foreground "gray75"))))
  '(font-lock-regexp-grouping-construct ((t (:foreground "gray75"))))
  '(font-lock-string-face ((t (:foreground "gray66"))))
- '(font-lock-type-face ((t (:foreground "white"))))
+ '(font-lock-type-face ((t (:foreground "plum1"))))
  '(font-lock-variable-name-face ((t (:foreground "white"))))
  '(font-lock-warning-face ((t (:foreground "red4"))))
 
