@@ -282,16 +282,3 @@
 
 (load-theme 'aalpern-dark t)
 (server-start)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("1ea3dc312840e5d0964ef3ba5e4d4bc739aff807688ad9237505526a713282f7" "892a8b0f9c916a7fec3f22c417790e6757eeb20fcbbcfe997523438390a25af3" "62176d36867e7844ea2cf39d9b74e84756068bf20f94c3d0e05b16fceb6a395e" "9c86c055f42a78823c6817a3e95263d67a47476300b07e2b545893197651dc10" "d76a3f935db88dd3094a0d4f68312cddfd1c735c3966edb18362e30f47a961f0" "a4903e5ad8d73e17e73bb20ae82fac50a0dd61592bb419492d3ec3d77d7cc80d" "f053dd36d74233da1660a65ea3225e00ee711bebbc4a0d6c50f3e9af7f2ca8ab" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
