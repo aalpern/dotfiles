@@ -76,6 +76,12 @@
 (setq indent-tabs-mode nil)
 (show-paren-mode 1)
 
+;; Whitespace hygiene
+(require 'show-wspace)
+(toggle-show-tabs-show-ws)
+(show-ws-toggle-show-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Modern-looking modeline
 (require 'powerline)
 (powerline-default-theme)
@@ -116,12 +122,20 @@
 
 (load "~/.emacs.d/init-c.el")
 (load "~/.emacs.d/init-java.el")
-(load "~/.emacs.d/init-color.el")
 
-(require 'show-wspace)
-(toggle-show-tabs-show-ws)
-(show-ws-toggle-show-trailing-whitespace)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; -----------------------------------------------------------------------------
+;; Highlighting
+;; -----------------------------------------------------------------------------
+
+(setq-default font-lock-auto-fontify  t
+              font-lock-use-fonts     t
+              font-lock-use-colors    t
+              font-lock-use-maximal-decoration  t
+              font-lock-mode-disable-list       nil)
+(require 'font-lock)
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+(setq font-lock-maximum-size nil)
 
 ;; ----------------------------------------------------------------------
 ;;; Auto Mode List
