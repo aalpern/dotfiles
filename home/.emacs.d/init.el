@@ -64,6 +64,11 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier  'super)
 
+;; Stop toggling overwrite-mode on 'insert', which is much too easy to
+;; hit on my keyboard
+(define-key global-map [(insert)] nil)
+(define-key global-map [(control insert)] 'overwrite-mode)
+
 ;; Basic editing settings
 (setq truncate-partial-width-windows nil)
 (put 'upcase-region   'disabled nil)
