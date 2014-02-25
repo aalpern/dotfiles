@@ -4,7 +4,7 @@
  'aalpern-dark2
 
  '(default ((t (:foreground "papaya whip" :background "gray15" :inherit nil))))
- '(fringe ((t (:background "black"))))
+ '(fringe ((t (:background "gray15"))))
  '(cursor ((t (:background "red"))))
  '(highlight ((t (:foreground "white" :background "darkslateblue"))))
  '(region ((t (:foreground "black" :background "wheat"))))
