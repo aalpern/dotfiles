@@ -17,6 +17,7 @@
       (dark-red "#990000")
       (medium-gray "#555555")
       (light-gray "#999988")
+      (lighter-gray "#BBBBAA")
       (pink "#dd1144")
       (teal "#008080")
 )
@@ -57,10 +58,10 @@
 
    ;; powerline
    `(powerline-active1 ((t (:foreground "white" :background "gray20"))))
-   `(powerline-active2 ((t (:foreground "gray90" :background "gray40"))))
+   `(powerline-active2 ((t (:foreground ,foreground :background ,lighter-gray))))
    `(powerline-inactive1 ((t (:foreground "gray70" :background "gray20"))))
    `(powerline-inactive2 ((t (:foreground "gray60" :background "gray40"))))
-   `(mode-line ((t (:foreground "white" :background "firebrick" :box nil))))
+   `(mode-line ((t (:foreground "white" :background ,pink :box nil))))
 
    ;; git-gutter
    `(git-gutter+-added ((t (:foreground ,darkgreen :background ,darkgreen))))
