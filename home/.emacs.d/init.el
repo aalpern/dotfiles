@@ -110,7 +110,7 @@
 
 ;; Helper for lazy fingers
 (require 'auto-complete)
-(global-auto-complete-mode t)
+;; (global-auto-complete-mode t)
 
 ;; Python-specific autocompletion
 ;;   The python environment accessible to emacs must also have jedi &
