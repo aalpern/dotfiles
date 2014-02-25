@@ -35,3 +35,5 @@
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 ;; (define-key c-mode-base-map (kbd "TAB") 'self-insert-command)
+
+(provide 'init-c)
