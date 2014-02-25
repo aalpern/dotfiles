@@ -42,7 +42,7 @@
    `(font-lock-comment-delimiter-face ((t (:foreground ,light-gray :italic t))))
    `(font-lock-comment-face ((t (:foreground ,light-gray :italic t))))
    `(font-lock-doc-face ((t (:foreground ,light-gray :italic t))))
-   `(font-lock-constant-face ((t (:foreground ,teal))))
+   `(font-lock-constant-face ((t (:foreground ,medium-gray))))
    `(font-lock-function-name-face ((t (:foreground ,dark-red :weight bold))))
    `(font-lock-keyword-face ((t (:foreground ,foreground :weight bold))))
    `(font-lock-negation-char-face ((t (:foreground ,pink :weight bold))))
@@ -50,9 +50,10 @@
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,pink))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,pink))))
    `(font-lock-string-face ((t (:foreground ,pink))))
-   `(font-lock-type-face ((t (:foreground ,foreground))))
+   `(font-lock-type-face ((t (:foreground ,teal))))
    `(font-lock-variable-name-face ((t (:foreground ,teal))))
    `(font-lock-warning-face ((t (:inherit (error)))))
+   `(c-annotation-face ((t (:foreground ,foreground))))
 
    ;; powerline
    `(powerline-active1 ((t (:foreground "white" :background "gray20"))))
