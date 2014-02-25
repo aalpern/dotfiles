@@ -282,7 +282,7 @@
 (load "~/.emacs.d/aalpern-utils.el")
 
 (case system-type
-  ('gnu/linux (set-default-font "Meslo LG S DZ 11")))
+  ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
   ('darwin (set-default-font "Meslo LG S DZ 12")))
 
 (load-theme 'aalpern-dark t)
