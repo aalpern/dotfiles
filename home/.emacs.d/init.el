@@ -91,6 +91,19 @@
 (require 'powerline)
 (powerline-default-theme)
 
+(defun aa-load-theme (theme)
+  "Load a color theme and force powerline to redraw. It'd be
+nice if custom.el had a hook for running after a theme loaded."
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+			     (mapcar 'symbol-name
+                         (custom-available-themes))))))
+  (unless (custom-theme-name-valid-p theme)
+    (error "Invalid theme name `%s'" theme))
+  (load-theme theme t)
+  (powerline-reset))
+
 ;; Better buffer switching
 (require 'ido-vertical-mode)
 (ido-mode 1)
@@ -285,5 +298,5 @@
   ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
   ('darwin (set-default-font "Meslo LG S DZ 12")))
 
-(load-theme 'aalpern-dark t)
+(aa-load-theme 'aalpern-dark)
 (server-start)
