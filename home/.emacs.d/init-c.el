@@ -18,7 +18,7 @@
                                  (substatement-open     .  0)
                                  (label                 .  -)
                                  (statement-cont        .  +)
-                                 (case-label            .  2)
+                                 (case-label            .  4)
                                  (access-label          .  -2)
                                  (brace-list-open       .  0)
                                  (brace-list-close      .  0)
