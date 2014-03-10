@@ -1,20 +1,12 @@
 ;; -*- mode: emacs-lisp -*-
 
+(require 'init-c)
+
 (defun my-java-mode-hook ()
-  (setq c-basic-offset 4))
+  (c-set-style "aalpern")
+  (auto-fill-mode))
 
-;(add-hook 'java-mode-hook 'my-java-mode-hook)
-
-;;(defvar shell-execute-helper "shelex.exe")
-
-;;(defun shell-execute-url (url &optional new-window)
-;;  "Invoke the shell-execute-helper program to call ShellExecute and launch
-;;     or re-direct a web browser on the specified url."
-;;  (interactive "sURL: ")
-;;  (call-process shell-execute-helper nil nil nil url))
-
-;;(setq browse-url-browser-function 'shell-execute-url)
-
+(add-hook 'java-mode-hook 'my-java-mode-hook)
 
 ;;(require 'andersl-java-font-lock)
 
@@ -79,3 +71,5 @@
               (add-to-list 'compilation-error-regexp-alist-alist
                    '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
                        1 2 3)))))
+
+(provide 'init-java)

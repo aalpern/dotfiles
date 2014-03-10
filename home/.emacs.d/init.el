@@ -138,8 +138,8 @@ nice if custom.el had a hook for running after a theme loaded."
 ;;    Load separate files for C/C++, Java, and highlighting support
 ;; ----------------------------------------------------------------------
 
-(load "~/.emacs.d/init-c.el")
-(load "~/.emacs.d/init-java.el")
+(require 'init-c)
+(require 'init-java)
 
 ;; -----------------------------------------------------------------------------
 ;; Highlighting
