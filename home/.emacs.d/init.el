@@ -6,6 +6,7 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
+(add-to-list 'load-path              "~/.emacs.d/")
 (add-to-list 'load-path              "~/.emacs.d/site-lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
@@ -138,8 +139,8 @@ nice if custom.el had a hook for running after a theme loaded."
 ;;    Load separate files for C/C++, Java, and highlighting support
 ;; ----------------------------------------------------------------------
 
-(load "~/.emacs.d/init-c.el")
-(load "~/.emacs.d/init-java.el")
+(require 'init-c)
+(require 'init-java)
 
 ;; -----------------------------------------------------------------------------
 ;; Highlighting
