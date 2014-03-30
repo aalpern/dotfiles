@@ -108,7 +108,7 @@ nice if custom.el had a hook for running after a theme loaded."
 ;; Better buffer switching
 (require 'ido-vertical-mode)
 (ido-mode 1)
-(ido-vertical-mode 0)
+(ido-vertical-mode 1)
 
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 120))
