@@ -108,7 +108,10 @@ nice if custom.el had a hook for running after a theme loaded."
 ;; Better buffer switching
 (require 'ido-vertical-mode)
 (ido-mode 1)
-(ido-vertical-mode 1)
+(ido-vertical-mode 0)
+
+(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 120))
 
 ;; -----------------------------------------------------------------------------
 ;; Coding
@@ -299,5 +302,5 @@ nice if custom.el had a hook for running after a theme loaded."
   ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
   ('darwin (set-default-font "Meslo LG S DZ 12")))
 
-(aa-load-theme 'aalpern-dark)
+(aa-load-theme 'better-github)
 (server-start)
