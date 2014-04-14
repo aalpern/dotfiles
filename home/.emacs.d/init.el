@@ -36,6 +36,7 @@
                     json-mode           ; stricter JSON mode
                     jtags               ; better etags for java
                     jedi                ; autocomplete for python
+                    handlebars-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
