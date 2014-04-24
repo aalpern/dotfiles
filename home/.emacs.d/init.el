@@ -37,6 +37,7 @@
                     jtags               ; better etags for java
                     jedi                ; autocomplete for python
                     handlebars-mode
+                    flymake-jslint
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
