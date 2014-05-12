@@ -139,6 +139,10 @@ nice if custom.el had a hook for running after a theme loaded."
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
 
+(custom-set-variables
+ ;; '(js3-consistent-level-indent-inner-bracket t)
+ '(js3-indent-dots t))
+
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
 ;;    Load separate files for C/C++, Java, and highlighting support
@@ -303,6 +307,8 @@ nice if custom.el had a hook for running after a theme loaded."
 (case system-type
   ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
   ('darwin (set-default-font "Meslo LG S DZ 12")))
+
+(set-default-font "Consolas 13")
 
 (aa-load-theme 'better-github)
 (server-start)
