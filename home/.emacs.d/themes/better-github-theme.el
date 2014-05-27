@@ -20,6 +20,8 @@
       (lighter-gray "#BBBBAA")
       (pink "#dd1144")
       (teal "#008080")
+
+      (comment "red")
 )
 
   (custom-theme-set-faces
@@ -40,9 +42,9 @@
 
    ;; font-lock
    `(font-lock-builtin-face ((t (:foreground ,dark-red :weight bold))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,light-gray :italic t))))
-   `(font-lock-comment-face ((t (:foreground ,light-gray :italic t))))
-   `(font-lock-doc-face ((t (:foreground ,light-gray :italic t))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,comment :italic t))))
+   `(font-lock-comment-face ((t (:foreground ,comment :italic t))))
+   `(font-lock-doc-face ((t (:foreground ,comment :italic t))))
    `(font-lock-constant-face ((t (:foreground ,medium-gray))))
    `(font-lock-function-name-face ((t (:foreground ,dark-red :weight bold))))
    `(font-lock-keyword-face ((t (:foreground ,foreground :weight bold))))
@@ -67,6 +69,11 @@
    `(git-gutter+-added ((t (:foreground ,darkgreen :background ,darkgreen))))
    `(git-gutter+-modified ((t (:foreground "purple4" :background "purple4"))))
    `(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
+
+   ;; web-mode
+   `(web-mode-html-tag-face ((t (:weight bold))))
+   `(web-mode-html-tag-bracket-face ((t (:weight bold))))
+   `(web-mode-html-attr-name-face ((t (:foreground ,dark-blue))))
    ))
 
 (provide-theme 'better-github)

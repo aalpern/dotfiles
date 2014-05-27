@@ -48,6 +48,11 @@
  '(git-gutter+-added ((t (:foreground "green4" :background "green4"))))
  '(git-gutter+-modified ((t (:foreground "purple" :background "purple"))))
  '(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
+
+ ;; web-mode
+ '(web-mode-html-tag-face ((t (:foreground "DarkOrchid4" :weight bold))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "DarkOrchid4" :weight bold))))
+ '(web-mode-html-attr-name-face ((t (:foreground "MediumBlue"))))
  )
 
 (provide-theme 'autumn-light)

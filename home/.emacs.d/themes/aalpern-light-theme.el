@@ -55,6 +55,12 @@
    `(git-gutter+-added ((t (:foreground "DarkOliveGreen" :background "DarkOliveGreen"))))
    `(git-gutter+-modified ((t (:foreground "purple4" :background "purple4"))))
    `(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
+
+   ;; web-mode
+   `(web-mode-html-tag-face ((t (:foreground "blue" :weight bold))))
+   `(web-mode-html-tag-bracket-face ((t (:foreground "blue" :weight bold))))
+   `(web-mode-html-attr-name-face ((t (:foreground "DarkRed"))))
+
    ))
 
 (provide-theme 'aalpern-light)

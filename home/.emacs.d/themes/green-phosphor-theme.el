@@ -8,7 +8,7 @@
  '(fringe ((t (:background "#001100"))))
  '(cursor ((t (:background "red"))))
  '(highlight ((t (:foreground "black" :background "green"))))
- '(region ((t (:foreground "LimeGreen" :background "black"))))
+ '(region ((t (:foreground "black" :background "LimeGreen"))))
  '(button ((t (:inherit (link)))))
  '(link ((t (:underline (:color foreground-color :style line) :foreground "green"))))
  '(link-visited ((t (:foreground "green4" :underline (:color foreground-color :style line)))))
@@ -43,6 +43,11 @@
  '(git-gutter+-added ((t (:foreground "green4" :background "green4"))))
  '(git-gutter+-modified ((t (:foreground "purple" :background "purple"))))
  '(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
+
+ ;; web-mode
+ '(web-mode-html-tag-face ((t (:foreground "green4" :weight bold))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "green4" :weight bold))))
+ '(web-mode-html-attr-name-face ((t (:foreground "lawn green"))))
  )
 
 (provide-theme 'green-phosphor)

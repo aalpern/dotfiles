@@ -38,6 +38,7 @@
                     jedi                ; autocomplete for python
                     handlebars-mode
                     flymake-jslint
+                    web-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
