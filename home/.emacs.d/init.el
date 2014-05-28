@@ -311,5 +311,5 @@ nice if custom.el had a hook for running after a theme loaded."
 
 (set-default-font "Consolas 13")
 
-(aa-load-theme 'better-github)
+(aa-load-theme 'autumn-light)
 (server-start)
