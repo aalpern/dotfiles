@@ -39,6 +39,7 @@
                     handlebars-mode
                     flymake-jslint
                     web-mode
+                    yaml-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
