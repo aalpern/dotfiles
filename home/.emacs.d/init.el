@@ -34,12 +34,13 @@
                     lua-mode
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
-                    jtags               ; better etags for java
+                    ;jtags               ; better etags for java
                     jedi                ; autocomplete for python
                     handlebars-mode
                     flymake-jslint
                     web-mode
                     yaml-mode
+                    auto-complete
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
