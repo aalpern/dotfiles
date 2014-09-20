@@ -34,6 +34,7 @@
                     lua-mode
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
+                    js3-mode
                     ;jtags               ; better etags for java
                     jedi                ; autocomplete for python
                     handlebars-mode
