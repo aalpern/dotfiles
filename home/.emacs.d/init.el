@@ -42,6 +42,7 @@
                     web-mode
                     yaml-mode
                     auto-complete
+                    dockerfile-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
