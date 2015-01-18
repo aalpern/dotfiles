@@ -43,6 +43,7 @@
                     yaml-mode
                     auto-complete
                     dockerfile-mode
+                    thrift
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
