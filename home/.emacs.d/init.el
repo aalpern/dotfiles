@@ -35,7 +35,7 @@
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
                     js3-mode
-                    ;jtags               ; better etags for java
+                    dash-at-point
                     jedi                ; autocomplete for python
                     handlebars-mode
                     flymake-jslint
@@ -144,6 +144,8 @@ nice if custom.el had a hook for running after a theme loaded."
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
+
+(global-set-key "\C-cd" 'dash-at-point)
 
 (custom-set-variables
  ;; '(js3-consistent-level-indent-inner-bracket t)
