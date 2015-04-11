@@ -44,6 +44,7 @@
                     auto-complete
                     dockerfile-mode
                     thrift
+                    typescript
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
@@ -145,11 +146,13 @@ nice if custom.el had a hook for running after a theme loaded."
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
 
+(require 'dash-at-point)
 (global-set-key "\C-cd" 'dash-at-point)
 
 (custom-set-variables
- ;; '(js3-consistent-level-indent-inner-bracket t)
- '(js3-indent-dots t))
+ '(js3-consistent-level-indent-inner-bracket t)
+ '(js3-boring-indentation nil)
+ '(js3-indent-dots nil))
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
