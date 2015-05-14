@@ -150,9 +150,12 @@ nice if custom.el had a hook for running after a theme loaded."
 (global-set-key "\C-cd" 'dash-at-point)
 
 (custom-set-variables
- '(js3-consistent-level-indent-inner-bracket t)
  '(js3-boring-indentation nil)
- '(js3-indent-dots nil))
+ '(js3-consistent-level-indent-inner-bracket t)
+ '(js3-indent-dots nil)
+ '(js-indent-level 2)
+ '(typescript-auto-indent-flag t)
+ '(typescript-indent-level 2))
 
 ;; ----------------------------------------------------------------------
 ;;; Extended Configuration
@@ -300,11 +303,11 @@ nice if custom.el had a hook for running after a theme loaded."
 
 (setq compilation-error-regexp-alist
   (append (list
-     ;; works for jikes
-     '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):\\([0-9]+\\):[0-9]+:[0-9]+:" 1 2 3)
-     ;; works for javac
-     '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
-  compilation-error-regexp-alist))
+           ;; works for jikes
+           '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):\\([0-9]+\\):[0-9]+:[0-9]+:" 1 2 3)
+           ;; works for javac
+           '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
+          compilation-error-regexp-alist))
 
 (defconst my-protobuf-style
   '((c-basic-offset . 4)
