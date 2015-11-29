@@ -6,7 +6,7 @@
 ;;; Load Path
 ;; ----------------------------------------------------------------------
 
-(add-to-list 'load-path              "~/.emacs.d/")
+(add-to-list 'load-path              "~/.emacs.d/init")
 (add-to-list 'load-path              "~/.emacs.d/site-lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
@@ -316,7 +316,7 @@ nice if custom.el had a hook for running after a theme loaded."
 (add-hook 'protobuf-mode-hook
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
 
-(load "~/.emacs.d/aalpern-utils.el")
+(require 'aalpern-utils)
 
 (case system-type
   ('gnu/linux (set-default-font "Meslo LG S DZ 11"))

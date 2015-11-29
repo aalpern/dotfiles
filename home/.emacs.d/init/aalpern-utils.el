@@ -151,3 +151,5 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
       (if (zerop (length ans)) default ans))))
 
 (define-key ctl-c-keymap "i" 'comment-insert-comment-line)
+
+(provide 'aalpern-utils)
