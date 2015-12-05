@@ -32,6 +32,7 @@
                     markdown-mode
                     jinja2-mode
                     lua-mode
+                    go-mode
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
                     js3-mode
@@ -107,8 +108,8 @@ nice if custom.el had a hook for running after a theme loaded."
   (interactive
    (list
     (intern (completing-read "Load custom theme: "
-			     (mapcar 'symbol-name
-                         (custom-available-themes))))))
+                             (mapcar 'symbol-name
+                                     (custom-available-themes))))))
   (unless (custom-theme-name-valid-p theme)
     (error "Invalid theme name `%s'" theme))
   (load-theme theme t)
@@ -164,6 +165,7 @@ nice if custom.el had a hook for running after a theme loaded."
 
 (require 'init-c)
 (require 'init-java)
+(require 'init-go)
 
 ;; -----------------------------------------------------------------------------
 ;; Highlighting
