@@ -8,7 +8,8 @@
 
 (add-to-list 'load-path              "~/.emacs.d/init")
 (add-to-list 'load-path              "~/.emacs.d/site-lisp")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/mine")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/colour-schemes")
 
 ;; ----------------------------------------------------------------------
 ;;; Packages
