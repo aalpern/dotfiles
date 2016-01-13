@@ -22,7 +22,7 @@
  '(font-lock-doc-face ((t (:foreground "DarkOliveGreen"))))
  '(font-lock-constant-face ((t (:foreground "PaleGreen"))))
  '(font-lock-function-name-face ((t (:foreground "lawn green"))))
- '(font-lock-keyword-face ((t (:foreground "yellow"))))
+ '(font-lock-keyword-face ((t (:foreground "PaleGreen"))))
  '(font-lock-negation-char-face ((t (nil nil))))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:foreground "green"))))
