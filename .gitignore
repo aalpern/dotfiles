@@ -9,3 +9,5 @@ home/.zsh/local
 home/.emacs.d/ac-comphist.dat
 
 home/.emacs.d/ido.last
+
+home/.emacs.d/recentf
