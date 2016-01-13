@@ -27,7 +27,6 @@
   (let ((packages '(
                     powerline           ; just eye candy
                     git-gutter+         ; show git status
-                    protobuf-mode
                     rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
@@ -40,12 +39,10 @@
                     dash-at-point
                     jedi                ; autocomplete for python
                     handlebars-mode
-                    flymake-jslint
                     web-mode
                     yaml-mode
                     auto-complete
                     dockerfile-mode
-                    thrift
                     typescript
                     )))
     (when (not (installed-p packages))
