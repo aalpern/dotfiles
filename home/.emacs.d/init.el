@@ -8,7 +8,8 @@
 
 (add-to-list 'load-path              "~/.emacs.d/init")
 (add-to-list 'load-path              "~/.emacs.d/site-lisp")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/mine")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/colour-schemes")
 
 ;; ----------------------------------------------------------------------
 ;;; Packages
@@ -27,24 +28,22 @@
   (let ((packages '(
                     powerline           ; just eye candy
                     git-gutter+         ; show git status
-                    protobuf-mode
                     rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
                     lua-mode
                     go-mode
+                    nginx-mode
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
                     js3-mode
                     dash-at-point
                     jedi                ; autocomplete for python
                     handlebars-mode
-                    flymake-jslint
                     web-mode
                     yaml-mode
                     auto-complete
                     dockerfile-mode
-                    thrift
                     typescript
                     )))
     (when (not (installed-p packages))
