@@ -2,24 +2,12 @@
 
 (custom-theme-set-faces
   'chocolate
-  '(default ((t (:family "DejaVu Sans Mono"
-                 :foundry "unknown"
-                 :width normal
-                 :height 113
-                 :weight normal
-                 :slant normal
-                 :underline nil
-                 :overline nil
-                 :strike-through nil
-                 :box nil
-                 :inverse-video nil
+  '(default ((t (:inverse-video nil
                  :foreground "#ffffff"
                  :background "#150f08"
                  :stipple nil
                  :inherit nil))))
 '(cursor ((t (:background "#f8f8f0"))))
-'(fixed-pitch ((t (:family "Monospace"))))
-'(variable-pitch ((t (:family "Sans Serif"))))
 '(escape-glyph ((t (:foreground "brown"))))
 '(minibuffer-prompt ((t (:foreground "#8B6E46"))))
 '(highlight ((t (:background "#ffe792" :foreground "#000000"))))
@@ -62,4 +50,3 @@
 )
 
 (provide-theme 'chocolate )
-

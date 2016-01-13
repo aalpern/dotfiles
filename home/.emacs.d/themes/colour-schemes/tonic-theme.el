@@ -2,23 +2,13 @@
 
 (custom-theme-set-faces
   'tonic
-  '(default ((t (:family "DejaVu Sans Mono"
-                 :foundry "unknown"
-                 :width normal
-                 :height 113
-                 :weight normal
-                 :slant normal
-                 :underline nil
-                 :overline nil
-                 :strike-through nil
-                 :box nil
+  '(default ((t (
                  :inverse-video nil
                  :foreground "#eeeeee"
                  :background "#2a2f31"
                  :stipple nil
                  :inherit nil))))
 '(cursor ((t (:background "#f8f8f0"))))
-'(fixed-pitch ((t (:family "Monospace"))))
 '(variable-pitch ((t (:family "Sans Serif"))))
 '(escape-glyph ((t (:foreground "brown"))))
 '(minibuffer-prompt ((t (:foreground "#75A1A4"))))
@@ -62,4 +52,3 @@
 )
 
 (provide-theme 'tonic )
-

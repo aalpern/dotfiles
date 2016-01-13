@@ -2,24 +2,13 @@
 
 (custom-theme-set-faces
   'peacock
-  '(default ((t (:family "DejaVu Sans Mono"
-                 :foundry "unknown"
-                 :width normal
-                 :height 113
-                 :weight normal
-                 :slant normal
-                 :underline nil
-                 :overline nil
-                 :strike-through nil
-                 :box nil
+  '(default ((t (
                  :inverse-video nil
                  :foreground "#ede0ce"
                  :background "#2b2a27"
                  :stipple nil
                  :inherit nil))))
 '(cursor ((t (:background "#f8f8f0"))))
-'(fixed-pitch ((t (:family "Monospace"))))
-'(variable-pitch ((t (:family "Sans Serif"))))
 '(escape-glyph ((t (:foreground "brown"))))
 '(minibuffer-prompt ((t (:foreground "#26a6a6"))))
 '(highlight ((t (:background "#ffe792" :foreground "#000000"))))
@@ -62,4 +51,3 @@
 )
 
 (provide-theme 'peacock )
-
