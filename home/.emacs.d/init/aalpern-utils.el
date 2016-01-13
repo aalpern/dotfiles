@@ -85,6 +85,8 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
         (java-mode        . "// ")
         (antlr-mode       . "// ")
         (protobuf-mode    . "// ")
+        (go-mode          . "// ")
+        (dockerfile-mode  . "# ")
         (makefile-mode    . "# ")
         (perl-mode        . "# ")
         (python-mode      . "# ")
