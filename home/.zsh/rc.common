@@ -190,6 +190,7 @@ function nuke() {
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 [[ -s "$HOME/.pythonz/etc/bashrc" ]] && source "$HOME/.pythonz/etc/bashrc"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # -----------------------------------------------------------------------------
 # Docker
@@ -213,4 +214,18 @@ docker-enter() {
     fi
 
     boot2docker ssh -t sudo /var/lib/boot2docker/docker-enter "${args[@]}"
+}
+
+docker-clean-containers() {
+    docker rm $(docker ps -a -q)
+}
+
+docker-clean-images() {
+    docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
+}
+
+docker-build() {
+    dir=$(pwd)
+    tag=$(basename $dir)
+    docker build -t $tag .
 }
