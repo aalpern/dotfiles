@@ -26,6 +26,7 @@ compctl -k "($hosts)" telnet ftp ping getit rlogin rsh rcp nslookup ncftp \
 
                                 # misc
 set AUTO_PUSHD
+set NO_BEEP
 TMOUT=0
 WATCHFMT='%n %a %l from %m at %t.'
 export GZIP="-9"
@@ -45,10 +46,6 @@ PURPLE='\e[1;35m'
 cyan='\e[0;36m'
 CYAN='\e[1;36m'
 NC='\e[0m'
-
-
-# Filename suffixes to ignore during completion
-fignore=(.c~ .cxx~ .hxx~ .h~ .C~ .H~ .java~ .proto~ .py~)
 
 # -----------------------------------------------------------------------------
 # Aliases
@@ -76,14 +73,6 @@ alias mkdir='nocorrect mkdir'    # no spelling correction on mkdir
 alias cp='nocorrect cp -p -i'
 alias mv='nocorrect mv -i'
 
-alias mvi='mvn install'
-alias mvc='mvn compile'
-alias mvp='mvn package'
-alias mvt='mvn test'
-alias mvti='mvn test -Dua.test.integration=true'
-alias coverage='mvn cobertura:cobertura'
-
-
 # Global aliases -- These do not have to be
 # at the beginning of the command line.
 alias -g M='|more'
@@ -97,12 +86,10 @@ alias -g T='|tail'
 
 zless() { zcat $* | more }              # for reading gzipped files
 zmore() { zcat $* | more }
-tell()  { echo $2 | write $1 }
 unsh()  { perl -ne '/^#\!/&&$x++;$x&&print;' $* | /bin/sh }
 tarup() { tar zcvfp $1.tgz $1 }
 untar() { tar zxvfp $* }
 ltar()  { tar ztvf $* | more }
-uu()    { uuencode $1 $1 > $1.uu }
 
 unZ()
 {
