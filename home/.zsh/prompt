@@ -42,6 +42,9 @@ precmd () {
     PROMPT=$prompt_standard
     RPROMPT='$(select_rprompt)'
 
+    if [ "$GOENV" != "" ]; then
+        RPROMPT="${RPROMPT}:%F{green}$GOENV%F{reset}"
+    fi
 
     if [ $#jobstates -ne 0 ]; then
         RPROMPT="${RPROMPT}:%F{red}[%j]%F{reset}"
