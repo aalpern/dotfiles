@@ -13,6 +13,7 @@ export OS=`uname -s`
 _load env.common
 _load env.os.$OS
 _load env.host.$HOST
+_load options
 _load prompt
 _load rc.common
 _load rc.os.$OS

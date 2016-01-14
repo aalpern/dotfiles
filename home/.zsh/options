@@ -1,0 +1,37 @@
+# -*- mode:shell-script -*-
+
+if [[ -f $HOME/.zhosts ]]
+then
+  hosts=(`cat $HOME/.zhosts`)   # hostname completion
+fi
+
+# -----------------------------------------------------------------------------
+# SHELL SETTINGS
+# -----------------------------------------------------------------------------
+
+                                # general zsh options
+setopt notify
+setopt noclobber
+setopt menu_complete
+setopt ignoreeof
+setopt histignoredups
+setopt correctall
+setopt all_export
+setopt nolistbeep
+setopt nobeep
+setopt auto_pushd
+
+limit core 0
+umask 022
+
+#compctl -k hosts termftp ftp ncftp telnet rlogin  # expand these hosts.
+#compctl -u write talk elm
+#compctl -u -x "n[-1,@]" -k hosts -- mail pine elm finger talk
+
+compctl -k "($hosts)" telnet ftp ping getit rlogin rsh rcp nslookup ncftp \
+ traceroute gopher mail mhmail talk finger
+
+TMOUT=0
+WATCHFMT='%n %a %l from %m at %t.'
+export GZIP="-9"
+watch=all
