@@ -1,5 +1,0 @@
-# -*- mode:shell-script -*-
-
-alias hbup='~/local/hbase/bin/start-hbase.sh && ~/local/hbase/bin/hbase thrift start'
-alias hbdown='~/local/hbase/bin/stop-hbase.sh'
-alias hbshell='~/local/hbase/bin/hbase shell'
