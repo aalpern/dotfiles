@@ -18,5 +18,3 @@ _load rc.common
 _load rc.os.$OS
 _load rc.host.$HOST
 _load local
-
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"

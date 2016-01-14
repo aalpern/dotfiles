@@ -24,11 +24,6 @@ umask 022
 compctl -k "($hosts)" telnet ftp ping getit rlogin rsh rcp nslookup ncftp \
  traceroute gopher mail mhmail talk finger
 
-if [[ -f $HOME/.zprompt ]]
-then
-    source $HOME/.zprompt
-fi
-
                                 # misc
 set AUTO_PUSHD
 TMOUT=0
@@ -50,7 +45,6 @@ PURPLE='\e[1;35m'
 cyan='\e[0;36m'
 CYAN='\e[1;36m'
 NC='\e[0m'
-
 
 
 # Filename suffixes to ignore during completion
@@ -133,60 +127,6 @@ gpull()
     popd
 }
 
-clone()
-{
-    git clone git@github.com:urbanairship/$1
-}
-
-# -----------------------------------------------------------------------------
-# Confirmations
-# -----------------------------------------------------------------------------
-
-# https://github.com/slashbeast/things/blob/master/configs/DOTzshrc
-confirm() {
-    local answer
-    echo -ne "zsh: sure you want to run '${YELLOW}$@${NC}' [yN]? "
-    read -q answer
-        echo
-    if [[ "${answer}" =~ ^[Yy]$ ]]; then
-        command "${=1}" "${=@:2}"
-    else
-        return 1
-    fi
-}
-
-confirm_wrapper() {
-    if [ "$1" = '--root' ]; then
-        local as_root='true'
-        shift
-    fi
-
-    local runcommand="$1"; shift
-
-    if [ "${as_root}" = 'true' ] && [ "${USER}" != 'root' ]; then
-        runcommand="sudo ${runcommand}"
-    fi
-    confirm "${runcommand}" "$@"
-}
-
-poweroff() { confirm_wrapper --root $0 "$@"; }
-hibernate() { confirm_wrapper --root $0 "$@"; }
-reboot() { confirm_wrapper --root $0 "$@"; }
-
-# -----------------------------------------------------------------------------
-# Vagrant
-# -----------------------------------------------------------------------------
-
-alias v=vagrant
-
-function cycle() {
-    v destroy -f $1 && v up $1
-}
-
-function nuke() {
-    v destroy -f $1
-}
-
 # -----------------------------------------------------------------------------
 # Version Managers
 # -----------------------------------------------------------------------------
@@ -195,8 +135,7 @@ function nuke() {
 [[ -s "$HOME/.pythonz/etc/bashrc" ]] && source "$HOME/.pythonz/etc/bashrc"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 # -----------------------------------------------------------------------------
 # Docker
