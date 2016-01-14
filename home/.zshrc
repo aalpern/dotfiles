@@ -19,3 +19,7 @@ _load rc.common
 _load rc.os.$OS
 _load rc.host.$HOST
 _load local
+
+if [[ -f /.dockerenv ]]; then
+    _load rc.docker
+fi
