@@ -34,6 +34,9 @@ precmd () {
 
     vcs_info
 
+    # TODO - check for presence of /.dockerenv to indicate we're
+    # inside a container.
+
     prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ? "
 
     rprompt_standard="%{$fg[cyan]%}%~%{$reset_color%}:(%l)"
@@ -42,10 +45,14 @@ precmd () {
     PROMPT=$prompt_standard
     RPROMPT='$(select_rprompt)'
 
+    # Add which goenv is active. Generalizing this to any environment
+    # manager (my home-rolled goenv, nvm, python virtualenv,
+    # etc... would be nice)
     if [ "$GOENV" != "" ]; then
         RPROMPT="${RPROMPT}:%F{green}$GOENV%F{reset}"
     fi
 
+    # Add background job count
     if [ $#jobstates -ne 0 ]; then
         RPROMPT="${RPROMPT}:%F{red}[%j]%F{reset}"
     fi
