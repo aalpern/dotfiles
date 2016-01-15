@@ -187,5 +187,10 @@
 
 (set-default-font "Consolas for BBEdit 13")
 
+;; (add-to-list 'default-frame-alist '(height . 50))
+;; (add-to-list 'default-frame-alist '(width . 120))
+
+(toggle-frame-maximized)
+
 (aa-load-theme 'autumn-light)
 (server-start)

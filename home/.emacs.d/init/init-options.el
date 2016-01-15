@@ -109,7 +109,4 @@
 (setq dabbrev-case-fold-search t)   ;; case insensitive for searching
 (setq dabbrev-case-replace nil)     ;; but case sensitive for actual placement
 
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 120))
-
 (provide 'init-options)
