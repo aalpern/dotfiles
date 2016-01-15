@@ -8,146 +8,19 @@
 
 (add-to-list 'load-path              "~/.emacs.d/init")
 (add-to-list 'load-path              "~/.emacs.d/site-lisp")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/mine")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/colour-schemes")
 
 ;; ----------------------------------------------------------------------
 ;;; Packages
 ;; ----------------------------------------------------------------------
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-(labels ((installed-p (packages)
-                      (loop for p in packages
-                            when (not (package-installed-p p))
-                            do (return nil)
-                            finally (return t))))
-  (let ((packages '(
-                    powerline           ; just eye candy
-                    git-gutter+         ; show git status
-                    rainbow-mode        ; render color strings
-                    markdown-mode
-                    jinja2-mode
-                    lua-mode
-                    go-mode
-                    nginx-mode
-                    ido-vertical-mode   ; better ido completion
-                    json-mode           ; stricter JSON mode
-                    js3-mode
-                    dash-at-point
-                    jedi                ; autocomplete for python
-                    handlebars-mode
-                    web-mode
-                    yaml-mode
-                    auto-complete
-                    dockerfile-mode
-                    typescript
-                    )))
-    (when (not (installed-p packages))
-      (package-refresh-contents)
-      (dolist (p packages)
-        (unless (package-installed-p p)
-          (package-install p))))))
-
-;; -----------------------------------------------------------------------------
-;;; Basic UI and Editing
-;; -----------------------------------------------------------------------------
-
-;; Get rid of UI bloat
-(blink-cursor-mode 0)
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message "")
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-
-;; Set up the mode line
-(column-number-mode t)
-(display-time-mode t)
-(line-number-mode t)
-
-;; Set OS X key bindings
-(setq x-super-keysym 'meta)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier  'super)
-
-;; Stop toggling overwrite-mode on 'insert', which is much too easy to
-;; hit on my keyboard
-(define-key global-map [(insert)] nil)
-(define-key global-map [(control insert)] 'overwrite-mode)
-
-;; Basic editing settings
-(setq truncate-partial-width-windows nil)
-(put 'upcase-region   'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'eval-expression 'disabled nil)
-(setq require-final-newline t)
-(setq-default suggest-key-bindings t)
-(setq-default indent-tabs-mode nil)
-(setq default-tab-width 4)
-(setq indent-tabs-mode nil)
-(show-paren-mode 1)
-
-;; Whitespace hygiene
-(require 'show-wspace)
-(toggle-show-tabs-show-ws)
-(show-ws-toggle-show-trailing-whitespace)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Modern-looking modeline
-(require 'powerline)
-(powerline-default-theme)
-
-(defun aa-load-theme (theme)
-  "Load a color theme and force powerline to redraw. It'd be
-nice if custom.el had a hook for running after a theme loaded."
-  (interactive
-   (list
-    (intern (completing-read "Load custom theme: "
-                             (mapcar 'symbol-name
-                                     (custom-available-themes))))))
-  (unless (custom-theme-name-valid-p theme)
-    (error "Invalid theme name `%s'" theme))
-  (load-theme theme t)
-  (powerline-reset))
-
-;; Better buffer switching
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 120))
+(require 'init-packages)
+(require 'init-options)
+(require 'init-themes)
 
 ;; -----------------------------------------------------------------------------
 ;; Coding
 ;; -----------------------------------------------------------------------------
 
-;; Git integration
-(require 'git-gutter+)
-;; Uncomment these lines for the fringe version, which can be used
-;; with linenum mode or put on the right side of the buffer.
-;;(require 'fringe-helper)
-;;(require 'git-gutter-fringe+)
-(global-git-gutter+-mode t)
-
-;; Helper for lazy fingers
-(require 'auto-complete)
-;; (global-auto-complete-mode t)
-
-;; Python-specific autocompletion
-;;   The python environment accessible to emacs must also have jedi &
-;;   epc modules installed.
-(require 'jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)
-(setq jedi:complete-on-dot t)
-
-(require 'dash-at-point)
-(global-set-key "\C-cd" 'dash-at-point)
 
 (custom-set-variables
  '(js3-boring-indentation nil)
@@ -163,8 +36,9 @@ nice if custom.el had a hook for running after a theme loaded."
 ;; ----------------------------------------------------------------------
 
 (require 'init-c)
-(require 'init-java)
 (require 'init-go)
+;; (require 'init-java)
+;; (require 'init-python)
 
 ;; -----------------------------------------------------------------------------
 ;; Highlighting
@@ -282,18 +156,6 @@ nice if custom.el had a hook for running after a theme loaded."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;; dynamic everything completion
-;;
-;; better dynamic-completion.  use m-/ and m-c-/ to access all
-;; this awesomeness this is potentially one of the coolest, most
-;; useful features of day-to-day text writing in emacs.  well,
-;; that may be an overstatement, but damn is it cool. --gzenie
-
-(require 'new-dabbrev) ; dynamic everthing completion
-(setq dabbrev-always-check-other-buffers t)
-(setq dabbrev-abbrev-char-regexp "\\sw\\|\\s_")
-(setq dabbrev-case-fold-search t)   ;; case insensitive for searching
-(setq dabbrev-case-replace nil)     ;; but case sensitive for actual placement
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -323,7 +185,7 @@ nice if custom.el had a hook for running after a theme loaded."
   ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
   ('darwin (set-default-font "Meslo LG S DZ 12")))
 
-(set-default-font "Consolas 13")
+(set-default-font "Consolas for BBEdit 13")
 
 (aa-load-theme 'autumn-light)
 (server-start)
