@@ -192,5 +192,8 @@
 
 (toggle-frame-maximized)
 
-(aa-load-theme 'autumn-light)
-(server-start)
+(aa-load-theme 'aalpern-dark2)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
