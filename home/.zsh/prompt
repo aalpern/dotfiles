@@ -34,10 +34,11 @@ precmd () {
 
     vcs_info
 
-    # TODO - check for presence of /.dockerenv to indicate we're
-    # inside a container.
+    if [[ -f /.dockerenv ]]; then
+        docker_prompt="(C)"
+    fi
 
-    prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}:%t ? "
+    prompt_standard="%n@%{$fg[cyan]%}%m%{$reset_color%}$docker_prompt:%t ? "
 
     rprompt_standard="%{$fg[cyan]%}%~%{$reset_color%}:(%l)"
     rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:(${vcs_info_msg_0_}$(git_ahead_behind)):(%l)"
