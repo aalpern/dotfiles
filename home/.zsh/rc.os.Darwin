@@ -3,3 +3,9 @@
 alias ls='ls -CFG'
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
 alias emacs='open -a /Applications/Emacs.app $1'
+
+# Enable syntax highlighting in less"
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+alias less='less -m -N -g -i -J --underline-special --SILENT'
+alias more='less'
