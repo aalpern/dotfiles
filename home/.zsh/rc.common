@@ -81,7 +81,10 @@ gpull()
 # Docker
 # -----------------------------------------------------------------------------
 
-# Via http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide
+if [[ -z `which docker-machine` ]]; then
+    eval $(docker-machine env $(docker-machine active))
+fi
+
 docker-ip() {
     docker-machine ip $(docker-machine active) 2> /dev/null
 }
