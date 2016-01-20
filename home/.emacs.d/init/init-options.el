@@ -1,5 +1,3 @@
-;; -*- mode: emacs-lisp
-;;
 ;;; Basic Emacs Configuration
 
 ;;
@@ -31,9 +29,10 @@
 
 (case system-type
   ('darwin
-   (setq x-super-keysym 'meta)
-   (setq mac-command-modifier 'meta)
-   (setq mac-option-modifier  'super)))
+   (progn
+     (setq x-super-keysym 'meta)
+     (setq mac-command-modifier 'meta)
+     (setq mac-option-modifier  'super))))
 
 ;;
 ;; Stop toggling overwrite-mode on 'insert', which is much too easy to
@@ -89,10 +88,14 @@
 
 (case system-type
   ('darwin
-   (require 'dash-at-point)
-   (global-set-key "\C-cd" 'dash-at-point)))
+   (progn
+     (require 'dash-at-point)
+     (global-set-key "\C-cd" 'dash-at-point))))
 
-;; Helper for lazy fingers
+;;
+;;; Completion for everything
+;;
+
 (require 'auto-complete)
 ;; (global-auto-complete-mode t)
 
