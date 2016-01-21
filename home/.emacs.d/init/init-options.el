@@ -56,6 +56,8 @@
 (setq default-tab-width 4)
 (show-paren-mode 1)
 
+(global-set-key "\C-c\C-r" 'comment-or-uncomment-region)
+
 ;;
 ;;; Whitespace hygiene
 ;;
