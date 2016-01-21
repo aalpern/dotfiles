@@ -112,19 +112,35 @@ docker-clean-images() {
     docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 }
 
-docker-build() {
+docker-build-here() {
     dir=$(pwd)
     tag=$(basename $dir)
     docker build -t $tag .
 }
-alias db=docker-build
+alias db=docker-build-here
 
 docker-run-interactive() {
-    dir=$(pwd)
-    tag=$(basename $dir)
+    image=$1
+    if [[ -z $image ]]; then
+        echo "Must supply an image name"
+        return
+    fi
+#    if ! [[ -f $HOME/.ssh/sock ]]; then
+#        echo "==> Linking $SSH_AUTH_SOCK..."
+#        ln $SSH_AUTH_SOCK $HOME/.ssh/sock
+#    fi
     docker run -t -i \
-           -v /var/run/docker.sock:/var/run/docker.sock \
-           -v $HOME:/Users/alpern \
-           $tag
+           -v /var/run/docker.sock:/run/docker.sock \
+           -v $HOME:$HOME \
+           -v $HOME/.ssh/sock:/run/ssh.sock \
+           -e SSH_AUTH_SOCK=/run/ssh.sock \
+           $image
 }
 alias di=docker-run-interactive
+
+docker-run-interactive-here() {
+    dir=$(pwd)
+    image=$(basename $dir)
+    docker-run-interactive $image
+}
+alias dih=docker-run-interactive-here
