@@ -1,5 +1,3 @@
-;; -*- mode: emacs-lisp -*-
-
 (require 'init-c)
 
 (defun my-java-mode-hook ()

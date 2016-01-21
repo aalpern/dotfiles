@@ -1,5 +1,3 @@
-;; -*- mode: emacs-lisp -*-
-
 (load "cc-mode")
 (setq c-font-lock-keywords c-font-lock-keywords-3)
 (setq c++-font-lock-keywords c++-font-lock-keywords-3)

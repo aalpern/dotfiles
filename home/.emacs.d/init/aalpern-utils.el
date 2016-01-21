@@ -122,8 +122,8 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (defvar *comment-mode-last-char* "=")
 
-(defvar *comment-mode-length* 76)
-(setq *comment-mode-length* 77)
+(defvar *comment-mode-length* 70)
+(setq *comment-mode-length* 70)
 
 (defun comment-mode-prefix ()
   (interactive)
