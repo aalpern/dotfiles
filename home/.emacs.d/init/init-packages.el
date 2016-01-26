@@ -30,6 +30,7 @@
                     auto-complete
                     dockerfile-mode
                     typescript
+                    load-theme-buffer-local
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
