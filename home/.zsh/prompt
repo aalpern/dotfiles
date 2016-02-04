@@ -34,16 +34,18 @@ precmd () {
 
     vcs_info
 
-    host_color=cyan
+    prompt_char="?"
+    prompt_color=cyan
+
     if [[ -f /.dockerenv ]]; then
-        docker_prompt="(C)"
-        host_color=yellow
+        prompt_char=">"
+        prompt_color=yellow
     fi
 
-    prompt_standard="%n@%{$fg[$host_color]%}%m%{$reset_color%}$docker_prompt:%t ? "
+    prompt_standard="%n@%{$fg[$prompt_color]%}%m%{$reset_color%}:%t $prompt_char "
 
-    rprompt_standard="%{$fg[$host_color]%}%~%{$reset_color%}:(%l)"
-    rprompt_git="%{$fg[cyan]%}%~%{$reset_color%}:(${vcs_info_msg_0_}$(git_ahead_behind)):(%l)"
+    rprompt_standard="%{$fg[$prompt_color]%}%~%{$reset_color%}:(%l)"
+    rprompt_git="%{$fg[$prompt_color]%}%~%{$reset_color%}:(${vcs_info_msg_0_}$(git_ahead_behind)):(%l)"
 
     PROMPT=$prompt_standard
     RPROMPT='$(select_rprompt)'
