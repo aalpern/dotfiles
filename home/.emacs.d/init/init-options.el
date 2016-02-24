@@ -11,6 +11,9 @@
 (scroll-bar-mode               0)
 (tool-bar-mode                 0)
 
+;; shut. up.
+(setq visible-bell 1)
+
 ;;
 ;;; Set up the mode line
 ;;
