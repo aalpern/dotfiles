@@ -23,3 +23,6 @@ _load local
 if [[ -f /.dockerenv ]]; then
     _load rc.docker
 fi
+
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
