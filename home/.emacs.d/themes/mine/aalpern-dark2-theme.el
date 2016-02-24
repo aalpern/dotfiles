@@ -21,7 +21,7 @@
  '(font-lock-doc-face ((t (:foreground "OrangeRed"))))
  '(font-lock-constant-face ((t (:foreground "aquamarine"))))
  '(font-lock-function-name-face ((t (:foreground "LightSkyBlue"))))
- '(font-lock-keyword-face ((t (:weight bold :foreground "LightSteelBlue"))))
+ '(font-lock-keyword-face ((t (:foreground "LightSteelBlue"))))
  '(font-lock-negation-char-face ((t (nil nil))))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:foreground "DarkOliveGreen"))))
