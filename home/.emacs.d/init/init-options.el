@@ -1,5 +1,8 @@
 ;;; Basic Emacs Configuration
 
+;; Minimize accidental editor vaporization
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 ;;
 ;;; Get rid of UI bloat
 ;;
@@ -39,7 +42,7 @@
 
 ;;
 ;; Stop toggling overwrite-mode on 'insert', which is much too easy to
-;; hit on my keyboard
+;; hit on my keyboard.
 ;;
 
 (define-key global-map [(insert)] nil)
@@ -53,22 +56,11 @@
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'eval-expression 'disabled nil)
-(setq require-final-newline t)
+(setq require-final-newline        t)
 (setq-default suggest-key-bindings t)
-(setq-default indent-tabs-mode nil)
-(setq default-tab-width 4)
-(show-paren-mode 1)
-
-(global-set-key "\C-c\C-r" 'comment-or-uncomment-region)
-
-;;
-;;; Whitespace hygiene
-;;
-
-(require 'show-wspace)
-;; (toggle-show-tabs-show-ws)
-(show-ws-toggle-show-trailing-whitespace)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq-default indent-tabs-mode     nil)
+(setq default-tab-width            4)
+(show-paren-mode                   1)
 
 ;;
 ;;; Better buffer switching
@@ -77,25 +69,6 @@
 (require 'ido-vertical-mode)
 (ido-mode 1)
 (ido-vertical-mode 1)
-
-;;
-;;; Code Editing (Git and Dash)
-;;
-
-(require 'git-gutter+)
-
-;; Uncomment these lines for the fringe version, which can be used
-;; with linenum mode or put on the right side of the buffer.
-;; (require 'fringe-helper)
-;; (require 'git-gutter-fringe+)
-
-(global-git-gutter+-mode t)
-
-(case system-type
-  ('darwin
-   (progn
-     (require 'dash-at-point)
-     (global-set-key "\C-cd" 'dash-at-point))))
 
 ;;
 ;;; Completion for everything
@@ -116,5 +89,7 @@
 (setq dabbrev-abbrev-char-regexp "\\sw\\|\\s_")
 (setq dabbrev-case-fold-search t)   ;; case insensitive for searching
 (setq dabbrev-case-replace nil)     ;; but case sensitive for actual placement
+
+(setq ansible::vault-password-file "/etc/ansible/.vaultpw")
 
 (provide 'init-options)

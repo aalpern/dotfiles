@@ -2,57 +2,20 @@
 
 (require 'cl)
 
-;; ----------------------------------------------------------------------
-;;; Load Path
-;; ----------------------------------------------------------------------
-
-(add-to-list 'load-path              "~/.emacs.d/init")
-(add-to-list 'load-path              "~/.emacs.d/site-lisp")
-
-;; ----------------------------------------------------------------------
-;;; Packages
-;; ----------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/init")
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
 
 (require 'init-packages)
 (require 'init-options)
 (require 'init-themes)
-
-;; ----------------------------------------------------------------------
-;; Coding
-;; ----------------------------------------------------------------------
-
-
-(custom-set-variables
- '(js3-boring-indentation nil)
- '(js3-consistent-level-indent-inner-bracket t)
- '(js3-indent-dots nil)
- '(js-indent-level 2)
- '(typescript-auto-indent-flag t)
- '(typescript-indent-level 2))
-
-;; ----------------------------------------------------------------------
-;;; Extended Configuration
-;;    Load separate files for C/C++, Java, and highlighting support
-;; ----------------------------------------------------------------------
-
+(require 'init-code)
 (require 'init-c)
 (require 'init-go)
+(require 'init-javascript)
 ;; (require 'init-java)
 ;; (require 'init-python)
+;; (require 'init-protobuf)
 
-;; ----------------------------------------------------------------------
-;; Highlighting
-;; ----------------------------------------------------------------------
-
-(setq-default font-lock-auto-fontify  t
-              font-lock-use-fonts     t
-              font-lock-use-colors    t
-              font-lock-use-maximal-decoration  t
-              font-lock-mode-disable-list       nil)
-(require 'font-lock)
-(global-font-lock-mode t)
-(setq font-lock-maximum-decoration t)
-(setq font-lock-maximum-size nil)
 
 ;; ----------------------------------------------------------------------
 ;;; Auto Mode List
@@ -152,46 +115,11 @@
 (autoload 'dylan-mode "dylan-mode" "Major mode for editing Dylan(tm) source code.")
 (autoload 'clojure-mode "clojure-mode" nil t)
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
-(autoload 'protobuf-mode "protobuf-mode" nil t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; compilation
-
-(require 'compile)
-(setq compile-command "mvn compile ")
-
-(setq compilation-error-regexp-alist
-  (append (list
-           ;; works for jikes
-           '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):\\([0-9]+\\):[0-9]+:[0-9]+:" 1 2 3)
-           ;; works for javac
-           '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
-          compilation-error-regexp-alist))
-
-(defconst my-protobuf-style
-  '((c-basic-offset . 4)
-    (indent-tabs-mode . nil)))
-
-(add-hook 'protobuf-mode-hook
-          (lambda () (c-add-style "my-style" my-protobuf-style t)))
 
 (require 'aalpern-utils)
 
-(case system-type
-  ('gnu/linux (set-default-font "Meslo LG S DZ 11"))
-  ('darwin (set-default-font "Meslo LG S DZ 12")))
-
-(set-default-font "Consolas for BBEdit 13")
-
-;; (add-to-list 'default-frame-alist '(height . 50))
-;; (add-to-list 'default-frame-alist '(width . 120))
-
+(set-default-font "Hack 12")
 (toggle-frame-maximized)
-
 (aa-load-theme 'aalpern-dark2)
 
 (require 'server)

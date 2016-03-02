@@ -18,19 +18,22 @@
                     jinja2-mode
                     lua-mode
                     go-mode
+                    go-autocomplete
+                    git-gutter-fringe+
                     nginx-mode
                     ido-vertical-mode   ; better ido completion
                     json-mode           ; stricter JSON mode
                     js3-mode
                     dash-at-point
-                    jedi                ; autocomplete for python
+                    ;; jedi                ; autocomplete for python
                     handlebars-mode
                     web-mode
                     yaml-mode
                     auto-complete
                     dockerfile-mode
                     typescript
-                    load-theme-buffer-local
+                    ansible
+                    highlight-chars
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)

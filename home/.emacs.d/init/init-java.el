@@ -63,11 +63,22 @@
           (function (lambda ()
                       (setq imenu-generic-expression java-imenu-regexp))))
 
+(require 'compile)
+(setq compile-command "mvn compile ")
+
 (add-hook 'compile-mode-hook
-      (function (lambda ()
-              (add-to-list 'compilation-error-regexp-alist 'maven)
-              (add-to-list 'compilation-error-regexp-alist-alist
-                   '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
-                       1 2 3)))))
+          (function (lambda ()
+                      (add-to-list 'compilation-error-regexp-alist 'maven)
+                      (add-to-list 'compilation-error-regexp-alist-alist
+                                   '(maven "\\[ERROR\\] \\(.+?\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\].*"
+                                           1 2 3)))))
+
+(setq compilation-error-regexp-alist
+      (append (list
+               ;; works for jikes
+               '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):\\([0-9]+\\):[0-9]+:[0-9]+:" 1 2 3)
+               ;; works for javac
+               '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
+              compilation-error-regexp-alist))
 
 (provide 'init-java)
