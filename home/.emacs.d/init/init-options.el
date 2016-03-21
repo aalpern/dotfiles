@@ -15,7 +15,7 @@
 (tool-bar-mode                 0)
 
 ;; shut. up.
-(setq visible-bell 1)
+;; (setq visible-bell 0)
 
 ;;
 ;;; Set up the mode line
