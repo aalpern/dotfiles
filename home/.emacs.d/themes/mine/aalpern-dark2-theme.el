@@ -40,7 +40,7 @@
 
  ;; git-gutter
  '(git-gutter+-added ((t (:foreground "green4" :background "green4"))))
- '(git-gutter+-modified ((t (:foreground "purple4" :background "purple4"))))
+ '(git-gutter+-modified ((t (:foreground "cornflowerblue" :background "cornflowerblue"))))
  '(git-gutter+-deleted ((t (:foreground "red3" :background "red3"))))
 
  ;; web-mode
