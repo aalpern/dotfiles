@@ -87,12 +87,12 @@
      `(font-lock-doc-face                  ((t (:foreground ,comments))))
      `(font-lock-constant-face             ((t (:foreground ,sdgreen2))))
      `(font-lock-function-name-face        ((t (:foreground ,sdBlue3))))
-     `(font-lock-keyword-face              ((t (:foreground ,sdBlue3))))
+     `(font-lock-keyword-face              ((t (:foreground ,sdconcrete))))
      `(font-lock-negation-char-face        ((t (nil nil))))
      `(font-lock-preprocessor-face         ((t (:inherit (font-lock-builtin-face)))))
      `(font-lock-regexp-grouping-backslash ((t (:foreground "green"))))
      `(font-lock-regexp-grouping-construct ((t (:foreground "green"))))
-     `(font-lock-string-face               ((t (:foreground ,sdconcrete))))
+     `(font-lock-string-face               ((t (:foreground ,sdgreen2))))
      `(font-lock-type-face                 ((t (:foreground ,sdOrange0))))
      `(font-lock-variable-name-face        ((t (:foreground "dark khaki"))))
      `(font-lock-warning-face              ((t (:foreground "red"))))
@@ -100,8 +100,8 @@
      ;; powerline
      `(powerline-active1   ((t (:foreground "white" :background ,sdBlue1))))
      `(powerline-active2   ((t (:foreground ,sdivory :background "black"))))
-     `(powerline-inactive1 ((t (:foreground "gray70" :background "#002200"))))
-     `(powerline-inactive2 ((t (:foreground "gray60" :background "#004400"))))
+     `(powerline-inactive1 ((t (:foreground ,sdconcrete :background "black"))))
+     `(powerline-inactive2 ((t (:foreground ,sdBlue2 :background "#1a1a1a"))))
      `(mode-line           ((t (:foreground "black" :background ,sdOrange0 :box nil))))
 
      ;; git-gutter
