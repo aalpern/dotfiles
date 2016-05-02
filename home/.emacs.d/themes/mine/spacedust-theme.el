@@ -90,12 +90,12 @@
      `(font-lock-keyword-face              ((t (:foreground ,sdconcrete))))
      `(font-lock-negation-char-face        ((t (nil nil))))
      `(font-lock-preprocessor-face         ((t (:inherit (font-lock-builtin-face)))))
-     `(font-lock-regexp-grouping-backslash ((t (:foreground "green"))))
-     `(font-lock-regexp-grouping-construct ((t (:foreground "green"))))
+     `(font-lock-regexp-grouping-backslash ((t (:foreground ,sdconcrete))))
+     `(font-lock-regexp-grouping-construct ((t (:foreground ,sdOrange0))))
      `(font-lock-string-face               ((t (:foreground ,sdgreen2))))
      `(font-lock-type-face                 ((t (:foreground ,sdOrange0))))
-     `(font-lock-variable-name-face        ((t (:foreground "dark khaki"))))
-     `(font-lock-warning-face              ((t (:foreground "red"))))
+     `(font-lock-variable-name-face        ((t (:foreground ,sdOrange1))))
+     `(font-lock-warning-face              ((t (:foreground "firebrick"))))
 
      ;; powerline
      `(powerline-active1   ((t (:foreground "white" :background ,sdBlue1))))
@@ -110,9 +110,9 @@
      `(git-gutter+-deleted  ((t (:foreground "red4" :background "red4"))))
 
      ;; web-mode
-     `(web-mode-html-tag-face         ((t (:foreground "green4" :weight bold))))
-     `(web-mode-html-tag-bracket-face ((t (:foreground "green4" :weight bold))))
-     `(web-mode-html-attr-name-face   ((t (:foreground "lawn green"))))
+     `(web-mode-html-tag-face         ((t (:foreground ,sdgreen2 :weight bold))))
+     `(web-mode-html-tag-bracket-face ((t (:foreground ,sdgreen2 :weight bold))))
+     `(web-mode-html-attr-name-face   ((t (:foreground ,sdBlue2))))
 
      ;; js3-mode
      `(js3-external-variable-face ((t (:foreground "PaleGreen" :weight bold))))
