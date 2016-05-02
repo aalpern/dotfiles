@@ -26,3 +26,5 @@ fi
 
 export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

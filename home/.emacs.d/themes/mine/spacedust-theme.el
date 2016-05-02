@@ -81,7 +81,7 @@
                             (t (:inverse-video t))))
 
      ;; font-lock
-     `(font-lock-builtin-face              ((t (:foreground ,sdOrange2))))
+     `(font-lock-builtin-face              ((t (:foreground ,sdBlue2))))
      `(font-lock-comment-delimiter-face    ((t (:foreground ,comments))))
      `(font-lock-comment-face              ((t (:foreground ,comments))))
      `(font-lock-doc-face                  ((t (:foreground ,comments))))
@@ -98,11 +98,11 @@
      `(font-lock-warning-face              ((t (:foreground "firebrick"))))
 
      ;; powerline
-     `(powerline-active1   ((t (:foreground "white" :background ,sdBlue1))))
+     `(powerline-active1   ((t (:foreground ,sdBlue0 :background ,sdconcrete))))
      `(powerline-active2   ((t (:foreground ,sdivory :background "black"))))
      `(powerline-inactive1 ((t (:foreground ,sdconcrete :background "black"))))
      `(powerline-inactive2 ((t (:foreground ,sdBlue2 :background "#1a1a1a"))))
-     `(mode-line           ((t (:foreground "black" :background ,sdOrange0 :box nil))))
+     `(mode-line           ((t (:foreground "white" :background ,sdBlue1 :box nil))))
 
      ;; git-gutter
      `(git-gutter+-added    ((t (:foreground "green4" :background "green4"))))

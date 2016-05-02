@@ -50,7 +50,7 @@
    `(font-lock-preprocessor-face         ((t (:inherit (font-lock-builtin-face)))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,pink))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,pink))))
-   `(font-lock-string-face               ((t (:foreground ,dark-blue))))
+   `(font-lock-string-face               ((t (:foreground ,purple))))
    `(font-lock-type-face                 ((t (:foreground ,teal))))
    `(font-lock-variable-name-face        ((t (:foreground ,foreground))))
    `(font-lock-warning-face              ((t (:inherit (error)))))

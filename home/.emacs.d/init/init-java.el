@@ -38,7 +38,7 @@
    "[ \t\n\r]*"                                ; optional whitespace
    ")"                                         ; end the param list
    "[ \t\n\r]*"                                ; whitespace
-;   "\\(throws\\([, \t\n\r]\\|[a-zA-Z0-9_$]\\)+\\)?{"
+   ;;   "\\(throws\\([, \t\n\r]\\|[a-zA-Z0-9_$]\\)+\\)?{"
    "\\(throws[^{;]+\\)?"                       ; optional exceptions
    "[;{]"                                      ; ending ';' (interfaces) or '{'
    )

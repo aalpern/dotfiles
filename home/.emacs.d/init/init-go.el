@@ -6,4 +6,7 @@
 (add-hook 'go-mode-hook 'aa-go-mode-hook)
 (add-hook 'before-save-hook 'gofmt-before-save)
 
+;;(add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
+;;(require 'golint)
+
 (provide 'init-go)

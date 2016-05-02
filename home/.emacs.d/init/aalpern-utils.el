@@ -147,11 +147,21 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
 
 (defun comment-char-prompt (prompt default)
   (list (let* ((prompt (if default
-               (format "%s (default %s): " prompt default)
-             (concat prompt ": ")))
-           (ans (read-string prompt)))
-      (if (zerop (length ans)) default ans))))
+                           (format "%s (default %s): " prompt default)
+                         (concat prompt ": ")))
+               (ans (read-string prompt)))
+          (if (zerop (length ans)) default ans))))
 
 (define-key ctl-c-keymap "i" 'comment-insert-comment-line)
+
+;; ======================================================================
+;;; Indentation
+
+(defun iwb ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
 
 (provide 'aalpern-utils)
