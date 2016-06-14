@@ -18,3 +18,6 @@ brew install socat
 
 # Graphic tools
 brew install graphviz cairo
+
+# Some tools I find useful for some work
+# brew install lftp imapsync
