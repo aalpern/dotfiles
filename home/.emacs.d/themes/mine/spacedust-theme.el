@@ -58,7 +58,7 @@
       (sdgreen3   "#83a7b4")
       (sdconcrete "#708284"))
 
-  (let ((comments   sdbrown0)
+  (let ((comments   sdbrown1)
         (background sdBlue0)
         (foreground sdivory)
         (header sdOrange0))
