@@ -32,6 +32,7 @@ alias -g M='|more'
 alias -g H='|head'
 alias -g T='|tail'
 
+alias http='python -m SimpleHTTPServer '
 
 # -----------------------------------------------------------------------------
 # Archive Management

@@ -120,7 +120,7 @@ Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
         (bat-generic-mode . "")
         (text-mode        . "")))
 
-(defvar *comment-mode-last-char* "=")
+(defvar *comment-mode-last-char* "-")
 
 (defvar *comment-mode-length* 70)
 (setq *comment-mode-length* 70)
