@@ -47,6 +47,23 @@
  '(web-mode-html-tag-face ((t (:foreground "aquamarine" :weight bold))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "aquamarine" :weight bold))))
  '(web-mode-html-attr-name-face ((t (:foreground "PaleGreen"))))
+
+ ;; markdown-mode
+ '(markdown-header-face-1         ((t (:foreground "OrangeRed" :weight bold))))
+ '(markdown-header-face-2         ((t (:foreground "OrangeRed" :weight bold))))
+ '(markdown-header-face-3         ((t (:foreground "OrangeRed" :weight bold))))
+ '(markdown-header-face-4         ((t (:foreground "OrangeRed"))))
+ '(markdown-header-face-5         ((t (:foreground "OrangeRed"))))
+ '(markdown-header-face-6         ((t (:foreground "OrangeRed"))))
+ '(markdown-header-rule-face      ((t (:foreground "OrangeRed" :weight bold))))
+ '(markdown-header-delimiter-face ((t (:foreground "OrangeRed"))))
+ '(markdown-link-face             ((t (:foreground "PaleGreen"))))
+ '(markdown-url-face              ((t (:foreground "LightSkyBlue"))))
+ '(markdown-list-face             ((t (:foreground "PaleGreen"))))
+ '(markdown-inline-code-face      ((t (:foreground "papaya whip"
+                                                  :background "DarkSlateBlue"))))
+
+
  )
 
 (provide-theme 'aalpern-dark2)
