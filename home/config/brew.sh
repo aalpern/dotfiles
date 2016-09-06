@@ -14,10 +14,12 @@ brew install git mercurial
 brew install source-highlight tree yajl jq jo
 
 # Network utilities
-brew install socat
+brew install socat lftp imapsync
 
 # Graphic tools
 brew install graphviz cairo
 
-# Some tools I find useful for some work
-# brew install lftp imapsync
+# Libraries
+brew install cairo pixman
+brew link cairo
+brew link pixman

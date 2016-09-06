@@ -102,10 +102,9 @@
 
 (require 'aalpern-utils)
 
-;;(set-default-font "Hack 12")
-;;(set-default-font "Hack 13")
+
 (set-default-font "Hack 14")
-;;(set-default-font "Hack 15")
+
 (toggle-frame-maximized)
 (aa-load-theme 'spacedust)
 
