@@ -1,5 +1,7 @@
 ;; -*- mode: emacs-lisp -*-
 
+(package-initialize)
+
 (require 'cl)
 
 (add-to-list 'load-path "~/.emacs.d/init")
@@ -102,11 +104,10 @@
 
 (require 'aalpern-utils)
 
-
 (set-default-font "Hack 14")
 
 (toggle-frame-maximized)
-(aa-load-theme 'spacedust)
+(aa-load-theme 'aalpern-dark2)
 
 (require 'server)
 (unless (server-running-p)
