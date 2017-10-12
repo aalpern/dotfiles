@@ -25,6 +25,7 @@
                     json-mode           ; stricter JSON mode
                     js3-mode
                     dash-at-point
+                    string-inflection
                     ;; jedi                ; autocomplete for python
                     handlebars-mode
                     web-mode
