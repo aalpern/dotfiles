@@ -6,20 +6,20 @@
 
 (deftheme aalpern-light)
 
-(let ((background  "white")
+(let ((background  "gray97")
       (foreground  "black")
       (comment     "firebrick"))
 
   (custom-theme-set-faces
    'aalpern-light
 
-   `(default ((t (:foreground ,foreground :background ,background :inherit nil))))
-   `(fringe ((t (:background ,background))))
-   `(cursor ((t (:background "red"))))
-   `(highlight ((t (:foreground "black" :background "DarkRed"))))
-   `(region ((t (:foreground "white" :background "DarkRed"))))
-   `(button ((t (:inherit (link)))))
-   `(link ((t (:underline (:color foreground-color :style line) :foreground "orange"))))
+   `(default      ((t (:foreground ,foreground :background ,background :inherit nil))))
+   `(fringe       ((t (:background ,background))))
+   `(cursor       ((t (:background "red"))))
+   `(highlight    ((t (:foreground "black" :background "DarkRed"))))
+   `(region       ((t (:foreground "white" :background "DarkRed"))))
+   `(button       ((t (:inherit (link)))))
+   `(link         ((t (:underline (:color foreground-color :style line) :foreground "orange"))))
    `(link-visited ((t (:foreground "OrangeRed" :underline (:color foreground-color :style line)))))
 
    `(trailing-whitespace ((((class color) (background light)) (:background "OrangeRed3"))
