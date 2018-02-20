@@ -36,6 +36,7 @@
                     ansible
                     highlight-chars
                     toml-mode
+                    protobuf-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
