@@ -40,4 +40,13 @@
 (setq font-lock-maximum-decoration t)
 (setq font-lock-maximum-size nil)
 
+;;
+;;; Symbol Styling
+;;
+
+(require 'string-inflection)
+(global-set-key (kbd "C-c C-i") 'string-inflection-cycle)
+(global-set-key (kbd "C-c C") 'string-inflection-camelcase)        ;; Force to CamelCase
+(global-set-key (kbd "C-c L") 'string-inflection-lower-camelcase)  ;; Force to lowerCamelCase
+
 (provide 'init-code)
