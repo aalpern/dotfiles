@@ -25,6 +25,7 @@ alias k9='kill -9'
 alias mkdir='nocorrect mkdir'    # no spelling correction on mkdir
 alias cp='nocorrect cp -p -i'
 alias mv='nocorrect mv -i'
+alias git='nocorrect git'
 
 # Global aliases -- These do not have to be
 # at the beginning of the command line.
@@ -67,6 +68,58 @@ gpull()
     done
     popd
 }
+
+export AALPERN_GO_ROOT=~/src
+
+# The sole argument should be the name of a github repo containing go
+# code.
+goenv_init() {
+    project=$1
+    envdir=$2
+
+    if [[ $envdir == "" ]]; then
+        envdir=$AALPERN_GO_ROOT/$project
+    fi
+
+    repo=github.com/$project
+    clone_url=ssh://git@$repo
+
+    mkdir -p $envdir/bin
+    mkdir -p $envdir/src/$repo
+
+    echo "==> Cloning $clone_url..."
+    git clone $clone_url $envdir/src/$repo
+    ln -s $envdir/src/$repo $envdir/repo
+
+    echo "
+if [[ \$GOENV != \"\" ]]; then
+  deactivate
+fi
+
+export GOENV_OLD_GOPATH=\$GOPATH
+export GOENV_OLD_PATH=\$PATH
+
+export GOENV=$project
+export GOPATH=$envdir
+export PATH=$envdir/bin:\$PATH
+
+deactivate() {
+  export PATH=\$GOENV_OLD_PATH
+  export GOPATH=\$GOENV_OLD_GOPATH
+  unset GOENV_OLD_PATH
+  unset GOENV_OLD_GOPATH
+  unset GOENV
+}
+" > $envdir/bin/activate
+
+echo "
+go get $repo
+" > $envdir/bin/get
+
+    chmod 755 $envdir/bin/activate
+    chmod 755 $envdir/bin/get
+}
+
 
 # -----------------------------------------------------------------------------
 # Version Managers
