@@ -37,6 +37,7 @@
                     highlight-chars
                     toml-mode
                     protobuf-mode
+                    xterm-color
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)

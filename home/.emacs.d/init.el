@@ -10,6 +10,7 @@
 (require 'init-packages)
 (require 'init-options)
 (require 'init-themes)
+(require 'init-term)
 (require 'init-code)
 (require 'init-c)
 (require 'init-go)
@@ -107,7 +108,9 @@
 (set-default-font "Hack 14")
 
 (toggle-frame-maximized)
-(aa-load-theme 'aalpern-dark2)
+;; (aa-load-theme 'aalpern-dark2)
+;; (aa-load-theme 'spacedust)
+(aa-load-theme 'better-github)
 
 (require 'server)
 (unless (server-running-p)
