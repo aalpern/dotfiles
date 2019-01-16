@@ -34,7 +34,7 @@
                     dockerfile-mode
                     typescript
                     ansible
-                    highlight-chars
+                    ;; highlight-chars
                     toml-mode
                     protobuf-mode
                     xterm-color
