@@ -14,7 +14,7 @@ brew install git mercurial
 brew install source-highlight tree yajl jq jo
 
 # Network utilities
-brew install socat lftp imapsync
+# brew install socat lftp imapsync
 
 # Graphic tools
 brew install graphviz cairo
@@ -23,3 +23,7 @@ brew install graphviz cairo
 brew install cairo pixman
 brew link cairo
 brew link pixman
+
+brew cask install virtualbox
+brew install docker docker-machine
+brew install protobuf
