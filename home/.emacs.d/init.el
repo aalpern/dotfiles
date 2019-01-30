@@ -108,9 +108,9 @@
 (set-default-font "Hack 14")
 
 (toggle-frame-maximized)
-;; (aa-load-theme 'aalpern-dark2)
+(aa-load-theme 'aalpern-dark2)
 ;; (aa-load-theme 'spacedust)
-(aa-load-theme 'better-github)
+;; (aa-load-theme 'better-github)
 
 (require 'server)
 (unless (server-running-p)
