@@ -38,6 +38,7 @@
                     toml-mode
                     protobuf-mode
                     xterm-color
+                    terraform-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
