@@ -39,6 +39,7 @@
                     protobuf-mode
                     xterm-color
                     terraform-mode
+                    scss-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
