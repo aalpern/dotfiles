@@ -15,9 +15,9 @@
 (require 'init-c)
 (require 'init-go)
 (require 'init-javascript)
-;; (require 'init-java)
+(require 'init-java)
 ;; (require 'init-python)
-;; (require 'init-protobuf)
+(require 'init-protobuf)
 
 
 ;; ----------------------------------------------------------------------
