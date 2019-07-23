@@ -13,7 +13,7 @@
   (let ((packages '(
                     powerline           ; just eye candy
                     git-gutter+         ; show git status
-                    rainbow-mode        ; render color strings
+                    ;; rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
                     lua-mode
