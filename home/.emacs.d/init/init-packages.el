@@ -1,5 +1,9 @@
 (require 'package)
 
+;; Workaround for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341,
+;; via https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -13,7 +17,7 @@
   (let ((packages '(
                     powerline           ; just eye candy
                     git-gutter+         ; show git status
-                    ;; rainbow-mode        ; render color strings
+                    rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
                     lua-mode
