@@ -4,8 +4,7 @@
 ;; via https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -44,6 +43,8 @@
                     xterm-color
                     terraform-mode
                     scss-mode
+                    groovy-mode
+                    gradle-mode
                     )))
     (when (not (installed-p packages))
       (package-refresh-contents)
