@@ -35,7 +35,7 @@
                     yaml-mode
                     auto-complete
                     dockerfile-mode
-                    typescript
+                    typescript-mode
                     ansible
                     ;; highlight-chars
                     toml-mode
