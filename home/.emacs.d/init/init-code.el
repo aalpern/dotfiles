@@ -24,7 +24,8 @@
 ;; (require 'highlight-chars)
 ;; (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
 ;; (hc-toggle-highlight-trailing-whitespace)
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;
 ;;; Highlighting
