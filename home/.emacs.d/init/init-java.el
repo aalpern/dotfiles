@@ -64,7 +64,7 @@
                       (setq imenu-generic-expression java-imenu-regexp))))
 
 (require 'compile)
-(setq compile-command "mvn compile ")
+(setq compile-command "gw build ")
 
 (add-hook 'compile-mode-hook
           (function (lambda ()
