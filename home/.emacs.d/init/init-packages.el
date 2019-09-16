@@ -37,6 +37,8 @@
                     dockerfile-mode
                     typescript-mode
                     ansible
+                    graphviz-dot-mode
+                    twilight-theme
                     ;; highlight-chars
                     toml-mode
                     protobuf-mode
