@@ -45,6 +45,11 @@ unsh()  { perl -ne '/^#\!/&&$x++;$x&&print;' $* | /bin/sh }
 tarup() { tar zcvfp $1.tgz $1 }
 untar() { tar zxvfp $* }
 ltar()  { tar ztvf $* | more }
+tarup-all() {
+    for f in ./*; do
+        tarup $f;
+    done
+}
 
 unZ()
 {
