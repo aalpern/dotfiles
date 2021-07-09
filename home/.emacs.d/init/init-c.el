@@ -1,4 +1,5 @@
 (load "cc-mode")
+(load "clang-format+")
 (setq c-font-lock-keywords c-font-lock-keywords-3)
 (setq c++-font-lock-keywords c++-font-lock-keywords-3)
 
@@ -29,6 +30,7 @@
 (defun my-c++-mode-hook ()
   (c-set-style "aalpern")
   (auto-fill-mode))
+(add-hook 'c-mode-common-hook #'clang-format+-mode)
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
