@@ -105,7 +105,7 @@
 
 (require 'aalpern-utils)
 
-(set-default-font "Hack 14")
+(set-face-attribute 'default t :font "Hack 13" )
 
 (toggle-frame-maximized)
 (aa-load-theme 'aalpern-dark2)
