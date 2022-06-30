@@ -6,7 +6,7 @@
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(package-initialize)
+;;(package-initialize)
 
 (labels ((installed-p (packages)
                       (loop for p in packages
