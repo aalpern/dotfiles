@@ -2,14 +2,14 @@
 ;;; Code Editing (Git and Dash)
 ;;
 
-(require 'git-gutter+)
+(require 'git-gutter)
 
 ;; Uncomment these lines for the fringe version, which can be used
 ;; with linenum mode or put on the right side of the buffer.
 ;; (require 'fringe-helper)
 ;; (require 'git-gutter-fringe+)
 
-(global-git-gutter+-mode t)
+(global-git-gutter-mode t)
 
 (case system-type
   ('darwin

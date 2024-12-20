@@ -15,14 +15,14 @@
                             finally (return t))))
   (let ((packages '(
                     powerline           ; just eye candy
-                    git-gutter+         ; show git status
+                    git-gutter          ; show git status
                     rainbow-mode        ; render color strings
                     markdown-mode
                     jinja2-mode
                     lua-mode
                     go-mode
                     go-autocomplete
-                    git-gutter-fringe+
+                    git-gutter-fringe
                     nginx-mode
                     cmake-mode
                     ido-vertical-mode   ; better ido completion
